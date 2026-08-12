@@ -2,6 +2,9 @@
   // Cloudflare Workers static-assets config — serves the repo root as the site.
   "name": "vidgo",
   "compatibility_date": "2026-08-12",
+  // Keep the workers.dev test URL alive alongside the custom domains —
+  // omitting this makes each deploy silently disable it.
+  "workers_dev": true,
   // Custom domains — wrangler creates the DNS records and certificates
   // on deploy; no manual dashboard steps needed.
   "routes": [

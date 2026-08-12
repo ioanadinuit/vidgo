@@ -1,0 +1,8 @@
+.git/
+.wrangler/
+.claude/
+.gitignore
+.assetsignore
+wrangler.jsonc
+*.bak
+assets/generate_pdf.py

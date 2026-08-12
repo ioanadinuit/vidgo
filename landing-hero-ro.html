@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Simplificat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #030814;
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 6%;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(0, 102, 255, 0.12), transparent 35%),
+        radial-gradient(circle at 65% 70%, rgba(255, 115, 0, 0.08), transparent 30%),
+        linear-gradient(135deg, #030814 0%, #071427 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      right: -150px;
+      top: -150px;
+      background: radial-gradient(circle, rgba(255, 115, 0, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      width: 52%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #ff7a1a;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: clamp(52px, 7vw, 110px);
+      line-height: 0.95;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: #ff7a1a;
+      display: block;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.88);
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      gap: 28px;
+      margin-bottom: 46px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .icon {
+      min-width: 56px;
+      height: 56px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #4b7cff;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .feature.orange .icon,
+    .feature.orange h3 {
+      color: #ff7a1a;
+    }
+
+    .feature h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      border-radius: 18px;
+      padding: 20px 24px;
+      min-width: 220px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+    }
+
+    .visual {
+      width: 45%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .visual::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 40px;
+      bottom: 30px;
+      background: radial-gradient(circle, rgba(0,0,0,0.5), transparent 70%);
+      filter: blur(18px);
+      z-index: -1;
+    }
+
+    .laptop {
+      width: 100%;
+      max-width: 900px;
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45));
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        flex-direction: column;
+        text-align: left;
+        gap: 60px;
+      }
+
+      .content,
+      .visual {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 24px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .stats {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="content">
+      <div class="eyebrow">Mai multi bani. Mai putin timp pierdut.</div>
+
+      <h1>
+        E-COMMERCE
+        <span>SIMPLIFICAT.</span>
+      </h1>
+
+      <p class="subtitle">
+        Viteza va aduce comenzi din traficul pe care il platiti deja.
+        Automatizarile va scot din munca zilnica. Conformitatea vine inclusa,
+        nu ca un proiect separat, platit in plus.
+      </p>
+
+      <div class="features">
+        <div class="feature orange">
+          <div class="icon">&#9650;</div>
+          <div>
+            <h3>BANI din viteza si SEO care aduc comenzi</h3>
+            <p>Pagini care se incarca rapid si scor 100 la SEO. robots.txt si llms.txt configurate, asa ca magazinul apare si in raspunsurile ChatGPT si Perplexity, nu doar in Google.</p>
+          </div>
+        </div>
+
+        <div class="feature orange">
+          <div class="icon">&#11014;</div>
+          <div>
+            <h3>BANI din evaluarea SEO cu AI</h3>
+            <p>Descrierile si metadatele sunt evaluate si optimizate automat. Nu mai platiti o agentie ca sa va scrie si sa va corecteze continutul.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="icon">&#9635;</div>
+          <div>
+            <h3>TIMP din facturi emise automat</h3>
+            <p>Facturile pleaca singure catre client, cu XML validat pentru e-Factura. Fara ore de facturare manuala si fara corecturi platite la contabil.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="icon">&#9878;</div>
+          <div>
+            <h3>TIMP din GDPR si reglementari la zi</h3>
+            <p>Cererea de retur se face electronic, din contul clientului, conform reglementarilor noi. Conformitatea e deja in platforma, nu un proiect separat de integrat.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>100K+</strong>
+          <span>Produse suportate</span>
+        </div>
+
+        <div class="stat">
+          <strong>0 plugin-uri</strong>
+          <span>Nimic de intretinut, actualizat sau reparat</span>
+        </div>
+
+        <div class="stat">
+          <strong>UE</strong>
+          <span>Conform si pregatit fiscal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <img src="hero-laptop.png" alt="Platforma e-commerce - panou de administrare" class="laptop" />
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 136 136" role="img" aria-labelledby="title desc">
+  <title id="title">VidGo Technology mark</title>
+  <desc id="desc">Three forward-moving chevrons inside an organic frame, with a dotted ring and an orange point at the top right.</desc>
+  <style>
+    .vg-blob { fill:#fff; stroke:rgba(57,69,230,.13); stroke-width:1; }
+    .vg-ring { fill:none; stroke:rgba(57,69,230,.2); stroke-width:1; stroke-dasharray:2 3.5; }
+    .vg-dot { fill:#FF8B32; }
+    .vg-chevrons { filter:drop-shadow(0 9px 8px rgba(57,69,230,.16)); }
+  </style>
+  <path class="vg-blob" d="M62 5c30 0 53 22 53 52 0 31-22 58-54 58C30 115 5 91 5 61 5 32 32 5 62 5Z"/>
+  <circle class="vg-ring" cx="60" cy="60" r="43"/>
+  <circle class="vg-dot" cx="112" cy="30" r="7"/>
+  <g class="vg-chevrons" transform="translate(60 60) scale(.62) translate(-46 -50)">
+    <polygon points="5,25 22,25 37,50 22,75 5,75 20,50" fill="#3945E6"/>
+    <polygon points="30,25 47,25 62,50 47,75 30,75 45,50" fill="#7558EE"/>
+    <polygon points="55,25 72,25 87,50 72,75 55,75 70,50" fill="#FF8B32"/>
+  </g>
+</svg>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VidGo Technology — Platform Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --blue: #3945E6;
+    --blue-dark: #0F1A8E;
+    --blue-light: #4A5DE0;
+    --orange: #FF8B32;
+    --orange-deep: #E66B14;
+    --ink: #0E1220;
+    --ink2: #2A2F4A;
+    --muted: #5a5c78;
+    --bg: #ffffff;
+    --border: #e6e3da;
+    --card-bg: #f8f7f4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── PAGE STRUCTURE ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  .page-content {
+    padding: 48px 48px 40px;
+  }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 48px;
+    border-bottom: 1px solid var(--border);
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+  .page-header .logo-mark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    color: var(--blue);
+    font-size: 9pt;
+    letter-spacing: 0.03em;
+  }
+  .page-header .logo-mark span { color: var(--blue-light); }
+
+  /* ─── COVER ─── */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    background: linear-gradient(155deg, #080E4A 0%, var(--blue-dark) 25%, var(--blue) 50%, #6B3FA0 75%, var(--orange) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+  }
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-logo .chevrons {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 18pt;
+    color: #6BE0F0;
+    letter-spacing: -2px;
+  }
+  .cover-logo .wordmark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 24pt;
+    letter-spacing: 0.02em;
+  }
+  .cover-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 9pt;
+    color: var(--orange);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .cover-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 52pt;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .cover-subtitle {
+    font-size: 13pt;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.78);
+    max-width: 460px;
+    margin-top: 24px;
+  }
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-status-label, .cover-doc-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+  .cover-status-value, .cover-doc-value {
+    font-size: 11pt;
+    color: white;
+  }
+  .cover-pill {
+    background: var(--orange);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 9.5pt;
+  }
+
+  /* ─── SECTION TITLES ─── */
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 17pt;
+    color: var(--blue-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--orange);
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+
+  .sub-heading {
+    font-weight: 700;
+    font-size: 11.5pt;
+    color: var(--ink);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+
+  /* ─── BODY TEXT ─── */
+  p { margin-bottom: 10px; color: var(--ink2); font-size: 10pt; line-height: 1.6; }
+
+  /* ─── BULLETS ─── */
+  ul { list-style: none; padding: 0; margin: 0 0 8px 0; }
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 5px;
+    font-size: 10pt;
+    color: var(--ink2);
+    line-height: 1.5;
+  }
+  ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  ul.sub-bullets li { padding-left: 28px; font-size: 9.5pt; }
+  ul.sub-bullets li::before {
+    content: '◦';
+    left: 12px;
+    color: var(--blue-light);
+  }
+
+  /* ─── CALLOUT BOX ─── */
+  .callout {
+    background: #fafaf5;
+    border-left: 3px solid var(--blue-light);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .callout-title {
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .callout p { margin-bottom: 0; font-size: 9.5pt; }
+
+  /* ─── TABLES ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+    font-size: 9.5pt;
+  }
+  thead th {
+    background: var(--blue-dark);
+    color: white;
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--ink2);
+  }
+  tbody tr:nth-child(even) { background: #f8f6f0; }
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ─── STATUS BOX ─── */
+  .status-box {
+    background: #fafaf5;
+    border-left: 3px solid var(--blue);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .status-box .label {
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .status-box p { margin-bottom: 0; }
+
+  /* ─── HONESTY BOX ─── */
+  .honesty-box {
+    background: #fafaf5;
+    border-left: 3px solid var(--blue-light);
+    border-radius: 4px;
+    padding: 18px 22px;
+  }
+  .honesty-box .italic-intro {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 10pt;
+    margin-bottom: 12px;
+  }
+  .honesty-box ul li { font-size: 9.5pt; }
+
+  /* ─── BUILD STATUS ─── */
+  .build-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 10pt;
+    color: var(--ink2);
+  }
+  .build-item .icon { flex-shrink: 0; font-size: 11pt; }
+
+  /* ─── PRICING BOX ─── */
+  .pricing-box {
+    background: #fafaf5;
+    border-left: 3px solid var(--blue);
+    border-radius: 4px;
+    padding: 16px 20px;
+  }
+  .pricing-box p { margin-bottom: 0; }
+  .pricing-box strong { color: var(--ink); }
+
+  /* ─── ABOUT CARD ─── */
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .about-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .about-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 17pt;
+    color: var(--blue-dark);
+  }
+  .about-role {
+    font-size: 10pt;
+    color: var(--orange);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── FOOTER GRADIENT ─── */
+  .footer-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(27,43,194,0.08) 0%, rgba(255,140,42,0.12) 100%);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-row {
+    display: flex;
+    gap: 32px;
+    font-size: 10pt;
+    color: var(--ink2);
+    margin-top: 20px;
+  }
+  .contact-row span::before {
+    content: '•';
+    color: var(--blue);
+    margin-right: 8px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ══════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <div class="cover-logo">
+      <span class="chevrons">&raquo;&raquo;&raquo;</span>
+      <span class="wordmark">VIDGO TECHNOLOGY</span>
+    </div>
+    <div class="cover-tagline">Jet E-Commerce Technology</div>
+  </div>
+
+  <div>
+    <h1 class="cover-title">PLATFORM<br>OVERVIEW</h1>
+    <p class="cover-subtitle">A production-ready e-commerce backend, storefront, and admin panel — designed as a foundation for custom-code projects, not as another SaaS rental.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div>
+      <div class="cover-status-label">Status</div>
+      <div class="cover-status-value">Production-ready core</div>
+    </div>
+    <div class="cover-pill">First merchant launch · May 2026</div>
+    <div style="text-align:right">
+      <div class="cover-doc-label">Document</div>
+      <div class="cover-doc-value">v2 · May 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 2 — STATUS + WHAT IT IS + STOREFRONT (Browse, Cart)
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>2 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="status-box">
+      <div class="label">Status</div>
+      <p><strong>Production-ready core.</strong> First merchant launch scheduled mid-to-late May 2026. End-to-end QA in progress on real fiscal, payment, and refund flows. The platform ships with infrastructure most ecommerce builds bolt on later — broadcast email engine, incident notification system, fuzzy CSV import, idempotent refund pipeline, audit trails, encrypted token storage.</p>
+    </div>
+
+    <div class="section-title">WHAT IT IS</div>
+    <p>A complete e-commerce backend + storefront + admin panel a merchant can run on their own infrastructure. No per-transaction platform fee, no SaaS subscription, no app-store tax. The code base is owned by the merchant (or licensed); operating cost is hosting + payment processing fees + email-sending only.</p>
+    <p>Locale-agnostic core, EU-style fiscal compliance built in (configurable per shop). All user-facing content — pages, emails, error messages — lives as editable templates. Translation to any market is a content task, not an engineering one.</p>
+
+    <div class="section-title">CUSTOMER-FACING STOREFRONT</div>
+
+    <div class="sub-heading">Browse &amp; discover</div>
+    <ul>
+      <li>Product catalog with category hierarchy (multi-level), producer/brand filtering, full-text search, on-sale highlights</li>
+      <li>SEO-friendly URLs with category landing pages (configurable URL prefix per locale) and per-product slugs</li>
+      <li>Per-category and per-product meta tags (title, description, keywords) — SEO data preserved on import from existing platforms</li>
+      <li>AI SEO evaluation for product titles, descriptions, metadata, LLM readability, and AI crawler discoverability before publish</li>
+      <li>Mobile-first responsive storefront</li>
+      <li>Recently-viewed products tracking</li>
+      <li>Wishlist (persisted across sessions for logged-in users)</li>
+    </ul>
+
+    <div class="sub-heading">Cart &amp; checkout</div>
+    <ul>
+      <li>Logged-in cart + guest cart, persisted across sessions</li>
+      <li>Voucher codes applied at cart with live recalculation</li>
+      <li>Multiple payment methods in one flow:</li>
+    </ul>
+    <ul class="sub-bullets">
+      <li><strong>Stripe Checkout</strong> (cards, Apple Pay, Google Pay)</li>
+      <li><strong>Bank Transfer</strong> with proforma invoice (PDF with due date) emailed automatically</li>
+      <li><strong>Cash on Delivery</strong> with admin manual confirmation</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 3 — STOREFRONT continued + ADMIN (Catalog)
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>3 / 12</div>
+  </div>
+  <div class="page-content">
+    <ul>
+      <li>Shipping cost calculation (per-zone, weight-based)</li>
+      <li>Address management (multiple saved addresses, separate billing/delivery)</li>
+      <li>T&amp;C and GDPR consent enforcement (frontend + backend defense in depth)</li>
+    </ul>
+
+    <div class="sub-heading">Account &amp; post-purchase</div>
+    <ul>
+      <li>Self-service registration with email confirmation</li>
+      <li>Forgot-password flow with rate-limited reset links (24h expiry)</li>
+      <li>Order history with full status tracking (PLACED → CONFIRMED → PACKING → SHIPPED → DELIVERED)</li>
+      <li>Public invoice download (anyone-with-link, audit-logged, rate-limited, status-aware expiry)</li>
+      <li>Self-service refund requests with item-level granularity (full or partial)</li>
+      <li>Storno (credit note) auto-generated and emailed on refund approval</li>
+      <li>Newsletter subscribe/unsubscribe (one-click via signed token in email)</li>
+      <li>GDPR account anonymization (Article 17 compliant, audit-logged) — purges PII while preserving fiscal records to satisfy retention requirements (configurable retention window per jurisdiction)</li>
+    </ul>
+
+    <div class="sub-heading">Compliance &amp; legal</div>
+    <ul>
+      <li>Cookie consent (functional cookies only by default)</li>
+      <li>Configurable Privacy / Terms / Returns / Cookies pages — content lives in editable templates, translatable to any market</li>
+      <li>Order auto-cancel on payment expiry (configurable per shop)</li>
+      <li>Configurable return window (default 14 days, EU consumer-rights baseline)</li>
+    </ul>
+
+    <div class="section-title">ADMIN PANEL</div>
+
+    <div class="sub-heading">Catalog management</div>
+    <ul>
+      <li>Product CRUD with multi-photo upload (cloud-hosted, CDN-served)</li>
+      <li>Bulk CSV import for products / categories / producers with <strong>fuzzy entity matching</strong> (auto-corrects mistyped category/producer names; flags unmatched rows for admin review)</li>
+      <li>CSV export for backup or off-platform analysis</li>
+      <li>Category tree management with parent-child links, drag-friendly bulk operations</li>
+      <li>Producer / brand management with linked product lists</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 4 — ADMIN continued (SEO, Orders, Refund, Marketing, Branding)
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>4 / 12</div>
+  </div>
+  <div class="page-content">
+    <ul>
+      <li>Per-product SEO fields (meta title, description, keywords) with live AI evaluation panel for search display, LLM readability, and AI crawler discoverability</li>
+      <li>Discount-exempt category flag (for items that shouldn't participate in cart-level promotions)</li>
+    </ul>
+
+    <div class="sub-heading">Order operations</div>
+    <ul>
+      <li>Full order lifecycle dashboard with tab-based filtering by status</li>
+      <li>Order details with line items, customer info, payment timeline</li>
+      <li>Status transitions enforced by validator (no illegal state changes)</li>
+      <li>Manual edits to order contents pre-shipment (add/remove/change quantity)</li>
+      <li>Tracking URL attachment on SHIPPED status</li>
+      <li>Email notifications fire automatically per status change (CONFIRMED, PACKING, SHIPPED, DELIVERED, refund states)</li>
+    </ul>
+
+    <div class="sub-heading">Refund &amp; storno</div>
+    <ul>
+      <li>Per-item refund granularity (full or partial)</li>
+      <li>Online payment refunds processed automatically — idempotent, webhook-driven completion</li>
+      <li>Bank Transfer / COD refunds tracked manually with full audit trail</li>
+      <li>Storno (credit note) PDF auto-generated on refund — separate fiscal document with line items, discount distribution per line, sign convention reconciles cleanly against the original invoice</li>
+      <li>Shipping policy: shipping NOT refunded post-delivery (EU consumer-law standard for return-after-receipt); IS refunded for pre-shipment cancellations</li>
+      <li>Public storno download link emailed to customer (same audit pattern as invoices)</li>
+    </ul>
+
+    <div class="sub-heading">Marketing &amp; promotions</div>
+    <ul>
+      <li>Voucher codes (manual code input by customer at cart)</li>
+      <li>Discount rules (auto-applied based on conditions: min order, category-specific, percentage or fixed amount)</li>
+      <li>Per-user voucher limits (e.g., one-use welcome voucher with 5% off)</li>
+      <li>Email broadcast campaigns with per-recipient tracking, segmentation (all-active / newsletter-opted / has-orders)</li>
+      <li>Automated abandoned cart and abandoned checkout recovery sequences sent by email</li>
+      <li>Failed-payment recovery emails before configurable order auto-cancel</li>
+      <li>Discount/sale notifications for wishlist items dropping in price (opt-in)</li>
+    </ul>
+
+    <div class="sub-heading">Storefront branding</div>
+    <ul>
+      <li>Logo, header banner, footer banner, page background — all upload/replace/delete from admin</li>
+      <li>Currency selector (EUR/RON/USD/GBP)</li>
+      <li>Configurable return-days policy</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 5 — ADMIN continued (Vacation, Support, Reporting) + FISCAL
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>5 / 12</div>
+  </div>
+  <div class="page-content">
+    <ul>
+      <li>Vacation mode (with custom message displayed to customers)</li>
+      <li>Stock-management toggle (production deploy currently runs without stock — admin manually confirms each order to avoid oversell)</li>
+    </ul>
+
+    <div class="sub-heading">Customer support</div>
+    <ul>
+      <li>Product feedback moderation with configurable profanity filter</li>
+      <li>Customer search with full-text + filter combinators</li>
+      <li>Per-customer order history view</li>
+      <li>Notification panel for system incidents (email failures, payment webhook anomalies, storage outages, etc.) — email alert + in-panel triage</li>
+    </ul>
+
+    <div class="sub-heading">Reporting</div>
+    <ul>
+      <li>Sales report by period</li>
+      <li>Top products by volume / revenue</li>
+      <li>Customer lifetime value</li>
+      <li>Built-in analytics for sales, products, customers, email campaigns, and recovery flows</li>
+      <li>Upload history audit trail (who imported what CSV when, with rejected/corrected subset CSVs preserved in cloud storage)</li>
+      <li><strong>Accounting CSV exports — analytics-ready data feed.</strong> One click exports order-level totals and per-product order lines for the selected period, including invoice number, order id, dates, prices, totals before/after discount, currency, payment method, buyer + seller details, IBAN, payment terms, and notes. Direct input for accounting, spreadsheet analysis, BI tools, or AI-driven sales analysis.</li>
+    </ul>
+
+    <div class="section-title">FISCAL &amp; ACCOUNTING</div>
+    <ul>
+      <li>Invoice PDF generation with EU-style fiscal-compliance fields: company registration number, tax / VAT ID, registered address, IBAN, bank name, VAT payer status, VAT rate, sequential numbering, due dates for Bank Transfer</li>
+      <li>Invoices generated automatically at the right moment per payment method:</li>
+    </ul>
+    <ul class="sub-bullets">
+      <li>Stripe: post-payment confirmation</li>
+      <li>Bank Transfer: at admin confirmation (proforma with due date) -> marked paid when admin confirms transfer received</li>
+      <li>COD: at SHIPPED status</li>
+    </ul>
+    <ul>
+      <li>Storno (credit note) for every refund — separate document, separate numbering, linked to original invoice</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 6 — FISCAL continued + ARCHITECTURE
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>6 / 12</div>
+  </div>
+  <div class="page-content">
+    <ul>
+      <li>Configurable invoicing fields per shop (company name, tax ID, registration number, IBAN, default currency, invoice prefix, notes)</li>
+      <li>Configurable VAT-payer / non-VAT-payer status and VAT rate per shop</li>
+      <li>e-Factura-compatible XML generated alongside fiscal invoices for manual upload into the government portal</li>
+      <li>Provider abstraction remains available for future direct integration with any e-invoicing provider</li>
+    </ul>
+
+    <div class="section-title">ARCHITECTURE &amp; ENGINEERING</div>
+    <p>The platform is built on enterprise-grade, production-tested open-source technologies. Modular architecture separates admin, storefront, and core services while shipping as a single deployable unit. The database layer uses explicit SQL (no ORM magic, no hidden queries). Caching, session management, and rate limiting run on an in-memory data store. Sensitive tokens are encrypted at rest before reaching the database. All files (product images, invoices, CSV backups, branding assets) live in cloud object storage with CDN delivery.</p>
+
+    <div class="sub-heading">Engineering decisions worth highlighting</div>
+
+    <div class="callout">
+      <div class="callout-title">Idempotency everywhere that matters.</div>
+      <p>Payment webhooks, refund triggers, CSV imports (re-running doesn't duplicate), category-link uploads. Re-running any operation is safe by default.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 7 — Engineering decisions continued
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>7 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="callout">
+      <div class="callout-title">Audit trails on every sensitive flow.</div>
+      <p>Compliance-grade record-keeping built in, not bolted on. Every sensitive flow — uploads, invoice access, account anonymization, system incidents — is audit-logged.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Fuzzy entity matching on bulk imports.</div>
+      <p>When admin uploads a CSV of products with category/producer names, the system auto-matches against existing entities (exact match), suggests close matches via fuzzy distance scoring (high-confidence — admin verifies via downloadable subset CSV pre-populated with the corrected entity names), and flags unmatched rows (admin fixes &amp; re-imports). No silent failures, no orphan data, no manual ID lookup. Same pattern wraps category-link uploads and producer imports.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Broadcast email engine, in-house.</div>
+      <p>Built-in SMTP integration with per-recipient delivery tracking, audience segmentation (all-active / newsletter-opted / has-orders), unsubscribe via signed token (one-click, no login required), campaign analytics, automated abandoned cart / checkout recovery, and failed-payment follow-ups. Most platforms hand this off to third-party email services and pay per-contact monthly — here it's built into the admin panel and costs only direct sending fees (~$0.10 / 1k emails).</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Incident notification system, built-in.</div>
+      <p>Server-side errors that matter (email delivery failures, payment webhook anomalies, storage outages, invoice generation failures) surface in an admin in-panel triage view and fire an alert email to the operator. No external monitoring subscription needed for the operator-grade visibility a single-tenant deploy actually uses.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Token encryption at rest.</div>
+      <p>Sensitive tokens (auth tokens, password reset tokens, public invoice access tokens) are encrypted before hitting the database. A database dump on its own is not enough to compromise tokens. Session tokens use asymmetric key signing, not shared-secret hashing.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Event-driven refund flow.</div>
+      <p>A single internal event triggers all refund side-effects (storno generation, email, status transitions) regardless of whether the refund came from a payment webhook, admin manual approval, or user self-service cancellation. One implementation, one test surface.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 8 — Defense + Migration + WHAT YOU DON'T HAVE TO BUILD
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>8 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="callout">
+      <div class="callout-title">Defense in depth on security &amp; UX.</div>
+      <p>Backend validates every order state transition (no illegal state changes); frontend hides ineligible actions; rate limiting on login + public links; CSRF on state-changing endpoints; user-facing error messages always sanitized in the storefront's locale, with technical details kept only in logs + incident notifications.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Migration-friendly design.</div>
+      <p>Built explicitly with the assumption that merchants are coming from PrestaShop / WooCommerce / Magento. CSV import schema designed to ingest realistic exports. Silent password rehash supported for migrating users from legacy platforms (users log in with their existing passwords on day one without seeing a forced reset).</p>
+    </div>
+
+    <div class="section-title">WHAT YOU DON'T HAVE TO BUILD (PER CLIENT)</div>
+    <p>Things an agency typically pays developer-hours to bolt on per project — already in the box here:</p>
+
+    <table>
+      <thead><tr><th>Concern</th><th>Built in</th></tr></thead>
+      <tbody>
+        <tr><td>Email broadcast + segmentation + unsubscribe</td><td>Built-in engine, no third-party subscription per merchant</td></tr>
+        <tr><td>Cart / checkout / payment recovery</td><td>Automated email sequences for abandoned carts, abandoned checkout, and failed payments</td></tr>
+        <tr><td>Operational error visibility</td><td>Notification panel + admin triage view + email alerts</td></tr>
+        <tr><td>Bulk import without manual data cleanup</td><td>Fuzzy matcher for category/producer names</td></tr>
+        <tr><td>Idempotent payment + refund webhooks</td><td>Event-driven pipeline, safe under re-delivery</td></tr>
+        <tr><td>GDPR Article 17 (right to erasure)</td><td>One-click anonymization, audit-logged, fiscal records preserved</td></tr>
+        <tr><td>Public document download (invoice, storno)</td><td>Signed link + audit log + rate limit + status-aware expiry</td></tr>
+        <tr><td>EU-style fiscal compliance</td><td>Tax ID / company registration / IBAN / VAT settings / sequential numbering / due dates / storno credit notes</td></tr>
+        <tr><td>e-Factura manual upload</td><td>e-Factura-compatible XML generated for accountant or merchant portal upload</td></tr>
+        <tr><td>Token encryption at rest</td><td>Encrypted before database storage</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 9 — Table continued + WHAT IT DOES NOT DO
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>9 / 12</div>
+  </div>
+  <div class="page-content">
+    <table>
+      <thead><tr><th>Concern</th><th>Built in</th></tr></thead>
+      <tbody>
+        <tr><td>Session + rate limit + token blacklist</td><td>In-memory caching layer, drop-in</td></tr>
+        <tr><td>Object storage with CDN</td><td>Cloud storage wired (invoices / photos / CSVs / branding)</td></tr>
+        <tr><td>CSV export + re-import roundtrip</td><td>Schema-aligned, used in production import flows</td></tr>
+        <tr><td>Accounting CSV exports</td><td>Order-level totals plus per-product order lines — directly consumable by accountant, spreadsheet, BI, or AI-driven sales analysis</td></tr>
+        <tr><td>Auto-PDF for invoices + storno</td><td>A4-layout PDF generation built in</td></tr>
+      </tbody>
+    </table>
+
+    <p>The point isn't "look how many features" — it's that each of these is a 1–4 week build per client if done from scratch. Pre-built means your billable scope can stay on the parts the client actually asked for (branding, content, integrations, custom logic) instead of the plumbing every shop needs.</p>
+
+    <div class="section-title">WHAT IT DOES NOT DO (YET)</div>
+
+    <div class="honesty-box">
+      <div class="italic-intro">Honesty section. This isn't Shopify — different choices were made.</div>
+      <ul>
+        <li><strong>Variants</strong> (size x color x capacity -> SKU per combo) — single-SKU model currently. Architectural priority for next sprint (5-7 days). Designed: master product + variant table with flexible specification attributes (universal across verticals: laptops/fashion/appliances).</li>
+        <li><strong>Multi-tenant</strong> — one shop per deploy currently. Tenant isolation refactor possible but not in scope.</li>
+        <li><strong>Marketplace</strong> (multi-seller, royalties, payouts) — out of scope; different product entirely.</li>
+        <li><strong>Subscriptions / recurring billing</strong> — recurring payment API not wired.</li>
+        <li><strong>Multi-language storefront UI</strong> — internationalization framework is configured and content lives in editable templates, but the runtime locale switcher is not wired yet (one default language ships per deploy). Adding more locales is a content task.</li>
+        <li><strong>Direct native government e-invoicing portal submission</strong> — jurisdiction-specific. For now the platform generates e-Factura-compatible XML for manual upload; provider abstraction remains in place to plug in any country's portal.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 10 — WHERE IT FITS COMMERCIALLY
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>10 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="section-title">WHERE IT FITS COMMERCIALLY</div>
+    <p>The platform was built to be deployed as a <strong>custom code project for a new merchant</strong> — not as a SaaS product. An agency or partner takes the codebase, brands and configures it for the client, and delivers a self-hosted ecommerce backend the client owns outright. Per-deploy economics, not per-seat.</p>
+
+    <div class="sub-heading">Primary use case — agency-delivered custom build for a new merchant</div>
+    <ul>
+      <li>Greenfield ecommerce launch where the client wants their own code, not a SaaS rental</li>
+      <li>Agency keeps configuration + branding + content + project-management revenue at its own rates — that's the agency's main margin</li>
+      <li>Client gets a production-grade backend (catalog, payments, refunds, fiscal docs, GDPR, audit) without paying SaaS rent forever</li>
+      <li>EU-fiscal-ready out of the box; localization to any market is a content task, not engineering</li>
+    </ul>
+
+    <div class="sub-heading">Secondary use case — migration off SaaS / aging stacks</div>
+    <ul>
+      <li>Shopify merchants tired of per-transaction fees and customization walls</li>
+      <li>PrestaShop 1.6/1.7, Magento 1, custom PHP / ASP.NET shops where the platform has hit its ceiling</li>
+      <li>CSV import schema designed to ingest realistic exports; silent password rehash for legacy platform migrations means users keep their old passwords on day one</li>
+    </ul>
+
+    <div class="sub-heading">Why it's a good base for an agency</div>
+    <ul>
+      <li>One codebase, one ops surface — repeated deploys don't compound your maintenance load</li>
+      <li>Modular architecture means you can carve out a service when a client genuinely needs it, without architecting for it on day one</li>
+      <li>Fiscal compliance + GDPR + audit trails are already built — you don't pay developer-hours to rebuild them per client</li>
+      <li>Provider abstractions mean swapping payment processors, or plugging in a country-specific accounting / e-invoicing provider, is a configuration change, not a rewrite</li>
+    </ul>
+
+    <div class="sub-heading">Not the right tool for</div>
+    <ul>
+      <li>Headless-only setups (this comes with a storefront)</li>
+      <li>Marketplace operators (multi-seller is out of scope)</li>
+      <li>Brand-new solo merchants under €50k GMV who want zero-touch hosting — Shopify Basic is cheaper to start at that scale</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 11 — OPERATING COST + BUILD STATUS + PRICING
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>11 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="section-title">OPERATING COST (ROUGH ORDER OF MAGNITUDE)</div>
+    <p>For a single-shop deploy:</p>
+
+    <table>
+      <thead><tr><th>Line item</th><th>Monthly</th></tr></thead>
+      <tbody>
+        <tr><td>Hosting (VPS, can be a single 4GB/2vCPU box for SMB volume)</td><td>€15–30</td></tr>
+        <tr><td>Cloud storage + CDN</td><td>€1–10</td></tr>
+        <tr><td>Email sending (transactional + monthly campaign of 10k emails)</td><td>€1–5</td></tr>
+        <tr><td>Stripe fees</td><td>per-transaction only (1.4% + €0.25 EU cards typical)</td></tr>
+        <tr><td><strong>Total infra</strong></td><td><strong>~€20–50/mo + Stripe</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p>Compare to Shopify Basic ($39/mo) + Shopify transaction fees (2.0% if not using Shopify Payments) + per-app subscriptions. For a merchant doing €50k+/mo GMV, the difference compounds quickly.</p>
+
+    <div class="section-title">WHERE I AM IN THE BUILD</div>
+    <div class="build-item"><span class="icon">✅</span> Storefront + admin core (~95% done, polishing in progress)</div>
+    <div class="build-item"><span class="icon">✅</span> Stripe + BT + COD payment flows end-to-end</div>
+    <div class="build-item"><span class="icon">✅</span> Refund + storno (EU fiscal-grade credit notes)</div>
+    <div class="build-item"><span class="icon">✅</span> Email engine with broadcast campaigns</div>
+    <div class="build-item"><span class="icon">✅</span> GDPR compliance (anonymization, public invoice expiry, audit logs)</div>
+    <div class="build-item"><span class="icon" style="color:var(--orange)">🔄</span> First-merchant launch in 2-3 weeks (~40 orders/mo baseline)</div>
+    <div class="build-item"><span class="icon" style="color:var(--blue-light)">🔜</span> Post-launch: variants + per-product specs (5-7 day sprint), then second client onboarding</div>
+
+    <div style="margin-top:20px"></div>
+    <div class="section-title">PRICING NOTES &amp; SCOPE</div>
+    <div class="pricing-box">
+      <p>Each engagement is structured as <strong>initial license + recurring maintenance retainer + custom dev hours</strong>. Operational costs (hosting, email, payment processing) are always <strong>merchant-paid passthrough</strong>. Specifics shaped by scope.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 12 — WHAT I'M LOOKING FOR
+     ══════════════════════════════════════════════════════ -->
+<div class="page" style="position:relative">
+  <div class="page-header">
+    <div><span class="logo-mark"><span>&raquo;&raquo;&raquo;</span> VidGo Technology</span> — Platform Overview</div>
+    <div>12 / 12</div>
+  </div>
+  <div class="page-content">
+    <div class="about-header">
+      <img class="about-photo" src="ioana-web.jpg" alt="Ioana Dinu"/>
+      <div>
+        <div class="about-name">WHAT I'M LOOKING FOR</div>
+        <div class="about-role">IOANA DINU · E-COMMERCE SOLUTIONS ARCHITECT</div>
+      </div>
+    </div>
+
+    <p>An agency / studio / freelance partner who delivers ecommerce builds as <strong>custom code projects</strong> to their clients (not as SaaS resale) and wants a proven backend to build on instead of starting from zero each time.</p>
+
+    <p>The ideal partner is already pitching custom-API / custom-code work to new clients — typically merchants who specifically want to own their stack rather than rent it. EU market focus (fiscal-compliance fields are built in; localization to any language is a content task).</p>
+
+    <div class="sub-heading">Open to:</div>
+    <ul>
+      <li><strong>Agency-partner referral</strong> — you bring the client; client contracts directly with me at standard rates; you receive recurring commission for the life of the contract; you keep all delivery-scope revenue (branding, configuration, content, project management) at your own rates</li>
+      <li><strong>Direct sale + onboarding</strong> for a merchant who finds me directly</li>
+      <li><strong>Migration projects</strong> off Shopify / Presta / Magento as a specific service line on top of either path</li>
+      <li>Open to discussing other arrangements that fit your business model</li>
+    </ul>
+
+    <p style="margin-top:14px">Happy to demo end-to-end on a video call — full flow takes ~20 minutes.</p>
+
+    <div class="contact-row">
+      <span>ioana.dinu.it@gmail.com</span>
+      <span>+40 757 019 416</span>
+      <span>linkedin.com/in/ioana-dinu-it</span>
+    </div>
+  </div>
+  <div class="footer-gradient"></div>
+</div>
+
+</body>
+</html>

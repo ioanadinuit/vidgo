@@ -1,0 +1,3654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VidGo Technology — Custom Ecommerce, All in One, Maintained for You</title>
+<meta name="description" content="A complete ecommerce platform — backend, storefront, and admin panel in one app, branded and configured for your business. Payments, GDPR, fiscal compliance, broadcast email — all included. Maintained end-to-end. No plugins, no app store tax." />
+<meta name="theme-color" content="#3945E6" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="VidGo Technology — Custom Ecommerce, All in One" />
+<meta property="og:description" content="Complete ecommerce platform. All in one app, branded for your business. Maintained end-to-end. No plugins. No app store tax." />
+<meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:alt" content="VidGo Technology — platforma e-commerce" />
+  <meta name="twitter:image" content="assets/og-image.jpg" />
+  <meta property="og:url" content="./" />
+<meta property="og:site_name" content="VidGo Technology" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="./" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#ioana",
+      "name": "Ioana Dinu",
+      "jobTitle": "E-Commerce Solutions Architect",
+      "url": "./",
+      "image": "assets/ioana-web.jpg",
+      "sameAs": ["https://www.linkedin.com/in/ioana-dinu-it/"],
+      "email": "ioana.dinu.it@gmail.com",
+      "telephone": "+40757019416"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "VidGo Technology",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "A complete, full-stack e-commerce platform — backend, storefront, and admin panel in one app. Single-tenant per merchant, branded and configured per business, maintained end-to-end. No plugin store, no app subscriptions.",
+      "creator": { "@id": "#ioana" }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    /* ─────────────────────────────────────────────────────────────
+       Brand palette derived from Ioana's LinkedIn banner.
+       Cool → warm narrative: bright cobalt (technical / where you start)
+       → vivid orange (customer / where you arrive). Lime green from the
+       banner is reserved as the "speed / motion / GO" accent — only
+       used for primary CTAs, hover glows, and the chevron rails in the
+       hero. Avoids the AI-default purple→cyan SaaS palette entirely.
+       ─────────────────────────────────────────────────────────── */
+    --primary: #3945E6;        /* Bright cobalt — banner anchor */
+    --primary-dark: #0F1A8E;   /* Deeper cobalt — depth */
+    --primary-light: #4A5DE0;  /* Mid cobalt — transitions */
+    --violet: #FF8B32;         /* Was AI-purple; now vivid orange — destination
+                                  end of the cool→warm gradient. Every existing
+                                  linear-gradient(var(--primary), var(--violet))
+                                  in the file now becomes cobalt→orange = the
+                                  reference gradient ramp Ioana asked for. */
+    --warm-orange: #FF8B32;
+    --warm-orange-deep: #E66B14;
+    --warm-coral: #FF6B47;
+    --accent: #8BD43C;         /* Banner lime green — motion accent only */
+    --accent-bright: #A5E055;  /* Hover / glow */
+    --ink: #0E1220;            /* Off-black */
+    --ink-2: #2A2F4A;          /* Secondary text */
+    --muted: #5a5c78;
+    --muted-2: #8a8da8;
+    --bg: #F4F1EA;             /* Warm off-white — pulls site warmer */
+    --bg-soft: #FAF7F0;
+    --bg-tint: #FFF1DE;        /* Soft warm tint — replaces purple tint */
+    --bg-cool: #EDF0FA;        /* Cool tint for cool-themed sections */
+    --card: #ffffff;
+    --border: #e6e3da;         /* Warm-tinted border */
+    --border-light: #f0ede4;
+    /* Shadows: neutral grey-tinted (was brand-blue-tinted — that's the AI tell).
+       Only --shadow-cta keeps a brand glow, in lime green for "GO" CTAs. */
+    --shadow-sm: 0 4px 12px rgba(14, 18, 32, 0.06);
+    --shadow-md: 0 12px 32px rgba(14, 18, 32, 0.10);
+    --shadow-lg: 0 24px 64px rgba(14, 18, 32, 0.14);
+    --shadow-xl: 0 36px 96px rgba(14, 18, 32, 0.18);
+    --shadow-cta: 0 12px 32px rgba(139, 212, 60, 0.42);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+    /* Solid warm paper. The triple-radial-gradient "dreamy spotlight"
+       background was the loudest AI tell. Replaced with one calm,
+       intentional warm off-white. */
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body[data-lang="en"] .t-ro,
+  body[data-lang="ro"] .t-en { display: none; }
+
+  img { max-width: 100%; display: block; }
+  a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+  a:hover { color: var(--violet); }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ STICKY NAV ============ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 251, 253, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), background var(--transition);
+  }
+
+  .site-header.scrolled {
+    background: rgba(250, 251, 253, 0.95);
+    border-bottom-color: var(--border);
+  }
+
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 92px;
+    /* Override the global .container max-width so the header logo aligns
+       with the full-bleed hero banner content below (which starts ~3%
+       from the viewport edge). */
+    max-width: none;
+    padding: 0 3%;
+  }
+
+  /* Header logo bumped — now the only logo placement (hero version
+     removed), so it carries more brand weight. SVG mark + wordmark
+     both scaled up proportionally. */
+  .nav-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    color: var(--ink);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+  .nav-logo-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-wordmark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    line-height: 0.9;
+  }
+
+  .nav-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    color: #FF8B32;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    text-justify: inter-character;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink-2);
+    font-weight: 500;
+    font-size: 14.5px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .nav-links a:hover {
+    background: var(--bg-tint);
+    color: var(--primary);
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--violet) 100%);
+    color: white !important;
+    padding: 10px 18px !important;
+    margin-left: 6px;
+    box-shadow: 0 6px 16px rgba(14, 18, 32, 0.10);
+    font-weight: 600 !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(139, 212, 60, 0.32);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--violet) 100%) !important;
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: inline-flex;
+    background: var(--bg-tint);
+    border-radius: 999px;
+    padding: 3px;
+    margin-left: 12px;
+    border: 1px solid var(--border-light);
+  }
+
+  .lang-toggle button {
+    background: none;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    letter-spacing: 0.02em;
+  }
+
+  .lang-toggle button.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 2px 6px rgba(14, 18, 32, 0.08);
+  }
+
+  /* ============ HERO ============
+     Directional cobalt → orange gradient = visual metaphor for the
+     value prop. Visitor enters at the cool/technical end (top-left
+     bright cobalt) and the eye is pulled across to the warm/customer
+     end (bottom-right vivid orange) — same gradient ramp Ioana sent
+     as reference. Lime green chevron rails sweep diagonally over it,
+     echoing the circuit-board chevrons in her LinkedIn banner. */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    color: white;
+  }
+
+  section.hero.hero-split {
+    padding: 80px 6% !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(circle at 80% 30%, rgba(0, 102, 255, 0.12), transparent 35%),
+      radial-gradient(circle at 65% 70%, rgba(255, 115, 0, 0.08), transparent 30%),
+      linear-gradient(135deg, #030814 0%, #071427 100%);
+  }
+
+  .hero-split::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    right: -150px;
+    top: -150px;
+    background: radial-gradient(circle, rgba(255, 115, 0, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-split-content {
+    width: 52%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    color: #ff7a1a;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-split-title {
+    font-size: clamp(40px, 5vw, 72px) !important;
+    line-height: 0.95 !important;
+    font-weight: 800 !important;
+    margin-bottom: 28px !important;
+    color: white !important;
+  }
+  .hero-split-title span {
+    color: #ff7a1a;
+    display: block;
+  }
+
+  .hero-split-subtitle {
+    font-size: 22px !important;
+    line-height: 1.6 !important;
+    color: rgba(255,255,255,0.88) !important;
+    max-width: 760px;
+    margin-bottom: 42px !important;
+  }
+
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 28px;
+    margin-bottom: 46px;
+  }
+
+  .hero-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .hero-feature-icon {
+    min-width: 56px;
+    height: 56px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #4b7cff;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .hero-feature-orange .hero-feature-icon,
+  .hero-feature-orange h3 {
+    color: #ff7a1a;
+  }
+
+  .hero-feature h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .hero-feature p {
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+    font-size: 15px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    border-radius: 18px;
+    padding: 20px 24px;
+    min-width: 220px;
+  }
+
+  .hero-stat strong {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .hero-stat span {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  .hero-split-visual {
+    width: 45%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .hero-split-visual::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 40px;
+    bottom: 30px;
+    background: radial-gradient(circle, rgba(0,0,0,0.5), transparent 70%);
+    filter: blur(18px);
+    z-index: -1;
+  }
+
+  .hero-split-laptop {
+    width: 100%;
+    max-width: 900px;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45));
+  }
+
+  .hero-split .hero-ctas .btn-primary {
+    background: var(--warm-orange);
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(255, 140, 42, 0.45);
+  }
+  .hero-split .hero-ctas .btn-primary:hover {
+    background: var(--warm-orange-deep);
+    box-shadow: 0 14px 36px rgba(230, 107, 20, 0.55);
+    color: #fff;
+  }
+  .hero-split .hero-ctas .btn-secondary {
+    border: 1.5px solid var(--warm-orange);
+    color: var(--warm-orange);
+    background: rgba(255, 140, 42, 0.08);
+  }
+  .hero-split .hero-ctas .btn-secondary:hover {
+    background: rgba(255, 140, 42, 0.18);
+    border-color: var(--warm-orange-deep);
+    color: var(--warm-orange-deep);
+  }
+
+  @media (max-width: 1100px) {
+    section.hero.hero-split {
+      flex-direction: column;
+      text-align: left;
+      gap: 60px;
+    }
+    .hero-split-content,
+    .hero-split-visual {
+      width: 100%;
+    }
+    .hero-features {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    section.hero.hero-split {
+      padding: 60px 24px !important;
+    }
+    /* Era 52px fix, ceea ce însemna aceeași mărime pe o tabletă de 768px și
+       pe un telefon de 320px — „E-COMMERCE" în Orbitron bold nu încape pe
+       ecran mic și ieșea în afara viewportului. Scalăm cu lățimea: la 768px
+       rămâne 52px (neschimbat față de înainte), sub atât scade proporțional. */
+    .hero-split-title {
+      font-size: clamp(28px, 6.8vw, 52px) !important;
+    }
+    .hero-split-subtitle {
+      font-size: 18px !important;
+    }
+    .hero-stats {
+      flex-direction: column;
+    }
+    .hero-split .hero-ctas {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-split .hero-ctas .btn {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 920px;
+  }
+  .hero .container { position: relative; z-index: 3; }
+
+  .hero-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  }
+
+  .hero-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-logo-row svg {
+    width: 72px;
+    height: 72px;
+    filter: drop-shadow(0 4px 24px rgba(139, 212, 60, 0.55));
+    flex-shrink: 0;
+  }
+
+  .hero-wordmark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 49px;
+    letter-spacing: 0.03em;
+    color: white;
+    line-height: 0.9;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: #FF8B32;
+    text-transform: uppercase;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    text-justify: inter-character;
+    letter-spacing: 0.18em;
+  }
+
+  /* Headline scaled down — Orbitron uppercase at 76px reads as
+     SHOUTING. Trimmed ~45% smaller and given a touch of line-height
+     so the four stacked lines breathe instead of feeling crammed
+     against each other. Still substantial, no longer aggressive. */
+  .hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3.2vw, 42px);
+    letter-spacing: 0.005em;
+    line-height: 1.18;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  /* Was gradient-text accent — replaced with solid lime, so "the accent
+     word" is the only place lime appears in the headline. Cleaner,
+     less AI-y, and pulls the eye to a single deliberate spot. */
+  .hero h1 .accent {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 680px;
+    line-height: 1.55;
+    margin-bottom: 44px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+  }
+
+  @keyframes heroFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    border: none;
+    cursor: pointer;
+    line-height: 1.2;
+  }
+
+  /* Lime green primary CTA — borrowed from the LinkedIn banner's leaf
+     accent. The only place the brand uses lime as a fill, so it carries
+     "GO / start here" weight by exclusivity. */
+  .btn-primary {
+    background: var(--accent);
+    color: var(--ink);
+    box-shadow: 0 10px 28px rgba(139, 212, 60, 0.45);
+    border: 1.5px solid transparent;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background: var(--accent-bright);
+    box-shadow: 0 14px 36px rgba(139, 212, 60, 0.55);
+    color: var(--ink);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    background: linear-gradient(135deg, rgba(255, 140, 42, 0.14) 0%, rgba(255, 140, 42, 0.20) 100%);
+    border: 1px solid rgba(139, 212, 60, 0.35);
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+  }
+
+  /* Static lime dot — no glow, no pulse. The pulsing brand-colored dot
+     was a textbook AI-generated SaaS tell. Plain green dot now reads as
+     "production-ready" without the AI flourish. */
+  .hero-status .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* .scroll-indicator removed — "↓ Scroll" arrows were an AI default
+     flourish. Real sites trust users to scroll. */
+
+  /* ============ SECTION HEADER ============ */
+  section { padding: 100px 0; position: relative; }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 80px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: var(--violet);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    background: var(--bg-tint);
+    border-radius: 999px;
+  }
+
+  .section-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 48px);
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  /* Was full-rainbow gradient text. Replaced with solid cobalt so
+     section headlines are flat and confident, not decorated. */
+  .section-header h2 .gradient {
+    color: var(--primary);
+  }
+
+  .section-header p {
+    font-size: 18px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ============ FEATURE SECTIONS ============ */
+  .feature {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .feature.reverse .feature-grid {
+    direction: rtl;
+  }
+
+  .feature.reverse .feature-grid > * {
+    direction: ltr;
+  }
+
+  .feature-text {
+    max-width: 480px;
+  }
+
+  .feature-tag {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    color: var(--violet);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 5px 14px;
+    background: var(--bg-tint);
+    border-radius: 999px;
+  }
+
+  /* Theme overrides re-mapped to the new cool→warm palette.
+     theme-cyan → cool / cobalt section
+     theme-violet → mid / lime accent section
+     theme-indigo → warm / orange section
+     The class names are kept (so HTML doesn't change) but they now
+     mean cool/mid/warm instead of cyan/violet/indigo. */
+  .feature.theme-cyan .feature-tag { color: var(--primary); background: var(--bg-cool); }
+  .feature.theme-violet .feature-tag { color: #5C8B1E; background: rgba(139, 212, 60, 0.14); }
+  .feature.theme-indigo .feature-tag { color: var(--warm-orange-deep); background: var(--bg-tint); }
+
+  .feature-text h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 38px);
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.005em;
+  }
+
+  .feature-text p {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .feature-bullets {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .feature-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .feature-bullets li::before {
+    content: "»";
+    color: var(--violet);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  .feature.theme-cyan .feature-bullets li::before { color: var(--primary); }
+  .feature.theme-violet .feature-bullets li::before { color: #5C8B1E; }
+  .feature.theme-indigo .feature-bullets li::before { color: var(--warm-orange-deep); }
+
+  /* ============ ANIMATION TRIGGERS ============ */
+  .reveal {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.from-left { transform: translateX(-60px); }
+  .reveal.from-right { transform: translateX(60px); }
+  .reveal.from-bottom { transform: translateY(40px); }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .hero-logo, .hero-tagline, .hero-laptop, .hero-split, .hero h1, .hero-subtitle, .hero-ctas, .hero-status, .hero-rails, .hero-chevrons {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+
+  /* ============ FEATURE VISUALS — CSS-DRAWN MOCKUPS ============ */
+  .feature-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* Generic mockup container */
+  .mock {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    padding: 18px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+  }
+
+  .feature-visual {
+    overflow: hidden;
+  }
+
+  .mock-window-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-window-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .mock-window-dot:nth-child(1) { background: #fc6058; }
+  .mock-window-dot:nth-child(2) { background: #fdbc40; }
+  .mock-window-dot:nth-child(3) { background: #34c84a; }
+
+  /* Decorative blob behind every mockup — re-tinted to brand:
+     cool cobalt corner + warm orange corner = same cool→warm story
+     repeated at smaller scale behind each feature visual. */
+  .feature-visual::before {
+    content: "";
+    position: absolute;
+    inset: -12% -8% -8% -12%;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(27, 43, 194, 0.14) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255, 140, 42, 0.18) 0%, transparent 55%);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(20px);
+  }
+
+  /* === MOCKUP 1: SEARCH & FILTERS === */
+  .mock-search {
+    inset: 8% 6%;
+    z-index: 2;
+  }
+
+  .mock-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-soft);
+    border: 1.5px solid var(--primary);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+
+  .mock-search-bar svg { width: 18px; height: 18px; color: var(--primary); flex-shrink: 0; }
+  .mock-search-bar .text {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mock-search-bar .cursor {
+    width: 1.5px;
+    height: 14px;
+    background: var(--primary);
+    animation: blink 1s steps(2) infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .mock-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .mock-chip {
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--bg-tint);
+    color: var(--primary);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .mock-chip.active {
+    background: linear-gradient(135deg, var(--primary), var(--violet));
+    color: white;
+  }
+
+  .mock-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .mock-result-card {
+    background: var(--bg-soft);
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .mock-result-img {
+    height: 36px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+
+  .mock-result-card:nth-child(1) .mock-result-img { background: linear-gradient(135deg, #ffd6e7, #ffb0c8); }
+  .mock-result-card:nth-child(2) .mock-result-img { background: linear-gradient(135deg, #c5d4ff, #9eb5ff); }
+  .mock-result-card:nth-child(3) .mock-result-img { background: linear-gradient(135deg, #d4f5d8, #a6e6ad); }
+
+  .mock-bar { height: 5px; background: var(--border); border-radius: 999px; }
+  .mock-bar.short { width: 60%; }
+  .mock-bar.medium { width: 80%; }
+  .mock-bar.long { width: 100%; }
+
+  .mock-result-card .mock-bar { margin-bottom: 4px; }
+
+  /* === MOCKUP 2: CART & CHECKOUT === */
+  .mock-cart {
+    inset: 6% 8% 14% 8%;
+    z-index: 2;
+  }
+
+  .mock-cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-cart-header .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .mock-cart-header .count {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg-tint);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .mock-cart-item {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-cart-item:last-of-type { border-bottom: none; }
+
+  .mock-cart-item .img {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+
+  .mock-cart-item:nth-of-type(1) .img { background: linear-gradient(135deg, #d4ecf9, #a3d5f0); }
+  .mock-cart-item:nth-of-type(2) .img { background: linear-gradient(135deg, #ffe4c5, #ffc796); }
+  .mock-cart-item:nth-of-type(3) .img { background: linear-gradient(135deg, #e9d8ff, #c8a6ff); }
+
+  .mock-cart-item .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mock-cart-item .price {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--primary);
+  }
+
+  .mock-voucher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, rgba(255, 140, 42, 0.14), rgba(255, 140, 42, 0.06));
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 11.5px;
+    color: #1d8eb0;
+    font-weight: 600;
+  }
+
+  .mock-cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 2px solid var(--primary);
+  }
+
+  .mock-cart-total .label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .mock-cart-total .value {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--primary);
+  }
+
+  .mock-checkout-btn {
+    display: block;
+    margin-top: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--violet));
+    color: white;
+    text-align: center;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    box-shadow: 0 6px 16px rgba(14, 18, 32, 0.16);
+  }
+
+  /* === MOCKUP 3: PAYMENT METHODS === */
+  .mock-payments {
+    inset: 8% 4%;
+    z-index: 2;
+  }
+
+  .mock-payment-card {
+    position: relative;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    color: white;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition);
+  }
+
+  .mock-payment-card:hover { transform: translateX(4px); }
+
+  .mock-payment-card.stripe {
+    background: linear-gradient(135deg, #635bff 0%, #8b87ff 100%);
+  }
+
+  .mock-payment-card.bt {
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+  }
+
+  .mock-payment-card.cod {
+    background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
+  }
+
+  .mock-payment-card .label {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+
+  .mock-payment-card .name {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .mock-payment-card .desc {
+    font-size: 11.5px;
+    opacity: 0.9;
+  }
+
+  .mock-payment-card .icon {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-size: 22px;
+  }
+
+  .mock-payment-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--bg-tint);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .mock-payment-flow .arrow { color: var(--violet); }
+
+  /* === MOCKUP 4: INVOICE === */
+  .mock-invoice {
+    inset: 6% 12%;
+    z-index: 2;
+    background: white;
+    transform: rotate(-2deg);
+    overflow: visible;
+  }
+
+  .mock-invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .mock-invoice-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .mock-invoice-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .mock-invoice-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-invoice-meta .field {
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .mock-invoice-meta .value {
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mock-invoice-rows {
+    margin-bottom: 14px;
+  }
+
+  .mock-invoice-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 11px;
+    color: var(--ink);
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  .mock-invoice-row .qty {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+  }
+
+  .mock-invoice-row .amt {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .mock-invoice-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 8px;
+    border-top: 2px solid var(--primary);
+  }
+
+  .mock-invoice-total .label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .mock-invoice-total .value {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--primary);
+  }
+
+  .mock-stamp {
+    position: absolute;
+    bottom: -12px;
+    right: -16px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transform: rotate(8deg);
+    box-shadow: 0 8px 20px rgba(14, 18, 32, 0.16);
+    z-index: 3;
+  }
+
+  /* === MOCKUP 5: REFUND FLOW === */
+  .mock-refund-flow {
+    inset: 12% 4%;
+    z-index: 2;
+  }
+
+  .mock-flow-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    margin-bottom: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .mock-flow-step .num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--violet));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .mock-flow-step .info {
+    flex: 1;
+  }
+
+  .mock-flow-step .label {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .mock-flow-step .desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .mock-flow-arrow {
+    text-align: center;
+    color: var(--violet);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    margin: 2px 0;
+    line-height: 1;
+  }
+
+  /* === MOCKUP 6: EMAIL COMPOSER === */
+  .mock-email {
+    inset: 6% 4%;
+    z-index: 2;
+    padding: 14px;
+  }
+
+  .mock-email-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-email-tab {
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .mock-email-tab.active {
+    background: var(--bg-tint);
+    color: var(--primary);
+  }
+
+  .mock-email-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 11.5px;
+  }
+
+  .mock-email-field .label {
+    color: var(--muted);
+    font-weight: 600;
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .mock-email-field .value {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mock-email-field .audience-pill {
+    background: linear-gradient(135deg, var(--primary), var(--violet));
+    color: white;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+
+  .mock-email-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px;
+    background: var(--bg-tint);
+    border-radius: 10px;
+  }
+
+  .mock-email-stat {
+    text-align: center;
+  }
+
+  .mock-email-stat .num {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--primary);
+  }
+
+  .mock-email-stat .lbl {
+    font-size: 9.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* === MOCKUP 7: CSV FUZZY MATCH === */
+  .mock-csv {
+    inset: 6% 4%;
+    z-index: 2;
+  }
+
+  .mock-csv-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr 24px;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 11.5px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .mock-csv-row .input {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mock-csv-row .arrow {
+    color: var(--violet);
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+  }
+
+  .mock-csv-row .matched {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .mock-csv-row .badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .mock-csv-row.full .badge {
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+  }
+
+  .mock-csv-row.fuzzy .badge {
+    background: linear-gradient(135deg, var(--accent), #6cdcfa);
+  }
+
+  .mock-csv-row.fuzzy .matched::after {
+    content: " (≈92%)";
+    font-size: 9.5px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .mock-csv-row.unmatched .badge {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+  }
+
+  .mock-csv-row.unmatched .matched {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* === MOCKUP 8: GDPR + AUDIT === */
+  .mock-audit {
+    inset: 6% 4%;
+    z-index: 2;
+  }
+
+  .mock-audit-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mock-audit-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--violet));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .mock-audit-icon svg { width: 20px; height: 20px; }
+
+  .mock-audit-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .mock-audit-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .mock-log-entry {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 10px;
+    background: var(--bg-soft);
+    border-left: 2px solid var(--accent);
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .mock-log-entry:nth-child(2) { border-left-color: var(--primary); }
+  .mock-log-entry:nth-child(3) { border-left-color: var(--violet); }
+  .mock-log-entry:nth-child(4) { border-left-color: #16a085; }
+
+  .mock-log-entry .time {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .mock-log-entry .event {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mock-log-entry .ok {
+    color: #16a085;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* === MOCKUP 9: VAULT / SECRETS === */
+  .mock-vault {
+    inset: 8% 4%;
+    z-index: 2;
+  }
+
+  .mock-vault-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .mock-vault-card {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: white;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .mock-vault-card.before {
+    background: linear-gradient(135deg, #fef9f4 0%, #ffffff 100%);
+    border-color: #f5e6d3;
+  }
+
+  .mock-vault-card.after {
+    background: linear-gradient(135deg, var(--bg-tint) 0%, white 100%);
+    border-color: rgba(139, 212, 60, 0.35);
+  }
+
+  .mock-vault-card .label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .mock-vault-card.before .label { color: #c4732a; }
+  .mock-vault-card.after .label { color: var(--primary); }
+
+  .mock-vault-card .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    word-break: break-all;
+    line-height: 1.4;
+  }
+
+  .mock-vault-card.after .value {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .mock-vault-key {
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .mock-vault-key svg {
+    width: 36px;
+    height: 36px;
+    color: var(--violet);
+  }
+
+  .mock-vault-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: var(--bg-tint);
+    border-radius: 10px;
+    margin-top: 6px;
+  }
+
+  .mock-vault-stat {
+    text-align: center;
+  }
+
+  .mock-vault-stat .num {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--primary);
+  }
+
+  .mock-vault-stat .lbl {
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    background: linear-gradient(180deg, transparent 0%, var(--bg-soft) 50%, transparent 100%);
+  }
+
+  .about-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 56px;
+    align-items: start;
+    background: var(--card);
+    border-radius: 28px;
+    padding: 56px 48px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .about-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--accent), var(--violet));
+    box-shadow: 0 24px 56px rgba(14, 18, 32, 0.14);
+    border: 6px solid white;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-name {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+
+  .about-role {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--violet);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .about p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .pill {
+    display: inline-block;
+    background: var(--bg-tint);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ============ CONTACT ============ */
+  /* Contact sits at the warm-end of the page narrative — soft warm
+     orange wash on top, fading to the warm paper bg. Closes the
+     cool→warm scroll story: visitor arrived at the destination. */
+  .contact {
+    background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%);
+    text-align: center;
+  }
+
+  .contact h2 { color: var(--primary); }
+
+  .contact-tagline {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 28px auto 48px;
+    line-height: 1.55;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 32px 18px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    color: var(--ink);
+  }
+
+  .contact-card svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary);
+  }
+
+  .contact-card.cta {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--violet) 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-cta);
+  }
+
+  .contact-card.cta:hover {
+    color: white;
+    box-shadow: 0 18px 40px rgba(14, 18, 32, 0.20);
+  }
+
+  .contact-card.cta svg { color: var(--accent); }
+
+  /* ============ FOOTER ============ */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 48px 0;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 0.02em;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+  .footer-logo-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    color: #FF8B32;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    text-justify: inter-character;
+  }
+
+  .site-footer p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .feature-grid { grid-template-columns: 1fr; gap: 60px; }
+    .feature.reverse .feature-grid { direction: ltr; }
+    .feature-text { max-width: 100%; text-align: center; margin: 0 auto; }
+    .feature-bullets li { text-align: left; }
+    .feature-visual { max-width: 480px; }
+    .about-card { grid-template-columns: 200px 1fr; gap: 40px; padding: 40px; }
+    .about-photo { width: 200px; height: 200px; }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    /* Sticky nav — opaque + smaller */
+    .site-header { background: rgba(250, 251, 253, 0.97); }
+    .site-header.scrolled { background: white; }
+    .site-header .container { height: 72px; }
+    .nav-logo { font-size: 19px; gap: 4px; }
+    .nav-logo svg { width: 24px; height: 24px; }
+    .nav-logo-row { gap: 9px; }
+    .nav-tagline { font-size: 7.5px; }
+    .nav-right { gap: 6px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .nav-cta { padding: 7px 12px !important; font-size: 12.5px !important; margin-left: 4px; }
+    .lang-toggle { margin-left: 6px; padding: 2px; }
+    .lang-toggle button { padding: 4px 9px; font-size: 11px; }
+
+    /* Hero */
+    .hero { padding: 70px 0 90px; }
+    .hero-logo { margin-bottom: 40px; gap: 8px; }
+    .hero-logo-row { gap: 12px; }
+    .hero-logo-row svg { width: 48px; height: 48px; }
+    .hero-wordmark { font-size: 32px; }
+    .hero-tagline { font-size: 9px; }
+
+    /* Section spacing */
+    section { padding: 70px 0; }
+    .feature { padding: 70px 0; }
+    .section-header { margin-bottom: 56px; }
+    .feature-grid { gap: 48px !important; }
+
+    /* About */
+    .about-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 32px 24px;
+      gap: 28px;
+    }
+    .about-photo { width: 180px; height: 180px; margin: 0 auto; }
+    .trust-pills { justify-content: center; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+
+    /* Feature mockup — square gives content-heavy mockups (payments, audit log) enough vertical room */
+    .feature-visual {
+      aspect-ratio: 1 / 1;
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    /* Section tag chips — reduce letter-spacing so they fit narrow viewports */
+    .section-tag { letter-spacing: 0.14em; font-size: 10.5px; padding: 5px 12px; }
+    .feature-tag { letter-spacing: 0.14em; font-size: 10.5px; padding: 4px 11px; }
+    /* Mockup content scaling — make text smaller inside mockups so it fits */
+    .mock { padding: 12px; font-size: 13px; }
+    .mock-window-bar { margin-bottom: 10px; padding-bottom: 8px; }
+    .mock-search-bar { padding: 9px 12px; margin-bottom: 12px; }
+    .mock-search-bar .text { font-size: 12px; }
+    .mock-chip { font-size: 10px; padding: 4px 9px; }
+    .mock-result-img { height: 28px; }
+    .mock-cart-item { padding: 7px 0; }
+    .mock-cart-item .img { width: 28px; height: 28px; }
+    .mock-cart-item .price { font-size: 11px; }
+    .mock-payment-card { padding: 11px 13px; margin-bottom: 7px; }
+    .mock-payment-card .name { font-size: 12.5px; }
+    .mock-payment-card .desc { font-size: 9.5px; }
+    .mock-payment-card .label { font-size: 9.5px; }
+    .mock-payment-card .icon { font-size: 18px; }
+    .mock-invoice-title { font-size: 14px; }
+    .mock-invoice-num { font-size: 9px; }
+    .mock-invoice-row { font-size: 9.5px; padding: 3px 0; }
+    .mock-invoice-total .value { font-size: 13px; }
+    .mock-flow-step { padding: 9px 11px; margin-bottom: 5px; }
+    .mock-flow-step .label { font-size: 9.5px; }
+    .mock-flow-step .desc { font-size: 9.5px; }
+    .mock-flow-step .num { width: 22px; height: 22px; font-size: 9.5px; }
+    .mock-csv-row { padding: 6px 9px; font-size: 10px; }
+    .mock-csv-row .badge { width: 18px; height: 18px; font-size: 10px; }
+    .mock-audit-header { margin-bottom: 10px; padding-bottom: 7px; }
+    .mock-audit-icon { width: 28px; height: 28px; border-radius: 7px; }
+    .mock-audit-icon svg { width: 16px; height: 16px; }
+    .mock-audit-title { font-size: 11px; }
+    .mock-audit-subtitle { font-size: 9.5px; }
+    .mock-log-entry { font-size: 9.5px; padding: 6px 8px; margin-bottom: 4px; }
+    .mock-log-entry .time { font-size: 9px; }
+    .mock-log-entry .event-mid { display: none; }
+    .mock-vault-card { padding: 10px; }
+    .mock-vault-card .label { font-size: 9px; }
+    .mock-vault-card .value { font-size: 9.5px; }
+    .mock-vault-stats { padding: 7px; gap: 4px; }
+    .mock-vault-stat .num { font-size: 13px; }
+    .mock-vault-stat .lbl { font-size: 7.5px; }
+    .mock-email-tab { font-size: 9px; padding: 3px 8px; }
+    .mock-email-field { font-size: 10px; padding: 6px 0; }
+    .mock-email-field .label { width: 50px; }
+    .mock-email-field .audience-pill { font-size: 8.5px; padding: 2px 8px; }
+    .mock-email-stats { padding: 7px; gap: 4px; }
+    .mock-email-stat .num { font-size: 14px; }
+    .mock-email-stat .lbl { font-size: 7.5px; }
+  }
+
+  @media (max-width: 480px) {
+    /* Hard guard: no element ever overflows viewport horizontally */
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    .container { padding: 0 14px; }
+    /* Tag chips — allow wrap, smaller spacing, smaller font */
+    .section-tag, .feature-tag {
+      letter-spacing: 0.08em !important;
+      font-size: 10px !important;
+      padding: 4px 10px !important;
+      white-space: normal;
+      max-width: 100%;
+      line-height: 1.3;
+    }
+    .site-header .container { height: 64px; }
+    .nav-logo { font-size: 15px; gap: 3px; }
+    .nav-logo svg { width: 20px; height: 20px; }
+    .nav-logo-row { gap: 7px; }
+    .nav-tagline { font-size: 6.5px; }
+    .nav-cta { padding: 6px 10px !important; font-size: 11.5px !important; }
+    .lang-toggle button { padding: 4px 8px; font-size: 10.5px; }
+
+    .hero { padding: 50px 0 70px; }
+    .hero-logo { margin-bottom: 32px; }
+    .hero-logo-row { gap: 10px; }
+    .hero-logo-row svg { width: 40px; height: 40px; }
+    .hero-wordmark { font-size: 26px; letter-spacing: 0.02em; }
+    .hero-tagline { font-size: 8px; letter-spacing: 0.14em !important; }
+    .hero h1 { font-size: 22px; line-height: 1.2; }
+    .hero-subtitle { font-size: 16px; }
+    .hero-status { font-size: 11.5px; padding: 7px 14px; }
+
+    section h2, .section-header h2 { font-size: 26px; }
+    .feature-text h3 { font-size: 22px; }
+    .feature-text p { font-size: 15px; }
+    .feature-bullets li { font-size: 14px; }
+    .feature-grid { gap: 36px !important; }
+    .hero-chevrons { bottom: 18px; right: 18px; }
+    .hero-chevrons span { font-size: 22px; }
+
+    /* Feature mockup adjusted aspect for narrowest screens */
+    .feature-visual { aspect-ratio: 1 / 1; }
+  }
+
+  /* ============ RESULTS / CASE STUDY ============ */
+  .results { background: var(--bg-soft); }
+  .results .hl { color: var(--warm-orange); }
+  .results-sub { font-size: 18px; color: var(--muted); line-height: 1.6; }
+
+  .score-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 840px;
+    margin: 0 auto 22px;
+  }
+  .score { position: relative; text-align: center; }
+  .score svg {
+    width: 132px; height: 132px;
+    transform: rotate(-90deg);
+    overflow: visible;
+  }
+  .score-track {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 9;
+  }
+  .score-fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+  .score-num {
+    position: absolute;
+    top: 66px; left: 0; right: 0;
+    transform: translateY(-50%);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink);
+    pointer-events: none;
+  }
+  .score-lbl {
+    display: block;
+    margin-top: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .score-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted-2);
+    margin-bottom: 72px;
+  }
+  .score-note a { color: var(--primary); font-weight: 600; }
+
+  .case {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 48px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 88px;
+  }
+  .case-head { max-width: 720px; margin-bottom: 40px; }
+  .case-head h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(20px, 2.4vw, 27px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    text-transform: none;
+  }
+  .case-head p { font-size: 17px; line-height: 1.65; color: var(--muted); }
+
+  .case-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-light);
+  }
+  .case-fact { text-align: center; }
+  .case-num {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.1;
+  }
+  .case-den { font-size: 0.5em; color: var(--muted-2); }
+  .case-lbl {
+    display: block;
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .case-quote {
+    margin: 40px 0 0;
+    padding: 28px 32px;
+    background: var(--bg-tint);
+    border-left: 4px solid var(--warm-orange);
+    border-radius: 0 16px 16px 0;
+  }
+  .case-quote p { font-size: 18px; line-height: 1.6; color: var(--ink-2); font-style: italic; }
+  .case-quote cite { display: block; margin-top: 14px; font-size: 14px; color: var(--muted); font-style: normal; }
+
+  .audit {
+    margin-top: 56px;
+    padding: 34px 32px;
+    background: var(--bg-tint);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+  }
+  .audit-head { text-align: center; margin-bottom: 30px; }
+  .audit-head h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(19px, 2.2vw, 26px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .audit-head p {
+    max-width: 640px;
+    margin: 12px auto 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .audit-grades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 460px;
+    margin: 0 auto 34px;
+  }
+  .audit-grade { text-align: center; }
+  .audit-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--primary);
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+  }
+  .audit-lbl { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); }
+  .audit-checks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px 26px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-light);
+  }
+  .audit-check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .audit-check::before {
+    content: '\2713';
+    flex: 0 0 auto;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .audit-note {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted-2);
+  }
+  @media (max-width: 860px) {
+    .audit { padding: 28px 20px; }
+    .audit-checks { grid-template-columns: repeat(2, 1fr); gap: 12px 20px; }
+  }
+  @media (max-width: 560px) {
+    .audit-checks { grid-template-columns: 1fr; }
+  }
+
+  .gain-head { text-align: center; margin-bottom: 48px; }
+  .gain-head h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .gain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .gain {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 36px 32px;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .gain:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .gain-icon { font-size: 22px; color: var(--warm-orange); margin-bottom: 16px; line-height: 1; }
+  .gain h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .gain p { font-size: 15.5px; line-height: 1.68; color: var(--muted); }
+
+  @media (max-width: 1024px) {
+    .gain-grid { grid-template-columns: 1fr; }
+    .case { padding: 36px 28px; }
+  }
+  @media (max-width: 768px) {
+    .score-row { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+    .case-facts { grid-template-columns: repeat(2, 1fr); gap: 26px 16px; }
+  }
+  @media (max-width: 480px) {
+    .score svg { width: 108px; height: 108px; }
+    .score-num { top: 54px; font-size: 28px; }
+    .case { padding: 28px 20px; }
+  }
+
+  
+  .ps-legend {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin: 4px 0 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .ps-legend i { font-style: normal; margin-right: 6px; font-size: 11px; }
+  .ps-bad  { color: #C83F36; }
+  .ps-mid  { color: #E8A317; }
+  .ps-good { color: #2E7D32; }
+
+  
+  .case-author { display: flex; align-items: center; gap: 18px; margin-top: 24px; }
+  .case-avatar {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 140px;
+    border: 2px solid var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+  .case-author cite { display: block; margin: 0; font-style: normal; }
+  .case-author cite strong { display: block; font-size: 20px; font-weight: 700; color: var(--ink); }
+  .case-author cite span { display: block; font-size: 16px; color: var(--muted); margin-top: 5px; }
+  /* biotu.ro e link, dar arată ca text simplu — fără albastru, fără
+     subliniere. Afordanța de link apare doar la hover/focus, ca să nu
+     concureze vizual cu adresa de email de dedesubt. */
+  .case-site {
+    display: block;
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 5px;
+    text-decoration: none;
+    transition: color .15s ease;
+  }
+  .case-site:hover,
+  .case-site:focus-visible { color: var(--primary); text-decoration: underline; }
+  .case-mail { display: inline-block; margin-top: 8px; font-size: 14.5px; color: var(--primary); text-decoration: none; font-weight: 600; }
+  .case-mail:hover { text-decoration: underline; }
+
+  /* Pe telefon, avatarul de 140px + numele pe două rânduri nu încap unul
+     lângă altul — numele se rupe urât ("Elena / Săulescu") și emailul
+     ajunge lipit de marginea cardului. Sub 560px trecem pe coloană:
+     poza deasupra, datele dedesubt, totul centrat. */
+  @media (max-width: 560px) {
+    .case-author {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .case-avatar {
+      width: 104px; height: 104px;
+      flex: 0 0 104px;
+    }
+    .case-author cite strong { font-size: 18px; }
+    .case-mail { word-break: break-word; }
+  }
+
+  /* Ecrane foarte înguste (320–380px: iPhone SE, Android mici).
+     Antetul avea 347px de conținut într-un ecran de 320px, deci butonul
+     „RO" ieșea complet în afara ecranului — un vizitator român nu putea
+     comuta limba. Strângem logo, CTA și comutatorul de limbă cât să încapă. */
+  @media (max-width: 380px) {
+    .site-header .container { padding: 0 2%; }
+    .nav-logo { font-size: 13px; gap: 2px; }
+    .nav-logo svg { width: 18px; height: 18px; }
+    .nav-logo-row { gap: 5px; }
+    .nav-cta { padding: 5px 8px !important; font-size: 10.5px !important; margin-left: 2px; }
+    .lang-toggle { margin-left: 3px; padding: 1px; }
+    .lang-toggle button { padding: 3px 6px; font-size: 10px; }
+  }
+
+    .nav-wordmark strong, .footer-wordmark strong { color: #3945E6; font: inherit; }
+  .nav-wordmark small, .footer-wordmark small { font-size: .58em; font-weight: 700; letter-spacing: .01em; }
+  .footer-wordmark strong { color: #8E98FF; }
+  /* VidGo brand refinement: one unified wordmark + friendly organic product frame */
+  .nav-wordmark,
+  .footer-wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .34em;
+    white-space: nowrap;
+  }
+  .nav-wordmark strong,
+  .nav-wordmark small,
+  .footer-wordmark strong,
+  .footer-wordmark small {
+    font: inherit;
+    font-size: 1em;
+    line-height: 1;
+    letter-spacing: .01em;
+  }
+  .nav-wordmark strong { color: #3945E6; }
+  .nav-wordmark small { color: var(--ink); }
+  .footer-wordmark strong { color: #8E98FF; }
+  .footer-wordmark small { color: #fff; }
+
+  .hero-split-visual {
+    isolation: isolate;
+    min-height: clamp(390px, 42vw, 610px);
+    align-items: center;
+    padding: clamp(38px, 5vw, 72px);
+    border: 1px solid rgba(142, 152, 255, .22);
+    border-radius: 38% 62% 55% 45% / 44% 38% 62% 56%;
+    background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(244,243,255,.93));
+    box-shadow: 0 35px 90px rgba(0, 0, 0, .24), inset 0 0 70px rgba(117, 88, 238, .08);
+    animation: vidgoBubbleFloat 7s ease-in-out infinite;
+  }
+  .hero-split-visual::before {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    z-index: -1;
+    border: 1px dashed rgba(57, 69, 230, .2);
+    border-radius: 50%;
+  }
+  .hero-split-visual::after {
+    content: "";
+    position: absolute;
+    width: clamp(42px, 6vw, 78px);
+    aspect-ratio: 1;
+    height: auto;
+    top: 3%;
+    right: 10%;
+    bottom: auto;
+    z-index: 2;
+    border-radius: 50%;
+    background: #FF8B32;
+    filter: none;
+    box-shadow: 0 12px 30px rgba(255, 139, 50, .28);
+  }
+  .hero-split-laptop {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-1.2deg);
+    filter: drop-shadow(0 24px 35px rgba(16, 18, 47, .22));
+  }
+  @keyframes vidgoBubbleFloat {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-9px) rotate(.7deg); }
+  }
+  @media (max-width: 1024px) {
+    .hero-split-visual { min-height: min(620px, 84vw); }
+  }
+  @media (max-width: 520px) {
+    .nav-wordmark { gap: .25em; }
+    .nav-tagline { letter-spacing: .11em; }
+    .hero-split-visual { padding: 30px; min-height: 350px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-split-visual { animation: none; }
+  }  /* The organic shape belongs to the VidGo mark itself. */
+  /* Official VidGo Technologies logo — one SVG carrying the wordmark, the
+     TECHNOLOGIES tagline and the arrow symbol (assets/vidgo-logo.svg). */
+  .vidgo-logo { display:block; height:auto; flex:0 0 auto; }
+  /* height:auto must be repeated here to outrank the old `.nav-logo svg`
+     32px sizing rules, which would squash the inline logo. */
+  .nav-logo .vidgo-logo { width:216px; height:auto; }
+  /* Footer sits on dark ink — render the logo as a white silhouette there. */
+  .footer-logo .vidgo-logo { width:200px; height:auto; filter:brightness(0) invert(1); }
+  @media (max-width:520px) {
+    .nav-logo .vidgo-logo { width:158px; }
+    .footer-logo .vidgo-logo { width:158px; }
+  }
+  /* Hero visual: the original skin bubble with the laptop inside — its CSS
+     lives in the earlier .hero-split-visual block, untouched. */
+
+  /* Embedded Eurostile for the TECHNOLOGIES tagline inside the inline logo SVG.
+     Fonts never load inside SVG-as-<img>, which is why the logo is inlined. */
+  @font-face { font-family: 'Eurostile Tech Embedded'; src: url(data:font/woff2;base64,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) format('woff2'); font-weight: 600; }
+</style>
+</head>
+<body data-lang="en">
+
+<!-- ============ STICKY NAV ============ -->
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="#" class="nav-logo" aria-label="VidGo Technology home">
+      <span class="nav-logo-row">
+        <svg class="vidgo-logo" viewBox="35 240 1220 215" width="1220" height="215" role="img" aria-label="VidGo Technologies"><defs>
+    
+    <linearGradient id="arrow-navy-gradient" x1="820" y1="0" x2="1145" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#174b9a"/>
+      <stop offset="0.42" stop-color="#082f7c"/>
+      <stop offset="1" stop-color="#011e64"/>
+    </linearGradient>
+  </defs>
+  <g fill-rule="evenodd" clip-rule="evenodd">
+    <path fill="#011e64" d="M555.06,248.34L627.00,249.00L627.00,261.54Q627.00,268.00 623.94,272.08L621.06,275.92Q618.00,280.00 616.30,280.68L614.70,281.32Q613.00,282.00 582.74,282.00L554.26,282.00Q524.00,282.00 520.60,283.02L517.40,283.98Q514.00,285.00 511.28,287.38L508.72,289.62Q506.00,292.00 504.30,297.44L502.70,302.56Q501.00,308.00 501.00,317.52L501.00,326.48Q501.00,336.00 502.02,340.08L502.98,343.92Q504.00,348.00 506.38,351.06L508.62,353.94Q511.00,357.00 514.40,358.36L517.60,359.64Q521.00,361.00 543.78,360.66L588.00,360.00L587.00,336.00L561.26,336.00Q548.00,336.00 546.30,334.98L543.00,333.00L542.00,310.00L544.00,308.00L627.00,308.00L627.66,347.60Q628.00,368.00 626.98,372.08L626.02,375.92Q625.00,380.00 621.94,383.40L619.06,386.60Q616.00,390.00 610.56,391.70L605.44,393.30Q600.00,395.00 569.40,395.00L540.60,395.00Q510.00,395.00 501.84,392.28L494.16,389.72Q486.00,387.00 481.58,382.92L477.42,379.08Q473.00,375.00 469.94,368.88L467.06,363.12Q464.00,357.00 462.64,348.84L461.36,341.16Q460.00,333.00 460.00,325.52L460.00,318.48Q460.00,311.00 461.70,302.16L463.30,293.84Q465.00,285.00 467.72,279.90L470.28,275.10Q473.00,270.00 476.74,266.26L480.26,262.74Q484.00,259.00 489.78,256.28L495.22,253.72Q501.00,251.00 506.78,249.98L512.22,249.02Q518.00,248.00 555.06,248.34ZM245.70,249.34L249.00,250.00L247.68,254.62Q247.00,257.00 221.16,303.58L171.00,394.00L116.00,394.00L114.02,392.02Q113.00,391.00 88.18,343.74L64.82,299.26Q40.00,252.00 40.00,251.66L40.00,251.34Q40.00,251.00 40.00,250.66L40.00,250.00L88.00,250.00L142.00,353.00L145.00,354.00L182.62,286.68Q202.00,252.00 202.68,251.32L204.00,250.00L230.40,249.34Q244.00,249.00 245.70,249.34ZM411.00,250.00L445.00,251.00L444.00,393.00L411.00,394.00L410.00,384.00L402.74,389.28Q399.00,392.00 390.50,393.36L382.50,394.64Q374.00,396.00 365.50,395.66L357.50,395.34Q349.00,395.00 342.54,392.96L336.46,391.04Q330.00,389.00 325.58,384.58L321.42,380.42Q317.00,376.00 314.96,369.54L313.04,363.46Q311.00,357.00 311.00,347.14L311.00,337.86Q311.00,328.00 313.72,320.52L316.28,313.48Q319.00,306.00 323.76,301.92L328.24,298.08Q333.00,294.00 339.46,292.30L345.54,290.70Q352.00,289.00 365.60,289.34L378.40,289.66Q392.00,290.00 397.78,292.72L409.00,298.00L409.00,252.00L411.00,250.00ZM701.68,289.34L718.32,289.66Q736.00,290.00 741.10,291.70L745.90,293.30Q751.00,295.00 755.08,298.74L758.92,302.26Q763.00,306.00 765.38,312.12L767.62,317.88Q770.00,324.00 770.34,333.52L770.66,342.48Q771.00,352.00 769.64,358.12L768.36,363.88Q767.00,370.00 762.58,375.78L758.42,381.22Q754.00,387.00 745.84,389.72L738.16,392.28Q730.00,395.00 713.68,395.00L698.32,395.00Q682.00,395.00 675.20,392.96L668.80,391.04Q662.00,389.00 657.92,385.26L654.08,381.74Q650.00,378.00 648.30,374.60L646.70,371.40Q645.00,368.00 643.98,361.54L643.02,355.46Q642.00,349.00 643.02,338.12L643.98,327.88Q645.00,317.00 647.72,312.24L650.28,307.76Q653.00,303.00 655.38,300.96L657.62,299.04Q660.00,297.00 668.16,294.28L675.84,291.72Q684.00,289.00 701.68,289.34ZM257.00,292.00L293.00,292.00L292.00,394.00L257.00,393.00L257.00,292.00ZM360.94,319.02L358.06,319.98Q355.00,321.00 352.96,323.38L351.04,325.62Q349.00,328.00 348.66,336.50L348.34,344.50Q348.00,353.00 349.02,355.38L349.98,357.62Q351.00,360.00 353.38,361.70L355.62,363.30Q358.00,365.00 361.06,365.68L363.94,366.32Q367.00,367.00 373.80,367.00L380.20,367.00Q387.00,367.00 392.10,365.64L396.90,364.36Q402.00,363.00 404.38,359.26L406.62,355.74Q409.00,352.00 408.32,343.16L407.00,326.00L402.38,322.04Q400.00,320.00 397.28,319.32L394.72,318.68Q392.00,318.00 382.48,318.00L373.52,318.00Q364.00,318.00 360.94,319.02ZM690.60,319.36L687.40,320.64Q684.00,322.00 682.30,325.40L680.70,328.60Q679.00,332.00 679.00,338.80L679.00,345.20Q679.00,352.00 680.02,354.72L680.98,357.28Q682.00,360.00 684.04,361.70L685.96,363.30Q688.00,365.00 691.40,365.68L694.60,366.32Q698.00,367.00 703.78,367.00L709.22,367.00Q715.00,367.00 719.42,365.64L723.58,364.36Q728.00,363.00 729.70,360.96L731.30,359.04Q733.00,357.00 733.68,353.94L734.32,351.06Q735.00,348.00 733.98,340.18L732.00,325.00L724.74,320.38Q721.00,318.00 711.82,318.00L703.18,318.00Q694.00,318.00 690.60,319.36Z"/>
+    <path fill="url(#arrow-navy-gradient)" d="M993.00,255.00L1031.28,255.00Q1051.00,255.00 1055.42,256.70L1059.58,258.30Q1064.00,260.00 1087.12,283.46L1108.88,305.54Q1132.00,329.00 1135.40,333.42L1142.00,342.00L1140.68,350.58Q1140.00,355.00 1115.18,379.82L1091.82,403.18Q1067.00,428.00 1063.26,430.04L1059.74,431.96Q1056.00,434.00 1034.24,434.34L992.00,435.00L990.68,433.02Q990.00,432.00 990.00,429.62L990.00,425.00L1065.00,350.00L1064.34,344.06Q1064.00,341.00 1038.84,315.16L1015.16,290.84Q990.00,265.00 989.66,263.30L989.00,260.00L993.00,255.00ZM921.06,264.34L960.00,265.00L975.18,281.50Q983.00,290.00 983.34,291.36L984.00,294.00L981.00,297.00L921.00,297.00L905.82,281.16Q898.00,273.00 897.66,270.96L897.00,267.00L899.64,265.02Q901.00,264.00 921.06,264.34ZM839.60,265.34L866.00,266.00L886.00,293.00L883.00,297.00L843.00,297.00L829.14,281.16Q822.00,273.00 822.00,271.30L822.00,268.00L824.64,266.02Q826.00,265.00 839.60,265.34ZM867.00,322.00L1009.00,322.00L1020.88,334.54Q1027.00,341.00 1027.34,344.06L1028.00,350.00L1016.00,364.00L893.00,364.00L874.52,342.22Q865.00,331.00 864.66,329.30L864.00,326.00L867.00,322.00ZM924.00,390.00L962.94,390.00Q983.00,390.00 984.02,390.68L986.00,392.00L986.00,397.00L959.00,425.00L901.00,426.00L897.00,422.00L897.66,418.70Q898.00,417.00 906.84,407.82L924.00,390.00Z"/>
+    <path fill="#fd6208" d="M271.86,250.34L291.00,251.00L292.00,278.00L290.02,279.32Q289.00,280.00 279.14,280.00L260.00,280.00L258.68,278.02Q258.00,277.00 258.00,268.84L258.00,253.00L260.64,251.02Q262.00,250.00 271.86,250.34ZM1104.00,256.00L1143.60,256.00Q1164.00,256.00 1166.72,257.02L1169.28,257.98Q1172.00,259.00 1198.52,286.88L1250.00,341.00L1249.34,349.58Q1249.00,354.00 1225.20,378.48L1202.80,401.52Q1179.00,426.00 1175.26,428.38L1171.74,430.62Q1168.00,433.00 1146.92,433.68L1127.08,434.32Q1106.00,435.00 1104.64,433.98L1102.00,432.00L1103.32,426.06Q1104.00,423.00 1129.16,397.50L1178.00,348.00L1176.68,342.72Q1176.00,340.00 1151.18,314.84L1127.82,291.16Q1103.00,266.00 1102.66,263.28L1102.00,258.00L1104.00,256.00Z"/>
+    <text x="52" y="444" textLength="730" lengthAdjust="spacingAndGlyphs"
+          fill="#fd6208" font-family="'Eurostile Tech Embedded', Orbitron, 'Eurostile Extended', sans-serif"
+          font-size="25" font-weight="600" letter-spacing="5">TECHNOLOGIES</text>
+  </g></svg>      </span>    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#features"><span class="t-en">Features</span><span class="t-ro">Funcționalități</span></a></li>
+        <li><a href="#about"><span class="t-en">About</span><span class="t-ro">Despre</span></a></li>
+        <li><a href="#contact" class="nav-cta"><span class="t-en">Book a call</span><span class="t-ro">Programează</span></a></li>
+      </ul>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" class="active">EN</button>
+        <button type="button" data-set-lang="ro">RO</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero hero-split">
+  <div class="hero-split-content">
+    <div class="hero-eyebrow">
+      <span class="t-en">More money in. Less time lost.</span>
+      <span class="t-ro">Mai multi bani. Mai putin timp pierdut.</span>
+    </div>
+
+    <h1 class="hero-split-title">
+      E-COMMERCE
+      <span>
+        <span class="t-en">SIMPLIFIED.</span>
+        <span class="t-ro">SIMPLIFICAT.</span>
+      </span>
+    </h1>
+
+    <p class="hero-split-subtitle">
+      <span class="t-en">Speed turns the traffic you already pay for into orders. Automation takes you out of the daily grind. Compliance comes built in, not as a separate project you pay for twice.</span>
+      <span class="t-ro">Viteza va aduce comenzi din traficul pe care il platiti deja. Automatizarile va scot din munca zilnica. Conformitatea vine inclusa, nu ca un proiect separat, platit in plus.</span>
+    </p>
+
+    <div class="hero-features">
+      <div class="hero-feature hero-feature-orange">
+        <div class="hero-feature-icon">&#9650;</div>
+        <div>
+          <h3><span class="t-en">MONEY from speed and SEO that bring orders</span><span class="t-ro">BANI din viteza si SEO care aduc comenzi</span></h3>
+          <p><span class="t-en">Pages that load fast and a 100/100 SEO score. robots.txt and llms.txt configured, so the shop shows up in ChatGPT and Perplexity answers too, not only in Google.</span><span class="t-ro">Pagini care se incarca rapid si scor 100 la SEO. robots.txt si llms.txt configurate, asa ca magazinul apare si in raspunsurile ChatGPT si Perplexity, nu doar in Google.</span></p>
+        </div>
+      </div>
+
+      <div class="hero-feature hero-feature-orange">
+        <div class="hero-feature-icon">&#11014;</div>
+        <div>
+          <h3><span class="t-en">MONEY from AI-assisted SEO review</span><span class="t-ro">BANI din evaluarea SEO cu AI</span></h3>
+          <p><span class="t-en">Descriptions and metadata are reviewed and optimised automatically. No agency invoice for writing and fixing your own content.</span><span class="t-ro">Descrierile si metadatele sunt evaluate si optimizate automat. Nu mai platiti o agentie ca sa va scrie si sa va corecteze continutul.</span></p>
+        </div>
+      </div>
+
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#9635;</div>
+        <div>
+          <h3><span class="t-en">TIME from invoices issued automatically</span><span class="t-ro">TIMP din facturi emise automat</span></h3>
+          <p><span class="t-en">Invoices go out to the customer on their own, with validated XML for e-Factura. No hours of manual invoicing and no paid corrections at the accountant.</span><span class="t-ro">Facturile pleaca singure catre client, cu XML validat pentru e-Factura. Fara ore de facturare manuala si fara corecturi platite la contabil.</span></p>
+        </div>
+      </div>
+
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#9878;</div>
+        <div>
+          <h3><span class="t-en">TIME from GDPR and current regulations</span><span class="t-ro">TIMP din GDPR si reglementari la zi</span></h3>
+          <p><span class="t-en">Return requests are filed electronically from the customer's own account, as the new rules require. Compliance is already in the platform, not a separate integration.</span><span class="t-ro">Cererea de retur se face electronic, din contul clientului, conform reglementarilor noi. Conformitatea e deja in platforma, nu un proiect separat de integrat.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>100K+</strong>
+        <span><span class="t-en">Products supported</span><span class="t-ro">Produse suportate</span></span>
+      </div>
+      <div class="hero-stat">
+        <strong><span class="t-en">0 plugins</span><span class="t-ro">0 plugin-uri</span></strong>
+        <span><span class="t-en">Nothing to maintain, update or repair</span><span class="t-ro">Nimic de intretinut, actualizat sau reparat</span></span>
+      </div>
+      <div class="hero-stat">
+        <strong><span class="t-en">EU</span><span class="t-ro">UE</span></strong>
+        <span><span class="t-en">Compliant and tax ready</span><span class="t-ro">Conform si pregatit fiscal</span></span>
+      </div>
+    </div>
+
+    <div class="hero-ctas" style="margin-top: 36px;">
+      <a href="#contact" class="btn btn-primary">
+        <span class="t-en">Book a 20-min demo</span>
+        <span class="t-ro">Programeaza un demo de 20 min</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="3,5 11,5 19,12 11,19 3,19 10,12" /></svg>
+      </a>
+      <a href="assets/platform-overview.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        <span class="t-en">View platform performance (PDF)</span>
+        <span class="t-ro">Vezi performanța platformei (PDF)</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-split-visual">
+    <img src="assets/hero-laptop-en.png" alt="E-commerce platform dashboard" class="hero-split-laptop" />
+  </div>
+</section>
+
+<!-- ============ RESULTS / CASE STUDY ============ -->
+<section class="results" id="results">
+  <div class="container">
+
+    <div class="section-header reveal from-bottom">
+      <span class="section-tag">
+        <span class="t-en">Real results</span>
+        <span class="t-ro">Rezultate reale</span>
+      </span>
+      <h2>
+        <span class="t-en">Our <span class="hl">performance</span></span>
+        <span class="t-ro">Performanțele <span class="hl">noastre</span></span>
+      </h2>
+      <p class="results-sub">
+        <span class="t-en">Not a promise — a live shop, measured with Google's own test, on mobile: the harsher of the two, where scores always come out lower.</span>
+        <span class="t-ro">Testele sunt realizate pe un magazin real, în funcțiune, cu instrumentul oficial de la Google. Măsurătorile sunt făcute pe mobil, varianta de test mai severă, unde scorurile ies întotdeauna mai mici decât pe desktop.</span>
+      </p>
+    </div>
+
+    <!-- scores -->
+    <div class="score-row reveal from-bottom">
+      <div class="score">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="score-track" cx="60" cy="60" r="54"></circle>
+          <circle class="score-fill" cx="60" cy="60" r="54" style="stroke-dasharray:322.3 339.3"></circle>
+        </svg>
+        <span class="score-num">95</span>
+        <span class="score-lbl"><span class="t-en">Performance</span><span class="t-ro">Performanță</span></span>
+      </div>
+      <div class="score">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="score-track" cx="60" cy="60" r="54"></circle>
+          <circle class="score-fill" cx="60" cy="60" r="54" style="stroke-dasharray:322.3 339.3"></circle>
+        </svg>
+        <span class="score-num">95</span>
+        <span class="score-lbl"><span class="t-en">Accessibility</span><span class="t-ro">Accesibilitate</span></span>
+      </div>
+      <div class="score">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="score-track" cx="60" cy="60" r="54"></circle>
+          <circle class="score-fill" cx="60" cy="60" r="54" style="stroke-dasharray:339.3 339.3"></circle>
+        </svg>
+        <span class="score-num">100</span>
+        <span class="score-lbl"><span class="t-en">Best practices</span><span class="t-ro">Bune practici</span></span>
+      </div>
+      <div class="score">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="score-track" cx="60" cy="60" r="54"></circle>
+          <circle class="score-fill" cx="60" cy="60" r="54" style="stroke-dasharray:339.3 339.3"></circle>
+        </svg>
+        <span class="score-num">100</span>
+        <span class="score-lbl">SEO</span>
+      </div>
+    </div>
+
+    
+    <div class="ps-legend reveal from-bottom">
+      <span><i class="ps-bad">&#9650;</i> 0&ndash;49</span>
+      <span><i class="ps-mid">&#9632;</i> 50&ndash;89</span>
+      <span><i class="ps-good">&#9679;</i> 90&ndash;100</span>
+    </div>
+
+    <p class="score-note reveal from-bottom">
+      <span class="t-en">Google Lighthouse, mobile · biotu.ro · August 2026 ·
+        <a href="https://pagespeed.web.dev/analysis/https-biotu-ro/rfm4j5d5sj?form_factor=mobile" target="_blank" rel="noopener">check it yourself</a></span>
+      <span class="t-ro">Google Lighthouse, pe mobil · biotu.ro · august 2026 ·
+        <a href="https://pagespeed.web.dev/analysis/https-biotu-ro/rfm4j5d5sj?form_factor=mobile" target="_blank" rel="noopener">verificați dumneavoastră</a></span>
+    </p>
+
+    <!-- independent SEO audit -->
+    <div class="audit reveal from-bottom">
+      <div class="audit-head">
+        <h3>
+          <span class="t-en">Confirmed by an independent SEO audit</span>
+          <span class="t-ro">Confirmat de un audit SEO independent</span>
+        </h3>
+        <p>
+          <span class="t-en">A separate, third-party audit of biotu.ro, run outside Google's own tooling. On every factor the platform is responsible for, it came back at the top of the scale.</span>
+          <span class="t-ro">Un audit realizat de un serviciu independent pentru biotu.ro, în afara instrumentelor Google. La toți factorii de care răspunde platforma, rezultatul a ieșit la vârful scalei.</span>
+        </p>
+      </div>
+
+      <div class="audit-grades">
+        <div class="audit-grade">
+          <span class="audit-letter">A</span>
+          <span class="audit-lbl"><span class="t-en">On-page SEO</span><span class="t-ro">SEO on-page</span></span>
+        </div>
+        <div class="audit-grade">
+          <span class="audit-letter">A</span>
+          <span class="audit-lbl"><span class="t-en">Performance</span><span class="t-ro">Performanță</span></span>
+        </div>
+      </div>
+
+      <div class="audit-checks">
+        <div class="audit-check"><span class="t-en">Title tag at optimal length</span><span class="t-ro">Titlu de pagină la lungimea optimă</span></div>
+        <div class="audit-check"><span class="t-en">Meta description at optimal length</span><span class="t-ro">Descriere meta la lungimea optimă</span></div>
+        <div class="audit-check"><span class="t-en">Canonical tag in place</span><span class="t-ro">Etichetă canonică setată</span></div>
+        <div class="audit-check"><span class="t-en">SSL enabled, HTTPS redirect working</span><span class="t-ro">SSL activ, redirect HTTPS funcțional</span></div>
+        <div class="audit-check"><span class="t-en">robots.txt present, no search engine blocked</span><span class="t-ro">robots.txt prezent, niciun motor de căutare blocat</span></div>
+        <div class="audit-check"><span class="t-en">XML sitemap published</span><span class="t-ro">Sitemap XML publicat</span></div>
+        <div class="audit-check"><span class="t-en">JSON-LD structured data</span><span class="t-ro">Date structurate JSON-LD</span></div>
+        <div class="audit-check"><span class="t-en">Organization schema identified</span><span class="t-ro">Schemă Organization identificată</span></div>
+        <div class="audit-check"><span class="t-en">llms.txt present, AI crawlers allowed</span><span class="t-ro">llms.txt prezent, crawlerele AI au acces</span></div>
+        <div class="audit-check"><span class="t-en">No image missing its alt attribute</span><span class="t-ro">Nicio imagine fără atribut alt</span></div>
+        <div class="audit-check"><span class="t-en">Content structured so AI can parse it</span><span class="t-ro">Conținut structurat, ușor de parcurs de AI</span></div>
+        <div class="audit-check"><span class="t-en">Mobile viewport correctly declared</span><span class="t-ro">Viewport de mobil declarat corect</span></div>
+      </div>
+
+      <p class="audit-note">
+        <span class="t-en">Independent SEO audit &middot; biotu.ro &middot; August 2026. Off-page factors such as backlinks depend on each shop's own marketing and are not covered here.</span>
+        <span class="t-ro">Audit SEO independent &middot; biotu.ro &middot; august 2026. Factorii off-page, precum linkurile externe, țin de promovarea fiecărui magazin și nu sunt acoperiți aici.</span>
+      </p>
+    </div>
+
+    <!-- case study -->
+    <div class="case reveal from-bottom">
+      <div class="case-head">
+        <h3>
+          <span class="t-en">biotu.ro — from PrestaShop to VidGo Technology</span>
+          <span class="t-ro">biotu.ro — de la PrestaShop la VidGo Technology</span>
+        </h3>
+        <p>
+          <span class="t-en">An organic-products shop with a catalogue most platforms actually choke on. Migrated with its products, orders and customers — without closing the shop.</span>
+          <span class="t-ro">Un magazin de produse bio cu un catalog la care majoritatea platformelor se blochează de fapt. Migrat cu produse, comenzi și clienți — fără să oprim vânzările.</span>
+        </p>
+      </div>
+      <div class="case-facts">
+        <div class="case-fact">
+          <span class="case-num">7.010</span>
+          <span class="case-lbl"><span class="t-en">products migrated</span><span class="t-ro">produse migrate</span></span>
+        </div>
+        <div class="case-fact">
+          <span class="case-num"><span class="t-en">May 2026</span><span class="t-ro">mai 2026</span></span>
+          <span class="case-lbl"><span class="t-en">live since</span><span class="t-ro">în funcțiune din</span></span>
+        </div>
+        <div class="case-fact">
+          <span class="case-num">100<span class="case-den">/100</span></span>
+          <span class="case-lbl"><span class="t-en">SEO score</span><span class="t-ro">scor SEO</span></span>
+        </div>
+        <div class="case-fact">
+          <span class="case-num">0</span>
+          <span class="case-lbl"><span class="t-en">incidents reported since launch</span><span class="t-ro">incidente raportate de la lansare</span></span>
+        </div>
+      </div>
+
+            <blockquote class="case-quote">
+        <p>
+          <span class="t-en">"It is so fast I do not have time to blink. I feel like I am not growing old waiting for a product update &mdash; I run hundreds of them in under a second. It has features that make my day-to-day work easier, and the migration was simple: my existing customers were moved across without noticing a thing. I have technology that lets me scale to the size of my catalogue. They made sure everything was implemented properly and they took feedback, even suggestions for features I actually needed. It feels like having your own platform, with real technical support behind it."</span>
+          <span class="t-ro">„E atât de rapidă că nu apuc să clipesc. Simt că nu îmbătrânesc așteptând să se facă un update la produse &mdash; fac sute în sub o secundă. Are funcționalități care îmi ușurează munca de zi cu zi, iar migrarea a fost simplă: clienții vechi au fost mutați fără să observe nimic. Am o tehnologie care îmi permite să cresc la nivelul catalogului meu. Și-au dat interesul ca totul să fie corect implementat și au acceptat feedback, chiar și sugestii de funcționalități care îmi erau utile. E ca și cum ai avea propria platformă, cu sprijin tehnic real în spate."</span>
+        </p>
+        <footer class="case-author">
+          <img src="assets/elena-biotu.jpg" alt="Elena Săulescu, biotu.ro" class="case-avatar" width="140" height="140" loading="lazy" />
+          <cite>
+            <strong>Elena Săulescu</strong>
+            <a class="case-site" href="https://biotu.ro" target="_blank" rel="noopener">biotu.ro</a>
+            <a class="case-mail" href="mailto:contact@biotu.ro">contact@biotu.ro</a>
+          </cite>
+        </footer>
+      </blockquote>
+    </div>
+
+    <!-- what you gain -->
+    <div class="gain-head reveal from-bottom">
+      <h3>
+        <span class="t-en">What you gain by moving</span>
+        <span class="t-ro">Ce câștigați dacă migrați</span>
+      </h3>
+    </div>
+    <div class="gain-grid">
+      <div class="gain reveal from-bottom">
+        <div class="gain-icon">&#9650;</div>
+        <h4><span class="t-en">Visibility</span><span class="t-ro">Vizibilitate</span></h4>
+        <p>
+          <span class="t-en">Google ranks fast sites higher. A 100/100 SEO score means nothing technical is holding you back. And with robots.txt and llms.txt configured, your shop shows up in ChatGPT and Perplexity answers too — where most platforms still don't.</span>
+          <span class="t-ro">Google urcă site-urile rapide. Un scor de 100/100 la SEO înseamnă că nimic tehnic nu vă mai ține în spate. Iar cu robots.txt și llms.txt configurate, magazinul apare și în răspunsurile ChatGPT și Perplexity — unde majoritatea platformelor încă nu ajung.</span>
+        </p>
+      </div>
+      <div class="gain reveal from-bottom">
+        <div class="gain-icon">&#9673;</div>
+        <h4><span class="t-en">Time</span><span class="t-ro">Timp</span></h4>
+        <p>
+          <span class="t-en">Change a price, a text or a photo yourself. Update thousands of products from one file in seconds. No ticket to an agency, no waiting three days for a comma.</span>
+          <span class="t-ro">Schimbați singur un preț, un text sau o poză. Actualizați mii de produse dintr-un singur fișier, în câteva secunde. Fără tichet la agenție și fără să așteptați trei zile pentru o virgulă.</span>
+        </p>
+      </div>
+      <div class="gain reveal from-bottom">
+        <div class="gain-icon">&#9632;</div>
+        <h4><span class="t-en">Money</span><span class="t-ro">Bani</span></h4>
+        <p>
+          <span class="t-en">No per-module subscriptions and no monthly agency invoice for every small edit. And pages that load fast turn the same ad budget into more orders — you are already paying for those visitors.</span>
+          <span class="t-ro">Fără abonamente pe module și fără factură lunară de agenție pentru fiecare modificare. Iar paginile care se încarcă repede transformă același buget de reclame în mai multe comenzi — pe vizitatorii aceia îi plătiți deja.</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ SECTION HEADER ============ -->
+<section id="features" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="section-header reveal from-bottom">
+      <span class="section-tag">
+        <span class="t-en">What's inside</span>
+        <span class="t-ro">Ce contine</span>
+      </span>
+      <h2>
+        <span class="t-en">Every feature, <span class="gradient">already built</span>.</span>
+        <span class="t-ro">Toate functionalitatile, <span class="gradient">deja construite</span>.</span>
+      </h2>
+      <p>
+        <span class="t-en">Everything an ecommerce business needs, already in one app — payments, fiscal compliance, GDPR, audit trails, broadcast email, refund engine, and more. No additional plugins, no app store rent, no integration glue to maintain.</span>
+        <span class="t-ro">Tot ce-i trebuie unei afaceri de ecommerce, deja într-o singură aplicație — plăți, conformitate fiscală, GDPR, trasabilitate, email broadcast, motor de rambursuri și multe altele. Fără plugin-uri, fără chirie la app store, fără integrări fragile de întreținut.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 1: BROWSE & SEARCH ============ -->
+<section class="feature theme-cyan">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-left">
+        <div class="mock mock-search">
+          <div class="mock-window-bar">
+            <div class="mock-window-dot"></div>
+            <div class="mock-window-dot"></div>
+            <div class="mock-window-dot"></div>
+          </div>
+          <div class="mock-search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="text"><span class="t-en">natural cosmetics</span><span class="t-ro">cosmetice naturale</span><span class="cursor">|</span></span>
+          </div>
+          <div class="mock-chips">
+            <span class="mock-chip active">Bio</span>
+            <span class="mock-chip"><span class="t-en">Hydrating</span><span class="t-ro">Hidratare</span></span>
+            <span class="mock-chip"><span class="t-en">Under €25</span><span class="t-ro">Sub 100 RON</span></span>
+            <span class="mock-chip">Vegan</span>
+            <span class="mock-chip">+3</span>
+          </div>
+          <div class="mock-results">
+            <div class="mock-result-card">
+              <div class="mock-result-img"></div>
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+            <div class="mock-result-card">
+              <div class="mock-result-img"></div>
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+            <div class="mock-result-card">
+              <div class="mock-result-img"></div>
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-right">
+        <span class="feature-tag">
+          <span class="t-en">Browse &amp; discover</span>
+          <span class="t-ro">Navigare &amp; descoperire</span>
+        </span>
+        <h3>
+          <span class="t-en">Seamless product search and filtering.</span>
+          <span class="t-ro">Cautare si filtrare instantanee.</span>
+        </h3>
+        <p>
+          <span class="t-en">Multi-level category hierarchy, producer/brand filtering, full-text search across the entire catalog. SEO-friendly URLs with per-category landing pages, per-product slugs, AI SEO evaluation, and metadata prepared for LLMs and AI crawlers before publish.</span>
+          <span class="t-ro">Categorii multi-nivel, filtrare după producător sau brand, căutare full-text în întregul catalog. URL-uri prietenoase pentru SEO, cu pagină proprie pentru fiecare categorie, slug per produs, evaluare SEO cu AI și metadate pregătite pentru LLM-uri și crawlere AI înainte de publicare.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Recently-viewed products tracking</span><span class="t-ro">Urmărire produse vizualizate recent</span></li>
+          <li><span class="t-en">Wishlist persisted across sessions</span><span class="t-ro">Wishlist păstrat între sesiuni pentru utilizatorii logați</span></li>
+          <li><span class="t-en">AI SEO evaluation for titles, descriptions, metadata, LLM readability, and AI crawler discoverability</span><span class="t-ro">Evaluare SEO cu AI pentru titluri, descrieri, meta tag-uri, lizibilitate LLM și identificare de către crawlere AI</span></li>
+          <li><span class="t-en">Per-product meta tags preserved on import from existing platforms</span><span class="t-ro">Meta-tag-urile produselor sunt păstrate la import din platforme existente</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 2: CART & CHECKOUT ============ -->
+<section class="feature theme-violet reverse">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-right">
+        <div class="mock mock-cart">
+          <div class="mock-cart-header">
+            <span class="title"><span class="t-en">Your cart</span><span class="t-ro">Coșul tău</span></span>
+            <span class="count">3 items</span>
+          </div>
+          <div class="mock-cart-item">
+            <div class="img"></div>
+            <div class="info">
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+            <div class="price">€24.90</div>
+          </div>
+          <div class="mock-cart-item">
+            <div class="img"></div>
+            <div class="info">
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+            <div class="price">€18.50</div>
+          </div>
+          <div class="mock-cart-item">
+            <div class="img"></div>
+            <div class="info">
+              <div class="mock-bar long"></div>
+              <div class="mock-bar short"></div>
+            </div>
+            <div class="price">€32.00</div>
+          </div>
+          <div class="mock-voucher">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c.552 0 1-.45 1-1V8c0-.552-.448-1-1-1h-2c-.552 0-1-.448-1-1V4c0-.552-.448-1-1-1H4c-.552 0-1 .448-1 1v3c0 .552-.448 1-1 1H1c-.552 0-1 .448-1 1v3c0 .55.448 1 1 1h1c.552 0 1 .448 1 1v3c0 .552.448 1 1 1h13c.552 0 1-.448 1-1v-3c0-.552.448-1 1-1z"/></svg>
+            NEW_ACCOUNT · -5% applied
+          </div>
+          <div class="mock-cart-total">
+            <span class="label"><span class="t-en">Total</span><span class="t-ro">Total</span></span>
+            <span class="value">€71.93</span>
+          </div>
+          <a class="mock-checkout-btn" href="#"><span class="t-en">Proceed to checkout »</span><span class="t-ro">Continuă la plată »</span></a>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-left">
+        <span class="feature-tag">
+          <span class="t-en">Cart &amp; checkout</span>
+          <span class="t-ro">Cos &amp; plata</span>
+        </span>
+        <h3>
+          <span class="t-en">A checkout that actually works.</span>
+          <span class="t-ro">Un checkout care chiar functioneaza.</span>
+        </h3>
+        <p>
+          <span class="t-en">Logged-in cart and guest cart, both persisted across sessions. Voucher codes applied at cart with live recalculation. Per-zone, weight-based shipping calculation. Multiple addresses, separate billing and delivery.</span>
+          <span class="t-ro">Coș pentru utilizatori logați și coș pentru oaspeți, ambele păstrate între sesiuni. Voucherele se aplică în coș cu recalcul live. Calcul transport pe zone, după greutate. Adrese multiple, facturare și livrare separate.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Discount rules: min order, category-specific, percentage or fixed</span><span class="t-ro">Reguli de discount: comandă minimă, categorii specifice, procentual sau valoare fixă</span></li>
+          <li><span class="t-en">Per-user voucher limits (e.g. one-use welcome 5%)</span><span class="t-ro">Limite per utilizator (ex. voucher de bun venit 5%, o singură utilizare)</span></li>
+          <li><span class="t-en">Automated abandoned cart and checkout recovery by email</span><span class="t-ro">Recuperare automată prin email pentru coș și checkout abandonat</span></li>
+          <li><span class="t-en">T&amp;C and GDPR consent enforced — frontend + backend defense in depth</span><span class="t-ro">T&amp;C și consimțământ GDPR validate de două ori — frontend și backend</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 3: PAYMENTS ============ -->
+<section class="feature theme-indigo">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-left">
+        <div class="mock mock-payments">
+          <div class="mock-payment-card stripe">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+            <div class="label">Stripe Checkout</div>
+            <div class="name"><span class="t-en">Cards · Apple Pay · Google Pay</span><span class="t-ro">Carduri · Apple Pay · Google Pay</span></div>
+            <div class="desc"><span class="t-en">Instant capture · idempotent webhooks · auto-refund pipeline</span><span class="t-ro">Capturare instant · webhook-uri idempotente · ramburs automatizat</span></div>
+          </div>
+          <div class="mock-payment-card bt">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7"/><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg></div>
+            <div class="label">Bank Transfer</div>
+            <div class="name"><span class="t-en">Proforma invoice · auto-generated</span><span class="t-ro">Factură proformă · generată automat</span></div>
+            <div class="desc"><span class="t-en">PDF emailed with due date · admin confirms payment received</span><span class="t-ro">PDF trimis cu data scadentă · admin confirmă plata primită</span></div>
+          </div>
+          <div class="mock-payment-card cod">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+            <div class="label">Cash on Delivery</div>
+            <div class="name"><span class="t-en">Manual confirmation flow</span><span class="t-ro">Flux cu confirmare manuală</span></div>
+            <div class="desc"><span class="t-en">Invoice generated at SHIPPED status · matches RO-EU practice</span><span class="t-ro">Factura generată la expediere · conform practicii RO-UE</span></div>
+          </div>
+          <div class="mock-payment-flow">
+            <span>order.placed</span>
+            <span class="arrow">»</span>
+            <span>payment.captured</span>
+            <span class="arrow">»</span>
+            <span>invoice.pdf</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-right">
+        <span class="feature-tag">
+          <span class="t-en">Payments</span>
+          <span class="t-ro">Plati</span>
+        </span>
+        <h3>
+          <span class="t-en">Three payment methods.<br>One unified flow.</span>
+          <span class="t-ro">Trei metode de plata.<br>Un singur flux unificat.</span>
+        </h3>
+        <p>
+          <span class="t-en">Stripe Checkout, Bank Transfer with proforma invoice, and Cash on Delivery — all wired end-to-end with idempotent webhooks, automatic invoice generation timed to the right moment per method, and refund pipelines that survive Stripe re-deliveries.</span>
+          <span class="t-ro">Stripe Checkout, transfer bancar cu proformă și ramburs — toate cablate end-to-end. Webhook-uri idempotente, facturi generate automat la momentul potrivit pentru fiecare metodă, rambursuri care rezistă la re-livrări Stripe.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Automated refund pipeline — safe to retry, no duplicates</span><span class="t-ro">Flux automat de rambursare — sigur la reîncercare, fără duplicate</span></li>
+          <li><span class="t-en">Per-payment-method invoice timing (Stripe webhook · BT confirmation · COD shipped)</span><span class="t-ro">Timing factură per metodă de plată (webhook Stripe · confirmare BT · expediere COD)</span></li>
+          <li><span class="t-en">Failed-payment recovery emails before configurable order auto-cancel</span><span class="t-ro">Emailuri de recuperare pentru plată eșuată înainte de anularea automată configurabilă</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 4: INVOICING ============ -->
+<section class="feature theme-violet reverse">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-right">
+        <div class="mock mock-invoice">
+          <div class="mock-invoice-header">
+            <div>
+              <div class="mock-invoice-title"><span class="t-en">Invoice</span><span class="t-ro">Factura</span></div>
+              <div class="mock-invoice-num">INV-2026-04-0042</div>
+            </div>
+            <svg viewBox="0 0 100 100" width="36" height="36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="5,25 22,25 37,50 22,75 5,75 20,50"   fill="#3945E6" />
+              <polygon points="30,25 47,25 62,50 47,75 30,75 45,50" fill="#7558EE" />
+              <polygon points="55,25 72,25 87,50 72,75 55,75 70,50" fill="#FF8B32" />
+            </svg>
+          </div>
+          <div class="mock-invoice-meta">
+            <div>
+              <div class="field"><span class="t-en">Seller</span><span class="t-ro">Vânzător</span></div>
+              <div class="value"><span class="t-en">Acme Naturals Ltd.</span><span class="t-ro">DANUCOL SRL</span></div>
+              <div class="value" style="font-size: 9.5px; color: var(--muted);">
+                <span class="t-en">Tax ID · IBAN · Reg. No.</span>
+                <span class="t-ro">CUI · IBAN · Reg. Com.</span>
+              </div>
+            </div>
+            <div>
+              <div class="field"><span class="t-en">Buyer</span><span class="t-ro">Cumpărător</span></div>
+              <div class="value"><span class="t-en">Sophie Martin</span><span class="t-ro">Ioana Popescu</span></div>
+              <div class="value" style="font-size: 9.5px; color: var(--muted);">
+                <span class="t-en">Lyon, France</span>
+                <span class="t-ro">București, Sector 2</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-invoice-rows">
+            <div class="mock-invoice-row">
+              <span><span class="t-en">Bio moisturizing cream 50ml</span><span class="t-ro">Crema bio hidratantă 50ml</span></span>
+              <span class="qty">×2</span>
+              <span class="amt">49.80</span>
+            </div>
+            <div class="mock-invoice-row">
+              <span><span class="t-en">Lavender essential oil</span><span class="t-ro">Ulei esențial lavandă</span></span>
+              <span class="qty">×1</span>
+              <span class="amt">18.50</span>
+            </div>
+            <div class="mock-invoice-row">
+              <span><span class="t-en">Natural soap bar</span><span class="t-ro">Săpun natural</span></span>
+              <span class="qty">×1</span>
+              <span class="amt">3.63</span>
+            </div>
+          </div>
+          <div class="mock-invoice-total">
+            <span class="label"><span class="t-en">Total</span><span class="t-ro">Total</span></span>
+            <span class="value"><span class="t-en">€71.93</span><span class="t-ro">71.93 RON</span></span>
+          </div>
+          <div class="mock-stamp">
+            <span class="t-en">Auto-generated</span>
+            <span class="t-ro">Generat automat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-left">
+        <span class="feature-tag">
+          <span class="t-en">Fiscal &amp; accounting</span>
+          <span class="t-ro">Fiscal &amp; contabilitate</span>
+        </span>
+        <h3>
+          <span class="t-en">EU-grade invoicing,<br>generated automatically.</span>
+          <span class="t-ro">Facturare conforma UE,<br>generata automat.</span>
+        </h3>
+        <p>
+          <span class="t-en">Tax ID, company registration, registered address, IBAN, VAT payer status, VAT rate, sequential numbering, and Bank Transfer due dates — all configurable per shop. Invoices fire automatically at the right moment per payment method.</span>
+          <span class="t-ro">CUI, Nr. Reg. Com., adresă fiscală, IBAN, status plătitor TVA, cotă TVA, numerotare secvențială și scadențe pentru transfer bancar — toate configurabile per magazin. Facturile se generează automat la momentul potrivit pentru fiecare metodă de plată.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Storno (credit note) PDF auto-generated for every refund</span><span class="t-ro">Factură de ramburs PDF generată automat pentru fiecare ramburs</span></li>
+          <li><span class="t-en">Configurable VAT payer / non-VAT payer status and VAT rate</span><span class="t-ro">Status plătitor / neplătitor de TVA și cotă TVA configurabile</span></li>
+          <li><span class="t-en">e-Factura-compatible XML generated for manual portal upload</span><span class="t-ro">XML compatibil e-Factura generat pentru încărcare manuală în portal</span></li>
+          <li><span class="t-en">Accounting CSV exports: per-product order lines plus order-level totals</span><span class="t-ro">CSV pentru contabilitate: detalii comandă per produs plus totaluri pe comandă</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 5: REFUND FLOW ============ -->
+<section class="feature theme-indigo">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-left">
+        <div class="mock mock-refund-flow">
+          <div class="mock-flow-step">
+            <div class="num">1</div>
+            <div class="info">
+              <div class="label"><span class="t-en">Refund triggered</span><span class="t-ro">Ramburs declanșat</span></div>
+              <div class="desc">stripe.webhook | admin.manual | user.cancel</div>
+            </div>
+          </div>
+          <div class="mock-flow-arrow">»</div>
+          <div class="mock-flow-step">
+            <div class="num">2</div>
+            <div class="info">
+              <div class="label"><span class="t-en">Event fires</span><span class="t-ro">Eveniment emis</span></div>
+              <div class="desc"><span class="t-en">Refund confirmed</span><span class="t-ro">Ramburs confirmat</span></div>
+            </div>
+          </div>
+          <div class="mock-flow-arrow">»</div>
+          <div class="mock-flow-step">
+            <div class="num">3</div>
+            <div class="info">
+              <div class="label"><span class="t-en">Storno PDF · email · status</span><span class="t-ro">Factură de ramburs PDF · email · status</span></div>
+              <div class="desc">all side-effects · idempotent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-right">
+        <span class="feature-tag">
+          <span class="t-en">Refund engine</span>
+          <span class="t-ro">Motor ramburs</span>
+        </span>
+        <h3>
+          <span class="t-en">One refund event.<br>Every side-effect, handled.</span>
+          <span class="t-ro">Un singur eveniment.<br>Toate efectele, automat.</span>
+        </h3>
+        <p>
+          <span class="t-en">Whether the refund came from an online payment, admin manual approval, or user self-service cancellation — a single event triggers credit note PDF generation, customer email, and status transitions. One flow, fully automated.</span>
+          <span class="t-ro">Indiferent dacă rambursul vine dintr-o plată online, aprobare manuală de admin sau anulare de către client — un singur eveniment declanșează generarea PDF-ului de ramburs, emailul către client și tranzițiile de status. Un singur flux, complet automatizat.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Per-item granularity (full or partial refunds)</span><span class="t-ro">Granularitate per produs (ramburs total sau parțial)</span></li>
+          <li><span class="t-en">Storno auto-generated with discount distribution per line</span><span class="t-ro">Factură de ramburs generat automat, cu distribuirea reducerilor pe linie</span></li>
+          <li><span class="t-en">Shipping policy enforced (refunded pre-ship, kept post-delivery — EU consumer law)</span><span class="t-ro">Politică transport conform legii UE (rambursat pre-expediere, păstrat post-livrare)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 6: BROADCAST EMAIL ============ -->
+<section class="feature theme-cyan reverse">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-right">
+        <div class="mock mock-email">
+          <div class="mock-window-bar">
+            <div class="mock-window-dot"></div>
+            <div class="mock-window-dot"></div>
+            <div class="mock-window-dot"></div>
+          </div>
+          <div class="mock-email-tabs">
+            <span class="mock-email-tab active"><span class="t-en">Compose</span><span class="t-ro">Compune</span></span>
+            <span class="mock-email-tab">Templates</span>
+            <span class="mock-email-tab">Stats</span>
+          </div>
+          <div class="mock-email-field">
+            <span class="label">From:</span>
+            <span class="value">noreply@danucol.ro</span>
+          </div>
+          <div class="mock-email-field">
+            <span class="label">To:</span>
+            <span class="value">3,184 recipients</span>
+            <span class="audience-pill">newsletter-opted</span>
+          </div>
+          <div class="mock-email-field">
+            <span class="label">Subject:</span>
+            <span class="value"><span class="t-en">Spring sale — 20% off bio cosmetics</span><span class="t-ro">Reducere de primăvară — 20% cosmetice bio</span></span>
+          </div>
+          <div class="mock-email-stats">
+            <div class="mock-email-stat">
+              <div class="num">3,184</div>
+              <div class="lbl"><span class="t-en">Sent</span><span class="t-ro">Trimise</span></div>
+            </div>
+            <div class="mock-email-stat">
+              <div class="num">2,891</div>
+              <div class="lbl"><span class="t-en">Delivered</span><span class="t-ro">Livrate</span></div>
+            </div>
+            <div class="mock-email-stat">
+              <div class="num">1,247</div>
+              <div class="lbl"><span class="t-en">Opened</span><span class="t-ro">Deschise</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-left">
+        <span class="feature-tag">
+          <span class="t-en">In-house email automation</span>
+          <span class="t-ro">Automatizări email interne</span>
+        </span>
+        <h3>
+          <span class="t-en">Campaigns, recovery, analytics.</span>
+          <span class="t-ro">Campanii, recuperare, analytics.</span>
+        </h3>
+        <p>
+          <span class="t-en">Built-in email broadcast and recovery automation with per-recipient delivery tracking, audience segmentation, one-click unsubscribe, campaign analytics, abandoned cart/checkout recovery, and failed-payment follow-ups. No third-party email service fees — just direct sending costs.</span>
+          <span class="t-ro">Email broadcast și automatizări de recuperare integrate: urmărire livrare per destinatar, segmentare, dezabonare cu un click, analytics pentru campanii, recuperare coș/checkout abandonat și follow-up pentru plată eșuată. Fără taxe pentru servicii terțe de email — doar costurile directe de trimitere.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Campaign analytics: delivered, opened, audience and flow performance</span><span class="t-ro">Analytics campanii: livrate, deschise, audiențe și performanță pe flux</span></li>
+          <li><span class="t-en">Abandoned cart and checkout recovery sequences by email</span><span class="t-ro">Secvențe email pentru recuperare coș și checkout abandonat</span></li>
+          <li><span class="t-en">Failed-payment recovery flow by email</span><span class="t-ro">Flux de recuperare plată eșuată prin email</span></li>
+          <li><span class="t-en">Wishlist drop-in-price notifications (opt-in)</span><span class="t-ro">Notificări reducere produse din wishlist (opt-in)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 7: CSV FUZZY IMPORT ============ -->
+<section class="feature theme-violet">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-left">
+        <div class="mock mock-csv">
+          <div style="font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em;">
+            <span class="t-en">CSV import → category match</span>
+            <span class="t-ro">Import CSV → potrivire categorii</span>
+          </div>
+          <div class="mock-csv-row full">
+            <span class="input"><span class="t-en">Cosmetics</span><span class="t-ro">Cosmetice</span></span>
+            <span class="arrow">»</span>
+            <span class="matched"><span class="t-en">Cosmetics</span><span class="t-ro">Cosmetice</span></span>
+            <div class="badge">✓</div>
+          </div>
+          <div class="mock-csv-row fuzzy">
+            <span class="input"><span class="t-en">Natural cosmtics</span><span class="t-ro">Cosmotice naturale</span></span>
+            <span class="arrow">»</span>
+            <span class="matched"><span class="t-en">Natural cosmetics</span><span class="t-ro">Cosmetice naturale</span></span>
+            <div class="badge">~</div>
+          </div>
+          <div class="mock-csv-row fuzzy">
+            <span class="input"><span class="t-en">Hygeine</span><span class="t-ro">Igeina</span></span>
+            <span class="arrow">»</span>
+            <span class="matched"><span class="t-en">Hygiene</span><span class="t-ro">Igienă</span></span>
+            <div class="badge">~</div>
+          </div>
+          <div class="mock-csv-row full">
+            <span class="input"><span class="t-en">Baby &amp; Kids</span><span class="t-ro">Bebeluși</span></span>
+            <span class="arrow">»</span>
+            <span class="matched"><span class="t-en">Baby &amp; Kids</span><span class="t-ro">Bebeluși</span></span>
+            <div class="badge">✓</div>
+          </div>
+          <div class="mock-csv-row unmatched">
+            <span class="input"><span class="t-en">XYZ-new-category</span><span class="t-ro">XYZ-categorie-nouă</span></span>
+            <span class="arrow">»</span>
+            <span class="matched"><span class="t-en">no match — admin review</span><span class="t-ro">fără potrivire — verificat admin</span></span>
+            <div class="badge">!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-right">
+        <span class="feature-tag">
+          <span class="t-en">Migration + in-app CSV</span>
+          <span class="t-ro">Migrare + CSV din aplicatie</span>
+        </span>
+        <h3>
+          <span class="t-en">Built for messy data.<br>Two layers, one workflow.</span>
+          <span class="t-ro">Gandite pentru date imperfecte.<br>Doua straturi, un singur flux.</span>
+        </h3>
+        <p>
+          <span class="t-en"><strong>Migration day:</strong> data from PrestaShop, WooCommerce, or Magento is AI-adapted to fit the new shop's structure — categories normalized, producer matches resolved, inconsistencies cleaned up. Days of manual cleanup turn into hours.</span>
+          <span class="t-ro"><strong>Ziua migrării:</strong> datele din PrestaShop, WooCommerce sau Magento sunt adaptate cu AI pentru structura noului magazin — categorii normalizate, potriviri de producători rezolvate, inconsistențe curățate. Zile de muncă manuală devin ore.</span>
+        </p>
+        <p>
+          <span class="t-en"><strong>Day to day:</strong> when the admin uploads a CSV inside the app — to add new products, update prices, or correct categories — fuzzy matching auto-suggests close matches for mistyped names and flags unmatched entities for review.</span>
+          <span class="t-ro"><strong>Zi de zi:</strong> când admin-ul încarcă un CSV din aplicație — pentru produse noi, actualizări de preț sau corecții de categorii — potrivirea fuzzy sugerează automat potriviri apropiate pentru numele greșite și marchează entitățile fără potrivire pentru verificare.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">AI-adapted migration from PrestaShop / WooCommerce / Magento exports</span><span class="t-ro">Migrare adaptată cu AI din exporturi PrestaShop / WooCommerce / Magento</span></li>
+          <li><span class="t-en">In-app fuzzy matching for routine product, category, and producer updates</span><span class="t-ro">Potrivire fuzzy din aplicație pentru actualizări de rutină la produse, categorii și producători</span></li>
+          <li><span class="t-en">Re-running the same import doesn't duplicate data; unmatched rows always flagged</span><span class="t-ro">Re-rularea aceluiași import nu duplică datele; rândurile fără match sunt marcate</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 8: GDPR + AUDIT ============ -->
+<section class="feature theme-indigo reverse">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-right">
+        <div class="mock mock-audit">
+          <div class="mock-audit-header">
+            <div class="mock-audit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div>
+              <div class="mock-audit-title">audit_log</div>
+              <div class="mock-audit-subtitle"><span class="t-en">last 4 events · all sensitive flows</span><span class="t-ro">ultimele 4 evenimente · toate fluxurile sensibile</span></div>
+            </div>
+          </div>
+          <div class="mock-log-entry">
+            <span class="time">14:32:18</span>
+            <span class="event">user_anonymization<span class="event-mid"> · gdpr_art17</span> · user_id=4218</span>
+            <span class="ok">✓</span>
+          </div>
+          <div class="mock-log-entry">
+            <span class="time">14:32:01</span>
+            <span class="event">invoice_access_log<span class="event-mid"> · token=8a2f...c1</span> · ip=82.78.x.x</span>
+            <span class="ok">✓</span>
+          </div>
+          <div class="mock-log-entry">
+            <span class="time">14:30:55</span>
+            <span class="event">refund_succeeded<span class="event-mid"> · order_id=812</span> · amount=49.80 RON</span>
+            <span class="ok">✓</span>
+          </div>
+          <div class="mock-log-entry">
+            <span class="time">14:28:42</span>
+            <span class="event">upload_event<span class="event-mid"> · csv=products.csv</span> · 184 rows · 3 fuzzy</span>
+            <span class="ok">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-left">
+        <span class="feature-tag">
+          <span class="t-en">GDPR &amp; audit trails</span>
+          <span class="t-ro">GDPR &amp; trasabilitate</span>
+        </span>
+        <h3>
+          <span class="t-en">Compliance built in,<br>not bolted on.</span>
+          <span class="t-ro">Conformitate inclusa,<br>nu adaugata ulterior.</span>
+        </h3>
+        <p>
+          <span class="t-en">Audit trails on every sensitive flow — uploads, invoice access, refunds, anonymizations, system incidents. GDPR Article 17 (right to erasure) with one-click anonymization, audit-logged, while preserving fiscal records for retention compliance.</span>
+          <span class="t-ro">Trasabilitate pe fiecare flux sensibil — upload-uri, acces facturi, rambursuri, anonimizări, incidente. GDPR Articolul 17 (dreptul la ștergere) cu anonimizare într-un click, înregistrată în audit, păstrând în același timp datele fiscale conform cerințelor de retenție.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><code>upload_event</code> · <code>invoice_access_log</code></li>
+          <li><span class="t-en">Public document access (invoices, storno) unique-token + audit-logged + rate-limited</span><span class="t-ro">Acces public la documente cu token unic + audit + rate-limit</span></li>
+          <li><span class="t-en">Configurable retention window per jurisdiction</span><span class="t-ro">Fereastră de retenție configurabilă per jurisdicție</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 9: VAULT ENCRYPTION ============ -->
+<section class="feature theme-violet">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-visual reveal from-left">
+        <div class="mock mock-vault">
+          <div style="font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.04em; text-align: center;">
+            <span class="t-en">Token storage · Encrypted at rest</span>
+            <span class="t-ro">Stocare token-uri · Criptate la repaus</span>
+          </div>
+          <div class="mock-vault-row">
+            <div class="mock-vault-card before">
+              <div class="label"><span class="t-en">Plain</span><span class="t-ro">Clar</span></div>
+              <div class="value">eyJhbGciOiJSUzI1NiIs...</div>
+            </div>
+            <div class="mock-vault-card after">
+              <div class="label"><span class="t-en">Encrypted</span><span class="t-ro">Criptat</span></div>
+              <div class="value">vault:v1:7a92c4df...</div>
+            </div>
+          </div>
+          <div class="mock-vault-key">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </svg>
+          </div>
+          <div class="mock-vault-stats">
+            <div class="mock-vault-stat">
+              <div class="num">Asymmetric</div>
+              <div class="lbl"><span class="t-en">Session signing</span><span class="t-ro">Semnare sesiuni</span></div>
+            </div>
+            <div class="mock-vault-stat">
+              <div class="num">AES-256</div>
+              <div class="lbl"><span class="t-en">At-rest encryption</span><span class="t-ro">Criptare la repaus</span></div>
+            </div>
+            <div class="mock-vault-stat">
+              <div class="num">7-day</div>
+              <div class="lbl"><span class="t-en">Session</span><span class="t-ro">Sesiune</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-text reveal from-right">
+        <span class="feature-tag">
+          <span class="t-en">Security</span>
+          <span class="t-ro">Securitate</span>
+        </span>
+        <h3>
+          <span class="t-en">DB dumps alone<br>aren't enough.</span>
+          <span class="t-ro">Un dump al bazei<br>nu mai e de ajuns.</span>
+        </h3>
+        <p>
+          <span class="t-en">Sensitive tokens (auth tokens, password reset tokens, public invoice access tokens) are encrypted before hitting the database — never stored in plain text. Asymmetric key signing for sessions, not shared-secret hashing. Defense in depth across every state-changing endpoint.</span>
+          <span class="t-ro">Token-urile sensibile (autentificare, resetare parolă, acces public la facturi) sunt criptate înainte să ajungă în baza de date — niciodată stocate în clar. Semnare cu cheie asimetrică pentru sesiuni, nu hashing cu secret partajat. Apărare pe mai multe straturi pentru fiecare endpoint care modifică stare.</span>
+        </p>
+        <ul class="feature-bullets">
+          <li><span class="t-en">Rate limiting on login + public links · CSRF on state-changing endpoints</span><span class="t-ro">Rate limit pe login + linkuri publice · CSRF pe endpoint-urile de modificare</span></li>
+          <li><span class="t-en">Backend enforces every order-state transition · frontend hides ineligible actions</span><span class="t-ro">Backend validează fiecare tranziție de status · frontend ascunde acțiunile ineligibile</span></li>
+          <li><span class="t-en">User-facing errors sanitized in storefront locale · technical details only in logs</span><span class="t-ro">Erori afișate utilizatorului în limba magazinului · detalii tehnice doar în log-uri</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header reveal from-bottom">
+      <span class="section-tag">
+        <span class="t-en">Who built this</span>
+        <span class="t-ro">Cine a construit asta</span>
+      </span>
+    </div>
+    <div class="about-card reveal from-bottom">
+      <div class="about-photo">
+        <img src="assets/ioana-web.jpg" alt="Ioana Dinu — E-Commerce Solutions Architect" loading="lazy" />
+      </div>
+      <div class="about-content">
+        <div class="about-name">Ioana Dinu</div>
+        <div class="about-role">E-Commerce Solutions Architect</div>
+        <p>
+          <span class="t-en">I built VidGo Technology because there's a real gap between SaaS platforms that take a cut of every sale and aging custom shops nobody wants to maintain. The middle path is a complete platform, branded for your business and maintained end-to-end — with all the engineering and compliance work already done. You focus on running the shop. I run the platform.</span>
+          <span class="t-ro">Am construit VidGo Technology pentru că există un gol real între platformele SaaS care iau un comision din fiecare vânzare și magazinele custom învechite pe care nimeni nu mai vrea să le întrețină. Calea de mijloc e o platformă completă, personalizată pentru afacerea ta și întreținută complet — cu munca de engineering și conformitate deja făcută. Tu te ocupi de magazin. Eu mă ocup de platformă.</span>
+        </p>
+        <p>
+          <span class="t-en">Senior backend engineer with full-stack experience and EU fiscal compliance expertise — designed for merchants migrating off Shopify, PrestaShop, or aging custom builds, and for agencies delivering managed ecommerce projects to new clients.</span>
+          <span class="t-ro">Inginer senior backend cu experiență full-stack și expertiză în conformitate fiscală UE — gândit pentru comercianții care migrează de pe Shopify, PrestaShop sau cod custom învechit, și pentru agenții care livrează proiecte custom de ecommerce clienților noi.</span>
+        </p>
+        <div class="trust-pills">
+          <span class="pill"><span class="t-en">Online payments</span><span class="t-ro">Plăți online</span></span>
+          <span class="pill"><span class="t-en">Encrypted storage</span><span class="t-ro">Stocare criptată</span></span>
+          <span class="pill"><span class="t-en">Email broadcast</span><span class="t-ro">Email broadcast</span></span>
+          <span class="pill"><span class="t-en">GDPR compliant</span><span class="t-ro">Conform GDPR</span></span>
+          <span class="pill"><span class="t-en">Fiscal compliance</span><span class="t-ro">Conformitate fiscală</span></span>
+          <span class="pill"><span class="t-en">Cloud hosted</span><span class="t-ro">Găzduit în cloud</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header reveal from-bottom" style="margin-bottom: 0;">
+      <span class="section-tag">
+        <span class="t-en">Get in touch</span>
+        <span class="t-ro">Hai sa vorbim</span>
+      </span>
+      <h2>
+        <span class="t-en">See it <span class="gradient">end-to-end</span> in 20 minutes.</span>
+        <span class="t-ro">Vezi totul <span class="gradient">end-to-end</span> in 20 de minute.</span>
+      </h2>
+      <p class="contact-tagline">
+        <span class="t-en">Storefront → checkout → admin → refund → fiscal docs in one walkthrough. Easiest path is to grab a slot directly.</span>
+        <span class="t-ro">Magazin → checkout → admin → ramburs → documente fiscale, totul într-un singur walkthrough. Cel mai simplu e să rezervi direct un slot.</span>
+      </p>
+    </div>
+
+    <div class="contact-grid reveal from-bottom" style="margin-top: 48px;">
+      <a href="https://calendly.com/ioana-dinu-it/" class="contact-card cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span><span class="t-en">Book a 20-min demo</span><span class="t-ro">Rezervă demo (20 min)</span></span>
+      </a>
+      <a href="mailto:ioana.dinu.it@gmail.com" class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span>ioana.dinu.it@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ioana-dinu-it/" class="contact-card" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="tel:+40757019416" class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>+40 757 019 416</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <span class="footer-logo-row">
+        <svg class="vidgo-logo" viewBox="35 240 1220 215" width="1220" height="215" role="img" aria-label="VidGo Technologies"><defs>
+    
+    <linearGradient id="arrow-navy-gradient" x1="820" y1="0" x2="1145" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#174b9a"/>
+      <stop offset="0.42" stop-color="#082f7c"/>
+      <stop offset="1" stop-color="#011e64"/>
+    </linearGradient>
+  </defs>
+  <g fill-rule="evenodd" clip-rule="evenodd">
+    <path fill="#011e64" d="M555.06,248.34L627.00,249.00L627.00,261.54Q627.00,268.00 623.94,272.08L621.06,275.92Q618.00,280.00 616.30,280.68L614.70,281.32Q613.00,282.00 582.74,282.00L554.26,282.00Q524.00,282.00 520.60,283.02L517.40,283.98Q514.00,285.00 511.28,287.38L508.72,289.62Q506.00,292.00 504.30,297.44L502.70,302.56Q501.00,308.00 501.00,317.52L501.00,326.48Q501.00,336.00 502.02,340.08L502.98,343.92Q504.00,348.00 506.38,351.06L508.62,353.94Q511.00,357.00 514.40,358.36L517.60,359.64Q521.00,361.00 543.78,360.66L588.00,360.00L587.00,336.00L561.26,336.00Q548.00,336.00 546.30,334.98L543.00,333.00L542.00,310.00L544.00,308.00L627.00,308.00L627.66,347.60Q628.00,368.00 626.98,372.08L626.02,375.92Q625.00,380.00 621.94,383.40L619.06,386.60Q616.00,390.00 610.56,391.70L605.44,393.30Q600.00,395.00 569.40,395.00L540.60,395.00Q510.00,395.00 501.84,392.28L494.16,389.72Q486.00,387.00 481.58,382.92L477.42,379.08Q473.00,375.00 469.94,368.88L467.06,363.12Q464.00,357.00 462.64,348.84L461.36,341.16Q460.00,333.00 460.00,325.52L460.00,318.48Q460.00,311.00 461.70,302.16L463.30,293.84Q465.00,285.00 467.72,279.90L470.28,275.10Q473.00,270.00 476.74,266.26L480.26,262.74Q484.00,259.00 489.78,256.28L495.22,253.72Q501.00,251.00 506.78,249.98L512.22,249.02Q518.00,248.00 555.06,248.34ZM245.70,249.34L249.00,250.00L247.68,254.62Q247.00,257.00 221.16,303.58L171.00,394.00L116.00,394.00L114.02,392.02Q113.00,391.00 88.18,343.74L64.82,299.26Q40.00,252.00 40.00,251.66L40.00,251.34Q40.00,251.00 40.00,250.66L40.00,250.00L88.00,250.00L142.00,353.00L145.00,354.00L182.62,286.68Q202.00,252.00 202.68,251.32L204.00,250.00L230.40,249.34Q244.00,249.00 245.70,249.34ZM411.00,250.00L445.00,251.00L444.00,393.00L411.00,394.00L410.00,384.00L402.74,389.28Q399.00,392.00 390.50,393.36L382.50,394.64Q374.00,396.00 365.50,395.66L357.50,395.34Q349.00,395.00 342.54,392.96L336.46,391.04Q330.00,389.00 325.58,384.58L321.42,380.42Q317.00,376.00 314.96,369.54L313.04,363.46Q311.00,357.00 311.00,347.14L311.00,337.86Q311.00,328.00 313.72,320.52L316.28,313.48Q319.00,306.00 323.76,301.92L328.24,298.08Q333.00,294.00 339.46,292.30L345.54,290.70Q352.00,289.00 365.60,289.34L378.40,289.66Q392.00,290.00 397.78,292.72L409.00,298.00L409.00,252.00L411.00,250.00ZM701.68,289.34L718.32,289.66Q736.00,290.00 741.10,291.70L745.90,293.30Q751.00,295.00 755.08,298.74L758.92,302.26Q763.00,306.00 765.38,312.12L767.62,317.88Q770.00,324.00 770.34,333.52L770.66,342.48Q771.00,352.00 769.64,358.12L768.36,363.88Q767.00,370.00 762.58,375.78L758.42,381.22Q754.00,387.00 745.84,389.72L738.16,392.28Q730.00,395.00 713.68,395.00L698.32,395.00Q682.00,395.00 675.20,392.96L668.80,391.04Q662.00,389.00 657.92,385.26L654.08,381.74Q650.00,378.00 648.30,374.60L646.70,371.40Q645.00,368.00 643.98,361.54L643.02,355.46Q642.00,349.00 643.02,338.12L643.98,327.88Q645.00,317.00 647.72,312.24L650.28,307.76Q653.00,303.00 655.38,300.96L657.62,299.04Q660.00,297.00 668.16,294.28L675.84,291.72Q684.00,289.00 701.68,289.34ZM257.00,292.00L293.00,292.00L292.00,394.00L257.00,393.00L257.00,292.00ZM360.94,319.02L358.06,319.98Q355.00,321.00 352.96,323.38L351.04,325.62Q349.00,328.00 348.66,336.50L348.34,344.50Q348.00,353.00 349.02,355.38L349.98,357.62Q351.00,360.00 353.38,361.70L355.62,363.30Q358.00,365.00 361.06,365.68L363.94,366.32Q367.00,367.00 373.80,367.00L380.20,367.00Q387.00,367.00 392.10,365.64L396.90,364.36Q402.00,363.00 404.38,359.26L406.62,355.74Q409.00,352.00 408.32,343.16L407.00,326.00L402.38,322.04Q400.00,320.00 397.28,319.32L394.72,318.68Q392.00,318.00 382.48,318.00L373.52,318.00Q364.00,318.00 360.94,319.02ZM690.60,319.36L687.40,320.64Q684.00,322.00 682.30,325.40L680.70,328.60Q679.00,332.00 679.00,338.80L679.00,345.20Q679.00,352.00 680.02,354.72L680.98,357.28Q682.00,360.00 684.04,361.70L685.96,363.30Q688.00,365.00 691.40,365.68L694.60,366.32Q698.00,367.00 703.78,367.00L709.22,367.00Q715.00,367.00 719.42,365.64L723.58,364.36Q728.00,363.00 729.70,360.96L731.30,359.04Q733.00,357.00 733.68,353.94L734.32,351.06Q735.00,348.00 733.98,340.18L732.00,325.00L724.74,320.38Q721.00,318.00 711.82,318.00L703.18,318.00Q694.00,318.00 690.60,319.36Z"/>
+    <path fill="url(#arrow-navy-gradient)" d="M993.00,255.00L1031.28,255.00Q1051.00,255.00 1055.42,256.70L1059.58,258.30Q1064.00,260.00 1087.12,283.46L1108.88,305.54Q1132.00,329.00 1135.40,333.42L1142.00,342.00L1140.68,350.58Q1140.00,355.00 1115.18,379.82L1091.82,403.18Q1067.00,428.00 1063.26,430.04L1059.74,431.96Q1056.00,434.00 1034.24,434.34L992.00,435.00L990.68,433.02Q990.00,432.00 990.00,429.62L990.00,425.00L1065.00,350.00L1064.34,344.06Q1064.00,341.00 1038.84,315.16L1015.16,290.84Q990.00,265.00 989.66,263.30L989.00,260.00L993.00,255.00ZM921.06,264.34L960.00,265.00L975.18,281.50Q983.00,290.00 983.34,291.36L984.00,294.00L981.00,297.00L921.00,297.00L905.82,281.16Q898.00,273.00 897.66,270.96L897.00,267.00L899.64,265.02Q901.00,264.00 921.06,264.34ZM839.60,265.34L866.00,266.00L886.00,293.00L883.00,297.00L843.00,297.00L829.14,281.16Q822.00,273.00 822.00,271.30L822.00,268.00L824.64,266.02Q826.00,265.00 839.60,265.34ZM867.00,322.00L1009.00,322.00L1020.88,334.54Q1027.00,341.00 1027.34,344.06L1028.00,350.00L1016.00,364.00L893.00,364.00L874.52,342.22Q865.00,331.00 864.66,329.30L864.00,326.00L867.00,322.00ZM924.00,390.00L962.94,390.00Q983.00,390.00 984.02,390.68L986.00,392.00L986.00,397.00L959.00,425.00L901.00,426.00L897.00,422.00L897.66,418.70Q898.00,417.00 906.84,407.82L924.00,390.00Z"/>
+    <path fill="#fd6208" d="M271.86,250.34L291.00,251.00L292.00,278.00L290.02,279.32Q289.00,280.00 279.14,280.00L260.00,280.00L258.68,278.02Q258.00,277.00 258.00,268.84L258.00,253.00L260.64,251.02Q262.00,250.00 271.86,250.34ZM1104.00,256.00L1143.60,256.00Q1164.00,256.00 1166.72,257.02L1169.28,257.98Q1172.00,259.00 1198.52,286.88L1250.00,341.00L1249.34,349.58Q1249.00,354.00 1225.20,378.48L1202.80,401.52Q1179.00,426.00 1175.26,428.38L1171.74,430.62Q1168.00,433.00 1146.92,433.68L1127.08,434.32Q1106.00,435.00 1104.64,433.98L1102.00,432.00L1103.32,426.06Q1104.00,423.00 1129.16,397.50L1178.00,348.00L1176.68,342.72Q1176.00,340.00 1151.18,314.84L1127.82,291.16Q1103.00,266.00 1102.66,263.28L1102.00,258.00L1104.00,256.00Z"/>
+    <text x="52" y="444" textLength="730" lengthAdjust="spacingAndGlyphs"
+          fill="#fd6208" font-family="'Eurostile Tech Embedded', Orbitron, 'Eurostile Extended', sans-serif"
+          font-size="25" font-weight="600" letter-spacing="5">TECHNOLOGIES</text>
+  </g></svg>      </span>    </div>
+    <p>
+      <span class="t-en">© 2026 VidGo Technology · Complete ecommerce platform, maintained end-to-end</span>
+      <span class="t-ro">© 2026 VidGo Technology · Platformă ecommerce completă, întreținută complet</span>
+    </p>
+  </div>
+</footer>
+
+<!-- ============ JS: scroll reveal + lang toggle + sticky nav ============ -->
+<script>
+(function () {
+  // 1. Sticky nav state
+  var header = document.getElementById('header');
+  if (header) {
+    var ticking = false;
+    function update() {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+
+  // 2. Intersection observer for reveal animations
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && reveals.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    // No IO support: just show everything
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // 3. Language toggle (with localStorage persistence + IP-based auto-detect)
+  // Priority: explicit user choice (localStorage) > Cloudflare GeoIP (RO → ro)
+  // > browser locale (ro-RO) > default EN.
+  var langButtons = document.querySelectorAll('[data-set-lang]');
+  var savedLang = localStorage.getItem('vidgo-lang');
+  if (savedLang === 'ro' || savedLang === 'en') {
+    setLang(savedLang);
+  } else {
+    // No saved preference — try Cloudflare's free trace endpoint for geo.
+    // Falls back to navigator.language if the fetch fails (offline, blocked,
+    // or hosted off CF). Either way, we never block the page render.
+    fetch('https://www.cloudflare.com/cdn-cgi/trace')
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var m = txt.match(/^loc=([A-Z]{2})/m);
+        if (m && m[1] === 'RO') setLang('ro');
+      })
+      .catch(function () {
+        if ((navigator.language || '').toLowerCase().indexOf('ro') === 0) {
+          setLang('ro');
+        }
+      });
+  }
+  langButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setLang(btn.getAttribute('data-set-lang'));
+    });
+  });
+  function setLang(lang) {
+    document.body.dataset.lang = lang;
+    document.documentElement.lang = lang;
+    langButtons.forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+    });
+    try { localStorage.setItem('vidgo-lang', lang); } catch (e) {}
+    alignTagline(); // re-align tagline when language changes (different text length)
+  }
+
+  // 4. Auto-align hero tagline width to match the full logo row (chevron + wordmark)
+  // Sets letter-spacing dynamically so the tagline spans the entire horizontal extent
+  // of the logo block above it. Pixel-perfect match on any viewport.
+  function alignTagline() {
+    var logoRow = document.querySelector('.hero-logo-row');
+    var tagline = document.querySelector('.hero-tagline');
+    if (!logoRow || !tagline) return;
+
+    tagline.style.letterSpacing = 'normal';
+
+    var targetWidth = logoRow.getBoundingClientRect().width;
+    var natTagWidth = tagline.getBoundingClientRect().width;
+    var chars = (tagline.textContent || '').length;
+
+    if (chars > 1 && targetWidth > natTagWidth) {
+      var extra = (targetWidth - natTagWidth) / (chars - 1);
+      tagline.style.letterSpacing = extra.toFixed(3) + 'px';
+    }
+  }
+
+  // Run on initial paint, after fonts load, on resize
+  alignTagline();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(alignTagline);
+  } else {
+    window.addEventListener('load', alignTagline);
+  }
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(alignTagline, 100);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>

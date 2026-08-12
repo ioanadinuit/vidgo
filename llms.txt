@@ -1,0 +1,30 @@
+# VidGo Technologies
+
+> Complete e-commerce platform built and maintained in Romania: backend,
+> storefront, and admin panel in one application, branded and configured per
+> merchant. Hosting, security certificates, backups, updates, e-Factura (SPV)
+> invoicing, digital returns (OUG 18/2026), abandoned-cart recovery, Google
+> Merchant integration, AI-ready structured data and llms.txt — all included
+> in one monthly subscription. No plugins to buy, no per-module licenses.
+
+Founder and builder: Ioana Dinu, programmer and e-commerce specialist with
+15+ years of experience (Jumbo NL, projects for IBM Netherlands clients).
+
+## Services
+
+- Store construction and full migration from PrestaShop, WooCommerce, Magento
+  and similar platforms — products, customers, and order history transfer
+  intact, without stopping sales.
+- Monthly maintenance covering platform updates, legal-compliance features,
+  speed and SEO optimisation, direct support from the platform's builder.
+
+## Reference
+
+- Live merchant store: https://biotu.ro/ — 7,000+ products migrated from
+  PrestaShop; PageSpeed 95 performance / 100 SEO, publicly verifiable.
+
+## Contact
+
+- Website: https://vidgotech.com/
+- Phone: +40 774 173 092
+- Booking: https://calendly.com/ioana-dinu-it

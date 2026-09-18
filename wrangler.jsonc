@@ -12,7 +12,7 @@
     { "pattern": "www.vidgotech.com", "custom_domain": true }
   ],
   "assets": {
-    "directory": "./",
+    "directory": "./out",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   }

@@ -1,0 +1,67 @@
+# VidGo Technology
+
+> Platformă de e-commerce completă, construită și întreținută în România:
+> storefront, admin și backend într-o singură aplicație, personalizată per
+> comerciant și instalată pe un server privat (VPS) din contul comerciantului.
+> Fără plugin-uri, fără comision din vânzări. Pagini randate pe server, scor
+> SEO 100, robots.txt și llms.txt per magazin, facturi automate cu XML
+> e-Factura (UBL), rambursuri automate, recuperare de coș abandonat, feed
+> Google Merchant, migrare de pe platforme open source cu
+> redirecționări 301. Găzduire, certificate, backup-uri și actualizări incluse
+> în abonamentul lunar.
+
+Fondator și dezvoltator: Ioana Dinu, inginer software cu peste 15 ani de
+experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
+
+## Pagini
+
+- [Acasă](https://vidgotech.com/): ce face platforma, de ce nu un magazin pe plugin-uri, rezultate măsurate, studiul de caz biotu.ro, cum decurge migrarea.
+- [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, checkout și plăți (Stripe, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
+- [Securitate](https://vidgotech.com/securitate): de ce un magazin fără plugin-uri e mai greu de spart, cu vulnerabilități WooCommerce și PrestaShop din 2026 ca exemple, și cum sunt gândite autentificarea, plățile, token-urile și izolarea.
+- [Despre](https://vidgotech.com/despre): cine construiește și întreține platforma.
+- [Contact](https://vidgotech.com/contact): demo de 20 de minute, email, telefon.
+
+## Servicii
+
+- Construirea magazinului și migrarea completă de pe platforme open source
+  și platforme similare: produse, clienți și istoric de comenzi,
+  fără oprirea vânzărilor, cu redirecționări 301 din adresele vechi.
+- Mentenanță lunară: actualizări de platformă, funcționalități cerute de
+  lege, optimizare de viteză și SEO, suport direct de la cine a construit
+  platforma.
+
+## Referințe
+
+- Magazin în funcțiune: https://biotu.ro/ — 7.010 produse migrate din
+  PrestaShop; PageSpeed Insights pe mobil, august 2026: performanță 95,
+  accesibilitate 95, bune practici 100, SEO 100, verificabil public.
+- Demo de viteză cu 100.000 de produse: https://eshop-tech.app/
+
+## Contact
+
+- Site: https://vidgotech.com/
+- Email: contact@vidgotech.com
+- Telefon: +40 774 173 092
+- Demo gratuit al magazinului tău: https://start.vidgotech.com/ (EN: https://start.vidgotech.com/en/)
+
+## Blog
+
+- [Viteza nu e un scor. Sunt comenzile pe care nu le vezi.](https://vidgotech.com/blog/viteza-magazin-online/): ce înseamnă LCP, INP și CLS pentru un magazin, de ce telefonul proprietarului înșală, unde se pierd secundele și cât costă lentoarea în comenzi.
+- [Indexarea nu mai e despre linkuri. Ce s-a schimbat de fapt.](https://vidgotech.com/blog/cum-s-a-schimbat-indexarea/): crawl budget, entități, date structurate și crawlerele AI precum GPTBot și Google-Extended, care nu execută JavaScript; de ce contează HTML-ul randat pe server.
+- [Tema pe care ai ales-o e cea mai scumpă decizie tehnică din magazin](https://vidgotech.com/blog/structura-temei-magazin/): cum o temă multifuncțională plus un teanc de plugin-uri plafonează performanța, strică actualizările și ascunde catalogul de roboți; alternativa cu o singură bază și teme ca presetări.
+- [Cum devine un magazin online vizibil în Google și în răspunsurile AI](https://vidgotech.com/blog/vizibilitate-google-ai/): robots.txt, sitemap, llms.txt, date structurate pentru produse, Google Merchant Center, evaluări SEO cu AI și căutare inteligentă în catalog.
+
+## English
+
+The same site in English, for international partners, lives under /en.
+
+- [Home](https://vidgotech.com/en): what the platform does, why not a plugin-based store, measured results, the biotu.ro case study, how the migration runs.
+- [Platform](https://vidgotech.com/en/platform): the complete feature list: SEO/AEO/GEO, catalog and stock, checkout and payments (Stripe, bank transfer, cash on delivery), invoices and tax documents with e-Factura (Romanian e-invoicing XML), refunds, delivery, email, themes, migration, GDPR, customer account with Sign in with Google, hosting, languages.
+- [Security](https://vidgotech.com/en/security): why a store without plugins is harder to break into, with the 2026 WooCommerce and PrestaShop vulnerabilities as examples, and how authentication, payments, tokens and isolation are designed.
+- [About](https://vidgotech.com/en/about): who builds and maintains the platform.
+- [Contact](https://vidgotech.com/en/contact): 20-minute demo, email, phone.
+- [Blog](https://vidgotech.com/en/blog): the four articles below, in English.
+- [Speed is not a score. It is the orders you never see.](https://vidgotech.com/en/blog/online-store-speed): what LCP, INP and CLS mean for a store, why the owner's phone misleads, where the seconds go and what slowness costs in orders.
+- [Indexing is no longer about links. What actually changed.](https://vidgotech.com/en/blog/how-indexing-changed): crawl budget, entities, structured data and AI crawlers such as GPTBot and Google-Extended, which do not execute JavaScript; why server-rendered HTML matters.
+- [The theme you chose is the most expensive technical decision in your store](https://vidgotech.com/en/blog/store-theme-structure): how a universal theme plus a stack of plugins caps performance, breaks updates and hides the catalog from robots; the alternative with a single base and themes as presets.
+- [How an online store becomes visible in Google and in AI answers](https://vidgotech.com/en/blog/google-ai-visibility): robots.txt, sitemap, llms.txt, structured data for products, Google Merchant Center, AI-assisted SEO evaluations and smart catalog search.

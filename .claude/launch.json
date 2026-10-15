@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vidgo-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        ".claude/serve.js"
+      ],
+      "port": 8765,
+      "autoPort": false
+    },
+    {
+      "name": "vidgo-site-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "8766"
+      ],
+      "port": 8766,
+      "autoPort": false
+    }
+  ]
+}

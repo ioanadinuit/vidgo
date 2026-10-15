@@ -1,0 +1,18 @@
+/start https://start.vidgotech.com 301
+/start/ https://start.vidgotech.com 301
+/sercom-analiza /sercom-analiza.pdf 200
+/sercom-analiza/ /sercom-analiza.pdf 200
+/preturi /contact 301
+/preturi/ /contact 301
+
+# Blog moved into the Next app (exported as blog.html / blog/<slug>.html, served
+# without a trailing slash). The old static folders used the slash form.
+/blog/ /blog 301
+/blog/viteza-magazin-online/ /blog/viteza-magazin-online 301
+/blog/cum-s-a-schimbat-indexarea/ /blog/cum-s-a-schimbat-indexarea 301
+/blog/structura-temei-magazin/ /blog/structura-temei-magazin 301
+/blog/vizibilitate-google-ai/ /blog/vizibilitate-google-ai 301
+
+# The usage manual moved to the password-protected docs site.
+/documentatie https://docs.vidgotech.com 302
+/documentatie/* https://docs.vidgotech.com/:splat 302

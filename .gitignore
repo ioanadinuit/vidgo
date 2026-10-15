@@ -1,0 +1,25 @@
+# IDE / editor
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / scratch
+*.tmp
+*.bak
+*~
+
+# Next.js (Velora skin)
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+
+# Cloudflare wrangler local state
+.wrangler/

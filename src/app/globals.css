@@ -651,12 +651,15 @@
 .case-eyebrow { color: var(--primary); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; }
 .case-section h2 { font-size: clamp(1.6rem,3vw,2.3rem); margin: .5rem 0 1.25rem; }
 .case-section > p:not(.case-eyebrow) { max-width: 80ch; margin-block: 1.25rem; }
-.case-table-wrap { overflow-x: auto; margin-block: 1.5rem; border: 1px solid var(--border); border-radius: .6rem; }
-.case-study table { width: 100%; border-collapse: collapse; text-align: left; font-size: .95rem; }
-.case-study caption { text-align: left; padding: 1rem; font-weight: 600; background: var(--muted); }
-.case-study th, .case-study td { padding: .9rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
-.case-study tbody th { font-weight: 500; width: 44%; }
-.case-study thead th { font-size: .85rem; }
+/* Compact tables: a 8-row table fits in one screen. Label 40%, two value columns 30% each. */
+.case-table-wrap { overflow-x: auto; margin-block: 1.25rem; max-width: 58rem; border: 1px solid var(--border); border-radius: .6rem; }
+.case-study table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; font-size: .9rem; line-height: 1.35; }
+.case-study caption { text-align: left; padding: .55rem .9rem; font-size: .8rem; font-weight: 600; letter-spacing: .02em; color: var(--muted-foreground); background: var(--muted); }
+.case-study th, .case-study td { padding: .45rem .9rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.case-study tbody tr:last-child th, .case-study tbody tr:last-child td { border-bottom: 0; }
+.case-study tbody th { font-weight: 500; width: 40%; }
+.case-study thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); padding-block: .5rem; }
+.case-study thead th:last-child { color: var(--primary); }
 .case-study td:last-child, .case-study thead th:last-child { background: color-mix(in srgb,var(--primary) 8%,var(--background)); font-weight: 600; }
 .case-section .case-source { font-size: .8rem; color: var(--muted-foreground); line-height: 1.7; }
 .case-quote { border-left: 3px solid var(--primary); padding: 1.5rem 2rem; background: var(--card); margin-block: 1.5rem; }
@@ -670,7 +673,7 @@
 .case-conclusions h3 { font-size: 1.15rem; margin-bottom: .75rem; }
 .case-conclusions p { color: var(--muted-foreground); }
 @media(min-width: 768px) { .case-metrics { grid-template-columns: repeat(4,minmax(0,1fr)); } .case-conclusions { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media(max-width: 600px) { .case-study table { min-width: 35rem; } .case-search { flex-direction: column; align-items: flex-start; gap: .75rem; } .case-quote { padding: 1.25rem; } }
+@media(max-width: 600px) { .case-study table { font-size: .82rem; } .case-study th, .case-study td { padding: .4rem .55rem; overflow-wrap: anywhere; } .case-study thead th { text-transform: none; letter-spacing: 0; font-size: .72rem; } .case-study tbody th { width: 38%; } .case-search { flex-direction: column; align-items: flex-start; gap: .75rem; } .case-quote { padding: 1.25rem; } }
 /* Screenshot evidence (AI search, Cloudflare): two-up on wide screens. */
 .case-figures { display: grid; gap: 1.5rem; margin-block: 1.5rem; }
 .case-figures figure { margin: 0; border: 1px solid var(--border); border-radius: .6rem; overflow: hidden; background: var(--card); }

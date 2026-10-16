@@ -29,14 +29,14 @@ export function SectionHeading({
         )}
         <h2
           className={cn(
-            "mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-balance lg:text-5xl",
+            "mt-3 text-3xl font-semibold tracking-tight lg:text-5xl",
             centered && "mx-auto",
           )}
         >
           {title}
         </h2>
         {description && (
-          <p className={cn("mt-4 max-w-2xl text-lg text-muted-foreground text-pretty", centered && "mx-auto")}>
+          <p className={cn("mt-4 text-lg text-muted-foreground", centered && "mx-auto")}>
             {description}
           </p>
         )}

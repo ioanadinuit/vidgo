@@ -42,9 +42,9 @@ export const home: HomeContent = {
     },
     entry: {
       eyebrow: "Entry level",
-      title: "Crowded",
-      body: "Stores that just want to run the business.",
-      tag: "We don't compete here",
+      title: "Stores just starting out",
+      body: "Solutions for launching a first online store. VidGo serves stores that have grown beyond this stage.",
+      tag: "",
     },
   },
   why: {
@@ -62,23 +62,15 @@ export const home: HomeContent = {
       title: "Every plugin is a door",
       items: [
         {
-          when: "August 2026.",
-          body: "PrestaShop published five security fixes in the core, among them downloading any address received in a CSV import without verification (SSRF) and spoofing the customer's IP.",
+          when: "January 2026 · WooCommerce Square.",
+          body: "A vulnerability allowed unauthenticated access to saved payment methods and fraudulent payments. A flaw in one plugin directly affected payment security.",
         },
         {
-          when: "August 2026.",
-          body: "The WooCommerce Social Login plugin let anyone sign in as any user, including the administrator, with a forged Apple token: the signature was not verified. Severity 9.8 out of 10.",
-        },
-        {
-          when: "July 2026.",
-          body: "The PrestaShop filter module (ps_facetedsearch) allowed a complete server takeover with a single request, without authentication. Severity 10 out of 10.",
-        },
-        {
-          when: "January 2026.",
-          body: "The WooCommerce Square plugin, with up to 80,000 installations, exposed customers' saved cards and allowed fraudulent payments, without any authentication.",
+          when: "July 2026 · PrestaShop.",
+          body: "The ps_facetedsearch module allowed a complete server takeover with a single unauthenticated request. Severity: 10 out of 10.",
         },
       ],
-      body: "VidGo has no plugins. Sign in with Google verifies the token's signature and audience on the server, exactly the check that was missing there. Cards never touch the platform: payment happens at Stripe.",
+      body: "VidGo builds essential capabilities into the platform, without separate store plugins to maintain. Stripe processes payments; card details do not pass through the store's server.",
       link: { text: "How security is designed", href: "/en/security" },
     },
   },

@@ -18,7 +18,7 @@ export function MobileNav({ links, labels, langSwitch, startHref }: MobileNavPro
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <Button
         variant="ghost"
         size="icon"

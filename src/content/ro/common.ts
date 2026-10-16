@@ -12,6 +12,8 @@ export const common: CommonContent = {
     { text: "Platformă", href: "/platforma" },
     { text: "Securitate", href: "/securitate" },
     { text: "Portofoliu", href: "/#portofoliu" },
+    { text: "Studiu de caz", href: "/studiu-de-caz" },
+    { text: "Presă", href: "/presa" },
     { text: "Blog", href: "/blog" },
     { text: "Despre", href: "/despre" },
     { text: "Contact", href: "/contact" },

@@ -22,6 +22,8 @@ export const schemaLang: Record<Locale, string> = { ro: "ro-RO", en: "en" };
 /** Romanian route → English route. Blog slugs are mapped separately. */
 const pathMap: Record<string, string> = {
   "/": "/en",
+  "/presa": "/en/press",
+  "/studiu-de-caz": "/en/case-study",
   "/platforma": "/en/platform",
   "/securitate": "/en/security",
   "/despre": "/en/about",

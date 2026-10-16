@@ -42,9 +42,9 @@ export const home: HomeContent = {
     },
     entry: {
       eyebrow: "Nivel de intrare",
-      title: "Aglomerat",
-      body: "Magazine care vor doar să își conducă afacerea.",
-      tag: "Aici nu concurăm",
+      title: "Magazine la început de drum",
+      body: "Soluții pentru lansarea primului magazin online. VidGo se adresează magazinelor care au depășit această etapă.",
+      tag: "",
     },
   },
   why: {
@@ -62,23 +62,15 @@ export const home: HomeContent = {
       title: "Fiecare plugin e o ușă",
       items: [
         {
-          when: "August 2026.",
-          body: "PrestaShop a publicat cinci corecții de securitate în nucleu, între care descărcarea fără verificare a oricărei adrese primite la importul CSV (SSRF) și falsificarea IP-ului clientului.",
+          when: "Ianuarie 2026 · WooCommerce Square.",
+          body: "O vulnerabilitate permitea accesul neautentificat la metodele de plată salvate și efectuarea de plăți frauduloase. O problemă într-un singur plugin afecta direct siguranța plăților.",
         },
         {
-          when: "August 2026.",
-          body: "Plugin-ul WooCommerce Social Login lăsa pe oricine să intre ca orice utilizator, inclusiv administrator, cu un token Apple falsificat: semnătura nu era verificată. Severitate 9,8 din 10.",
-        },
-        {
-          when: "Iulie 2026.",
-          body: "Modulul de filtre PrestaShop (ps_facetedsearch) permitea preluarea completă a serverului cu o singură cerere, fără autentificare. Severitate 10 din 10.",
-        },
-        {
-          when: "Ianuarie 2026.",
-          body: "Plugin-ul WooCommerce Square, până la 80.000 de instalări, expunea cardurile salvate ale clienților și permitea plăți frauduloase, fără nicio autentificare.",
+          when: "Iulie 2026 · PrestaShop.",
+          body: "Modulul ps_facetedsearch permitea preluarea completă a serverului cu o singură cerere, fără autentificare. Severitate: 10 din 10.",
         },
       ],
-      body: "VidGo nu are plugin-uri. Autentificarea cu Google verifică semnătura și destinatarul token-ului pe server, exact verificarea care lipsea acolo. Cardurile nu ating niciodată platforma: plata se face la Stripe.",
+      body: "VidGo integrează funcțiile esențiale în platformă, fără plugin-uri de magazin de întreținut separat. Plățile sunt procesate de Stripe; datele cardurilor nu trec prin serverul magazinului.",
       link: { text: "Cum e gândită securitatea", href: "/securitate" },
     },
   },

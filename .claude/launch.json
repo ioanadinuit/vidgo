@@ -22,6 +22,24 @@
       ],
       "port": 8766,
       "autoPort": false
+    },
+    {
+      "name": "vidgo-start-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "wrangler",
+        "dev",
+        "--config",
+        "C:/Users/ioana/IdeaProjects/vidgo-start/wrangler.jsonc",
+        "--persist-to",
+        "C:/Users/ioana/IdeaProjects/vidgo-start/.wrangler/state",
+        "--port",
+        "8787",
+        "--ip",
+        "127.0.0.1"
+      ],
+      "port": 8787,
+      "autoPort": false
     }
   ]
 }

@@ -37,7 +37,7 @@ export function SecurityView({ locale }: { locale: Locale }) {
   const path = localePath(locale, RO_PATH);
 
   return (
-    <main id="main-content" className="site-page relative">
+    <main id="main-content" className="site-page security-page relative">
       <JsonLd
         data={[
           webPageJsonLd(locale, "WebPage", t.meta.title, path, t.meta.description),

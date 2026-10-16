@@ -77,7 +77,7 @@ export function PlatformView({ locale }: { locale: Locale }) {
           {t.features.map((feature, i) => (
             <BlurFade key={feature.id} delay={Math.min(i, 3) * 0.05}>
               <SpotlightCard id={feature.id} className="scroll-mt-24 p-8 lg:p-10">
-                <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-14">
+                <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-14">
                   <div>
                     <div className="mb-4 w-fit rounded-xl bg-primary/10 p-3 text-primary">{featureIcons[feature.key]}</div>
                     <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-primary">

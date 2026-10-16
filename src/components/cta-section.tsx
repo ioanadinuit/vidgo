@@ -2,7 +2,7 @@ import { MailIcon, PhoneIcon, SendIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/velora/blur-fade";
-import { DotPattern } from "@/components/velora/grid-pattern";
+
 import { getContent, startUrl, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { stripDiacritics } from "@/lib/text";
@@ -15,8 +15,8 @@ export function CtaSection({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <BlurFade>
           <div className="band-orange relative overflow-hidden rounded-3xl px-6 py-12 text-left lg:px-16">
-            <DotPattern className="opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-            <div className="relative">
+            <div className="closing-grid relative">
+              <div className="closing-copy">
               <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 {stripDiacritics(cta.eyebrow)}
               </span>
@@ -24,7 +24,8 @@ export function CtaSection({ locale }: { locale: Locale }) {
                 {cta.title}
               </h2>
               <p className="mt-4 max-w-xl text-muted-foreground text-pretty">{cta.body}</p>
-              <div className="mt-8 flex flex-wrap items-center justify-start gap-3">
+              </div>
+              <div className="closing-actions">
                 <Button size="lg" className="bg-[#0E1220] text-white hover:bg-[#0E1220]/90" asChild>
                   <a href={startUrl(locale)} rel="noopener" target="_blank">
                     <SendIcon />

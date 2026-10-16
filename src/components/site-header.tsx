@@ -18,8 +18,8 @@ export function SiteHeader({ locale, roPath }: { locale: Locale; roPath: string 
         <Link href={localePath(locale, "/")} className="flex shrink-0 items-center font-display text-sm font-bold tracking-wide" aria-label={header.homeLabel}>
           <BrandLogo />
         </Link>
-        {/* Six links: the text nav fits from lg up; below that the hamburger carries everything. */}
-        <nav className="hidden items-center gap-4 text-sm text-muted-foreground lg:flex xl:gap-6" aria-label={header.menuLabel}>
+        {/* Navigation switches to the mobile menu below xl to accommodate the case study. */}
+        <nav className="hidden items-center gap-4 text-sm text-muted-foreground xl:flex xl:gap-5" aria-label={header.menuLabel}>
           {nav.map((link) => (
             <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
               {link.text}
@@ -27,9 +27,9 @@ export function SiteHeader({ locale, roPath }: { locale: Locale; roPath: string 
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <LangSwitch locale={locale} roPath={roPath} className="hidden lg:inline-flex" />
+          <LangSwitch locale={locale} roPath={roPath} className="hidden xl:inline-flex" />
           <ThemeToggle />
-          <Button size="sm" className="hidden sm:max-lg:inline-flex xl:inline-flex" asChild>
+          <Button size="sm" className="hidden sm:max-xl:inline-flex 2xl:inline-flex" asChild>
             <a href={startUrl(locale)} rel="noopener" target="_blank">
               <CalendarClockIcon />
               {header.bookDemo}

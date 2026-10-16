@@ -1,3 +1,4 @@
+import { PressCards } from "@/components/press-cards";
 import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRightIcon, BoxesIcon, CalendarClockIcon, CheckIcon, ClipboardCheckIcon, FileTextIcon, GaugeIcon, HammerIcon, LockKeyholeIcon, PlugZapIcon, RocketIcon, SearchCheckIcon, SearchIcon, ServerIcon, ShieldAlertIcon, TruckIcon } from "lucide-react";
@@ -18,7 +19,6 @@ import { Marquee } from "@/components/velora/marquee";
 import { NumberTicker } from "@/components/velora/number-ticker";
 import { ScrollProgress } from "@/components/velora/scroll-progress";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
-import { TiltCard } from "@/components/velora/tilt-card";
 import { getContent, localePath, startUrl, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { stripDiacritics } from "@/lib/text";
@@ -153,7 +153,7 @@ export function HomeView({ locale }: { locale: Locale }) {
 
       {/* Where we stand */}
       <section className="relative section-space">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+        <div className="positioning-layout mx-auto max-w-6xl px-4 lg:px-8">
           <SectionHeading eyebrow={t.positioning.eyebrow} title={<Highlight text={t.positioning.title} />} />
           <PositioningStack content={t.positioning} />
         </div>
@@ -165,7 +165,7 @@ export function HomeView({ locale }: { locale: Locale }) {
           <SectionHeading eyebrow={t.why.eyebrow} title={<Highlight text={t.why.title} />} description={t.why.description} />
           <div className="mt-10 lg:mt-12 grid gap-6 lg:grid-cols-2">
             <BlurFade>
-              <SpotlightCard className="h-full p-8">
+              <SpotlightCard className="why-card h-full p-8">
                 <div className="mb-4 w-fit rounded-xl bg-primary/10 p-3 text-primary">
                   <GaugeIcon className="size-6" />
                 </div>
@@ -184,7 +184,7 @@ export function HomeView({ locale }: { locale: Locale }) {
               </SpotlightCard>
             </BlurFade>
             <BlurFade delay={0.12}>
-              <SpotlightCard className="h-full p-8">
+              <SpotlightCard className="why-card h-full p-8">
                 <div className="mb-4 w-fit rounded-xl bg-primary/10 p-3 text-primary">
                   <ShieldAlertIcon className="size-6" />
                 </div>
@@ -210,7 +210,7 @@ export function HomeView({ locale }: { locale: Locale }) {
       {/* Bento: what the platform does */}
       <section id={localePath(locale, "/#platforma").split("#")[1]} className="relative section-space">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <SectionHeading eyebrow={t.bento.eyebrow} title={<Highlight text={t.bento.title} />} description={t.bento.description} />
+          <SectionHeading className="platform-summary-heading" eyebrow={t.bento.eyebrow} title={<Highlight text={t.bento.title} />} description={t.bento.description} />
           <BlurFade delay={0.15}>
             <BentoGrid className="mt-10 lg:mt-12">
               {t.bento.cards.map((card, i) => (
@@ -238,10 +238,10 @@ export function HomeView({ locale }: { locale: Locale }) {
       </section>
 
       {/* Measured */}
-      <section className="section-bright section-space">
+      <section className="measured-section section-bright section-space">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-20 lg:px-8">
           <BlurFade direction="right">
-            <div>
+            <div className="measured-copy">
               <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 {stripDiacritics(t.measured.eyebrow)}
               </span>
@@ -259,7 +259,28 @@ export function HomeView({ locale }: { locale: Locale }) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-wrap gap-3">
+
+            </div>
+          </BlurFade>
+          <BlurFade direction="left" delay={0.15}>
+            <div className="measured-scores grid grid-cols-2 gap-4">
+              {t.measured.scores.map((item) => (
+                <div key={item.label} className="score-card">
+                  <div className="rounded-2xl border bg-card p-6 text-center">
+                    <span className="font-sans text-5xl font-semibold text-go-foreground dark:text-foreground">
+                      <NumberTicker value={item.score} />
+                    </span>
+                    <p className="mt-2 text-base text-muted-foreground">{item.label}</p>
+                    <div className="mx-auto mt-4 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                      <div className="h-full rounded-full bg-go" style={{ width: `${item.score}%` }} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <p className="col-span-2 text-center text-xs text-muted-foreground">{t.measured.caption}</p>
+            </div>
+          </BlurFade>
+              <div className="measured-actions measured-actions-wide">
                 <Button variant="outline" asChild>
                   <a
                     href="https://pagespeed.web.dev/analysis/https-biotu-ro/rfm4j5d5sj?form_factor=mobile"
@@ -269,33 +290,13 @@ export function HomeView({ locale }: { locale: Locale }) {
                     {t.measured.pagespeed}
                   </a>
                 </Button>
-                <Button variant="ghost" asChild>
+                <Button variant="outline" asChild>
                   <a href={siteConfig.demo100k} rel="noopener" target="_blank">
                     {t.measured.demo}
                     <ArrowRightIcon />
                   </a>
                 </Button>
               </div>
-            </div>
-          </BlurFade>
-          <BlurFade direction="left" delay={0.15}>
-            <div className="grid grid-cols-2 gap-4">
-              {t.measured.scores.map((item) => (
-                <TiltCard key={item.label}>
-                  <div className="rounded-2xl border bg-card p-6 text-center">
-                    <span className="font-display text-5xl font-bold text-go-foreground dark:text-foreground">
-                      <NumberTicker value={item.score} />
-                    </span>
-                    <p className="mt-2 text-base text-muted-foreground">{item.label}</p>
-                    <div className="mx-auto mt-4 h-1.5 w-full overflow-hidden rounded-full bg-muted">
-                      <div className="h-full rounded-full bg-go" style={{ width: `${item.score}%` }} />
-                    </div>
-                  </div>
-                </TiltCard>
-              ))}
-              <p className="col-span-2 text-center text-xs text-muted-foreground">{t.measured.caption}</p>
-            </div>
-          </BlurFade>
         </div>
       </section>
 
@@ -429,10 +430,9 @@ export function HomeView({ locale }: { locale: Locale }) {
           <BlurFade delay={0.3}>
             <p className="mt-8 text-center text-base text-muted-foreground">
               {t.partners.note.text}{" "}
-              <Link href={t.partners.note.href} className="text-primary hover:underline">
-                {t.partners.note.link}
+              <Link href={t.partners.note.href} className="mt-4 block text-xl font-semibold text-primary underline-offset-4 hover:underline lg:text-2xl">
+                {t.partners.note.link}{t.partners.note.after}
               </Link>
-              {t.partners.note.after}
             </p>
           </BlurFade>
         </div>
@@ -447,6 +447,12 @@ export function HomeView({ locale }: { locale: Locale }) {
         </BlurFade>
       </div>
 
+      <section className="section-space" aria-label={getContent(locale).about.press.eyebrow}>
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <SectionHeading eyebrow={getContent(locale).about.press.eyebrow} title={getContent(locale).about.press.title} description={getContent(locale).about.press.description} />
+          <div className="mt-10 lg:mt-12"><PressCards locale={locale} /></div>
+        </div>
+      </section>
       <CtaSection locale={locale} />
       <SiteFooter locale={locale} roPath={RO_PATH} />
     </main>

@@ -746,3 +746,37 @@
 
 /* Align section-description text to both content edges. */
 .site-page .section-heading p { text-align: justify; text-justify: inter-word; }
+
+/* Case study: a denser, report-like scale. Narrower column, smaller display
+   sizes and body text than the marketing pages, so a section fits one screen. */
+.case-study { --section-space: clamp(2rem, 4vw, 3rem); }
+.case-study .max-w-6xl { max-width: 56rem; }
+.case-study .page-header { padding-top: clamp(5.5rem, 8vw, 7rem); padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.case-study .page-header h1 { font-size: clamp(1.7rem, 2.6vw, 2.3rem); line-height: 1.15; }
+.case-study .page-header p { font-size: .95rem; max-width: 60ch; margin-top: 1rem; }
+.case-study .case-section { padding-block: 2rem; }
+.case-study .case-section > p:not(.case-eyebrow) { font-size: .9rem; line-height: 1.65; max-width: 72ch; margin-block: 1rem; text-align: left; }
+.case-study .case-section h2 { font-size: clamp(1.25rem, 2vw, 1.6rem); margin: .35rem 0 1rem; }
+.case-study .case-eyebrow { font-size: .68rem; }
+.case-study .case-section h3 { font-size: 1rem; }
+.case-study .case-quote blockquote { font-size: 1.05rem; }
+.case-study .case-quote { padding: 1.1rem 1.4rem; }
+.case-study .case-quote p, .case-study .case-search p, .case-study .case-conclusions p, .case-study .case-metrics p { font-size: .9rem; }
+.case-study .case-metrics strong { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.case-study .case-metrics > div { padding: 1rem 1.1rem; }
+.case-study .case-metrics { margin-bottom: 2rem; }
+.case-study .case-search > strong { font-size: 1.8rem; }
+.case-study .case-conclusions article { padding: 1.1rem 1.2rem; }
+.case-study .case-figures figcaption { font-size: .8rem; }
+.case-study .case-study-details-intro h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.case-study .case-study-transition { padding-bottom: 2.5rem; }
+.case-study .growth-flow { padding: clamp(1rem, 2.4vw, 1.5rem); margin-bottom: 2rem; }
+.case-study .growth-flow-heading { margin-bottom: 1.1rem; }
+.case-study .growth-flow-heading > span { font-size: 1rem; }
+.case-study .growth-step { padding: 1rem; }
+.case-study .growth-value { font-size: clamp(1.5rem, 2.2vw, 2rem); margin-top: .6rem; }
+.case-study .growth-word { font-size: clamp(1.1rem, 1.5vw, 1.35rem); margin-top: .6rem; }
+.case-study .growth-revenue > span:first-child { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+.case-study .growth-step > p { font-size: .82rem; }
+.case-study .growth-chart, .case-study .growth-bars { height: 4.25rem; margin-top: .9rem; }
+@media (min-width: 1024px) { .case-study .page-header h1.lg\:text-6xl { font-size: clamp(1.7rem, 2.6vw, 2.3rem); } }

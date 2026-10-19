@@ -26,8 +26,8 @@ export function GrowthFlow({ locale }: { locale: Locale }) {
     <div className="growth-steps">
       <article className="growth-step growth-visibility">
         <div className="growth-step-label"><SearchIcon aria-hidden="true" size={20}/><span>{t("01 · Vizibilitate", "01 · Visibility")}</span></div>
-        <div className="growth-value">32 <span className="growth-arrow">→</span> <Count value={23} active={active} delay={.2}/></div>
-        <p>{t("Poziție medie Google · creștere în 4 săptămâni", "Average Google position · improvement over 4 weeks")}</p>
+        <div className="growth-value">31 <span className="growth-arrow">→</span> <Count value={18} active={active} delay={.2}/></div>
+        <p>{t("Poziție medie Google · de la 31 la 18 în 4 săptămâni · 17 octombrie 2026", "Average Google position · from 31 to 18 in 4 weeks · 17 October 2026")}</p>
         <svg className="growth-chart" viewBox="0 0 260 90" role="img" aria-label={t("Vizibilitate în creștere", "Growing visibility")}><path className="growth-chart-grid" d="M0 20H260M0 50H260M0 80H260"/><path className="growth-chart-area" d="M0 80L35 71L70 74L105 53L140 48L175 32L210 29L255 8V90H0Z"/><path className="growth-chart-line" pathLength="1" d="M0 80L35 71L70 74L105 53L140 48L175 32L210 29L255 8"/><circle className="growth-chart-dot" cx="255" cy="8" r="4"/></svg>
         <small>{t("Măsurat · Google Search Console", "Measured · Google Search Console")}</small>
       </article>

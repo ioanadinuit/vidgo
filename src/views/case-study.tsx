@@ -1,6 +1,7 @@
 import { ArrowDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GrowthFlow } from "@/components/growth-flow";
+import { ZoomFigure } from "@/components/zoom-figure";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
@@ -21,8 +22,12 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
       <GrowthFlow locale={locale} />
       <div className="case-figures-heading"><p className="case-eyebrow">Google Search Console</p><h2>{t("Evoluția urmărită: poziția medie în Google pe 28 de zile și pe 3 luni", "Tracked evolution: average Google position over 28 days and 3 months")}</h2><p>{t("Măsurat zilnic, organic, fără publicitate plătită. Ultima actualizare: 17 octombrie 2026.", "Measured daily, organically, without paid advertising. Last update: 17 October 2026.")}</p></div>
       <div className="case-figures case-figures-gsc">
-        <figure><img src="/assets/case-study-gsc-28-days.png" alt={t("Google Search Console, poziția medie zilnică în ultimele 28 de zile: urcă de la peste 30 la 18,4 pe 17 octombrie 2026", "Google Search Console, daily average position over the last 28 days: climbs from above 30 to 18.4 on 17 October 2026")} loading="lazy" width={1552} height={693} /><figcaption>{t("Poziția medie zilnică, ultimele 28 de zile, 20 septembrie – 17 octombrie 2026: de la peste 30 la 18,4. Media perioadei: 24,1.", "Daily average position, last 28 days, 20 September – 17 October 2026: from above 30 to 18.4. Period average: 24.1.")}</figcaption></figure>
-        <figure><img src="/assets/case-study-gsc-3-months.png" alt={t("Google Search Console, poziția medie zilnică pe 3 luni: pornire de la 60–75 în iulie, indexare dificilă în august, apoi urcare constantă până la 18,4", "Google Search Console, daily average position over 3 months: start at 60–75 in July, rough indexing in August, then a steady climb to 18.4")} loading="lazy" width={1566} height={699} /><figcaption>{t("Poziția medie zilnică, trei luni, 18 iulie – 17 octombrie 2026: pornire de la 60–75 la lansare, indexare dificilă în august, apoi urcare constantă. Media perioadei: 26,5.", "Daily average position, three months, 18 July – 17 October 2026: start at 60–75 at launch, rough indexing in August, then a steady climb. Period average: 26.5.")}</figcaption></figure>
+        <ZoomFigure src="/assets/case-study-gsc-3-months.png" width={1566} height={699} zoomLabel={t("Mărește graficul", "Zoom the chart")}
+          alt={t("Google Search Console, poziția medie zilnică pe 3 luni: pornire de la 60–75 în iulie, indexare dificilă în august, apoi urcare constantă până la 18,4", "Google Search Console, daily average position over 3 months: start at 60–75 in July, rough indexing in August, then a steady climb to 18.4")}
+          caption={t("Trei luni, 18 iulie – 17 octombrie 2026: pornire de la 60–75 la lansare, indexare dificilă în august, apoi urcare constantă. Media perioadei: 26,5.", "Three months, 18 July – 17 October 2026: start at 60–75 at launch, rough indexing in August, then a steady climb. Period average: 26.5.")} />
+        <ZoomFigure src="/assets/case-study-gsc-28-days.png" width={1552} height={693} zoomLabel={t("Mărește graficul", "Zoom the chart")}
+          alt={t("Google Search Console, poziția medie zilnică în ultimele 28 de zile: urcă de la peste 30 la 18,4 pe 17 octombrie 2026", "Google Search Console, daily average position over the last 28 days: climbs from above 30 to 18.4 on 17 October 2026")}
+          caption={t("Ultimele 28 de zile, 20 septembrie – 17 octombrie 2026: de la peste 30 la 18,4. Media perioadei: 24,1.", "Last 28 days, 20 September – 17 October 2026: from above 30 to 18.4. Period average: 24.1.")} />
       </div>
       <div className="case-study-transition">
         <p>{t("Ce se află în spatele acestor rezultate? Vezi comparația dintre cele două magazine, măsurătorile și sursele.", "What is behind these results? Explore the two-store comparison, measurements and sources.")}</p>

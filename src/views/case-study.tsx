@@ -22,10 +22,10 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
       <GrowthFlow locale={locale} />
       <div className="case-figures-heading"><p className="case-eyebrow">Google Search Console</p><h2>{t("Evoluția urmărită: poziția medie în Google pe 28 de zile și pe 3 luni", "Tracked evolution: average Google position over 28 days and 3 months")}</h2><p>{t("Măsurat zilnic, organic, fără publicitate plătită. Ultima actualizare: 17 octombrie 2026.", "Measured daily, organically, without paid advertising. Last update: 17 October 2026.")}</p></div>
       <div className="case-figures case-figures-gsc">
-        <ZoomFigure src="/assets/case-study-gsc-3-months.png" width={1566} height={699} zoomLabel={t("Mărește graficul", "Zoom the chart")}
+        <ZoomFigure src="/assets/case-study-gsc-3-months.png" width={1569} height={701} zoomLabel={t("Mărește graficul", "Zoom the chart")}
           alt={t("Google Search Console, poziția medie zilnică pe 3 luni: pornire de la 60–75 în iulie, indexare dificilă în august, apoi urcare constantă până la 18,4", "Google Search Console, daily average position over 3 months: start at 60–75 in July, rough indexing in August, then a steady climb to 18.4")}
           caption={t("Trei luni, 18 iulie – 17 octombrie 2026: pornire de la 60–75 la lansare, indexare dificilă în august, apoi urcare constantă. Media perioadei: 26,5.", "Three months, 18 July – 17 October 2026: start at 60–75 at launch, rough indexing in August, then a steady climb. Period average: 26.5.")} />
-        <ZoomFigure src="/assets/case-study-gsc-28-days.png" width={1552} height={693} zoomLabel={t("Mărește graficul", "Zoom the chart")}
+        <ZoomFigure src="/assets/case-study-gsc-28-days.png" width={1569} height={701} zoomLabel={t("Mărește graficul", "Zoom the chart")}
           alt={t("Google Search Console, poziția medie zilnică în ultimele 28 de zile: urcă de la peste 30 la 18,4 pe 17 octombrie 2026", "Google Search Console, daily average position over the last 28 days: climbs from above 30 to 18.4 on 17 October 2026")}
           caption={t("Ultimele 28 de zile, 20 septembrie – 17 octombrie 2026: de la peste 30 la 18,4. Media perioadei: 24,1.", "Last 28 days, 20 September – 17 October 2026: from above 30 to 18.4. Period average: 24.1.")} />
       </div>

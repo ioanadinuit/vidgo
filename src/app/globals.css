@@ -802,4 +802,4 @@
 header nav a { white-space: nowrap; }
 
 /* Search Console screenshots (position only), stacked full width. */
-.case-figures-gsc { grid-template-columns: 1fr; }
+.case-figures-gsc { margin: -.75rem 0 2.5rem; }

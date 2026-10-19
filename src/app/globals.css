@@ -801,7 +801,5 @@
 /* Header nav labels never wrap onto two lines. */
 header nav a { white-space: nowrap; }
 
-/* Search Console screenshots: show the position chart only; the clicks and
-   impressions cards at the top are cropped out (content, not platform). */
+/* Search Console screenshots (position only), stacked full width. */
 .case-figures-gsc { grid-template-columns: 1fr; }
-.case-figures-gsc img { aspect-ratio: 1552 / 340; object-fit: cover; object-position: center 55%; }

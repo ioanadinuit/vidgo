@@ -7,8 +7,10 @@ import { XIcon, ZoomInIcon } from "lucide-react";
  * A figure whose image opens full size in an overlay on click.
  * Used for the Search Console screenshots on the case study page.
  */
-export function ZoomFigure({ src, alt, caption, width, height, zoomLabel }: {
+export function ZoomFigure({ src, alt, caption, width, height, zoomLabel, title, accent }: {
   src: string; alt: string; caption: string; width: number; height: number; zoomLabel: string;
+  /** Heading above the image; `accent` is the highlighted part, e.g. the period. */
+  title?: string; accent?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -23,6 +25,7 @@ export function ZoomFigure({ src, alt, caption, width, height, zoomLabel }: {
 
   return (
     <figure>
+      {title && <h3 className="zoom-title">{title} {accent && <span className="zoom-accent">{accent}</span>}</h3>}
       <button type="button" className="zoom-trigger" onClick={() => setOpen(true)} aria-label={zoomLabel} title={zoomLabel}>
         <img src={src} alt={alt} loading="lazy" width={width} height={height} />
         <span className="zoom-badge" aria-hidden="true"><ZoomInIcon /></span>

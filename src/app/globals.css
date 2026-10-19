@@ -806,6 +806,8 @@ header nav a { white-space: nowrap; }
 .case-figures-heading h2 { font-size: clamp(1.2rem, 1.9vw, 1.5rem); margin: .2rem 0 .3rem; }
 .case-figures-heading p:not(.case-eyebrow) { font-size: .9rem; color: var(--muted-foreground); margin: 0; }
 .case-figures-gsc { margin: .75rem 0 2.5rem; grid-template-columns: 1fr; }
+.zoom-title { margin: 0; padding: .7rem 1.1rem .5rem; font-size: 1rem; font-weight: 600; color: var(--foreground); }
+.zoom-accent { color: #fd6208; }
 .zoom-trigger { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
 .zoom-trigger img { display: block; width: 100%; height: auto; }
 .zoom-badge { position: absolute; right: .6rem; bottom: .6rem; display: inline-flex; padding: .35rem; border-radius: .5rem; background: rgb(0 0 0 / .55); color: #fff; }

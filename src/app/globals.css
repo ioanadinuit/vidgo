@@ -878,9 +878,10 @@ header nav a { white-space: nowrap; }
 .cmp-legend, .facts-head { display: flex; gap: 1rem; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .75rem; }
 .cmp-legend-old, .cmp-legend-next { display: inline-flex; align-items: center; gap: .4rem; }
 .cmp-legend-old::before, .cmp-legend-next::before { content: ""; width: .7rem; height: .7rem; border-radius: .15rem; }
-.cmp-legend-old { color: var(--muted-foreground); } .cmp-legend-old::before { background: var(--case-old); }
+.cmp-legend-old { color: var(--muted-foreground); } .cmp-legend-old::before { background: var(--case-old); box-shadow: inset 0 0 0 1px var(--case-old-edge); }
 .cmp-legend-next { color: var(--primary); } .cmp-legend-next::before { background: var(--primary); }
-.case-study { --case-old: color-mix(in srgb, var(--muted-foreground) 45%, transparent); --case-bad: #e5484d; --case-ok: #30a46c; }
+.case-study { --case-old: #1b2030; --case-old-edge: rgb(0 0 0 / .25); --case-bad: #e5484d; --case-ok: #30a46c; }
+.dark .case-study { --case-old: #05070d; --case-old-edge: rgb(255 255 255 / .16); }
 
 /* Before/after bars. */
 .cmp { padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: .6rem; background: var(--card); }
@@ -890,7 +891,7 @@ header nav a { white-space: nowrap; }
 .cmp-bars { display: flex; flex-direction: column; gap: .25rem; }
 .cmp-bar { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 4.4rem; align-items: center; gap: .6rem; height: 1.15rem; }
 .cmp-bar i { display: block; height: 100%; border-radius: .2rem; width: calc(max(var(--w), .015) * 100%); min-width: .35rem; transform-origin: left; }
-.cmp-bar-old i { background: var(--case-old); }
+.cmp-bar-old i { background: var(--case-old); box-shadow: inset 0 0 0 1px var(--case-old-edge); }
 .cmp-bar-next i { background: linear-gradient(90deg, color-mix(in srgb, var(--primary) 70%, transparent), var(--primary)); }
 .cmp-bar span { font-size: .8rem; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted-foreground); }
 .cmp-bar-next span { color: var(--foreground); font-weight: 600; }
@@ -913,7 +914,7 @@ header nav a { white-space: nowrap; }
 .rings-item small { display: block; font-size: .7rem; color: var(--muted-foreground); margin-top: .2rem; }
 .ring { width: 3.6rem; height: 3.6rem; transform: rotate(-90deg); }
 .ring circle { fill: none; stroke-width: 6; stroke-linecap: round; }
-.ring-track { stroke: color-mix(in srgb, var(--border) 80%, transparent); }
+.ring-track { stroke: color-mix(in srgb, var(--foreground) 10%, transparent); }
 .ring-value { stroke-dasharray: var(--v) 100; }
 .ring-old .ring-value { stroke: var(--case-old); }
 .ring-next .ring-value { stroke: var(--primary); }
@@ -931,8 +932,8 @@ header nav a { white-space: nowrap; }
 .uptime-value { font-size: 1.5rem; letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--muted-foreground); }
 .uptime-row[data-clean] .uptime-value { color: var(--primary); }
 .uptime-track { position: relative; height: .9rem; }
-.uptime-line { position: absolute; inset: 0; border-radius: .3rem; background: var(--case-old); transform-origin: left; }
-.uptime-row[data-clean] .uptime-line { background: linear-gradient(90deg, color-mix(in srgb, var(--case-ok) 75%, transparent), var(--case-ok)); }
+.uptime-line { position: absolute; inset: 0; border-radius: .3rem; background: var(--case-old); box-shadow: inset 0 0 0 1px var(--case-old-edge); transform-origin: left; }
+.uptime-row[data-clean] .uptime-line { background: linear-gradient(90deg, color-mix(in srgb, var(--case-ok) 75%, transparent), var(--case-ok)); box-shadow: none; }
 .uptime-outage { position: absolute; top: -.2rem; bottom: -.2rem; left: calc(var(--x) * 100%); width: .5rem; margin-left: -.25rem; border-radius: .2rem; background: var(--case-bad); box-shadow: 0 0 0 2px var(--card); }
 .uptime-outages { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .55rem; }
 .uptime-outages li { display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; font-weight: 600; color: var(--case-bad); }

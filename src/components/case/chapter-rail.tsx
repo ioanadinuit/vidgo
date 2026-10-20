@@ -21,12 +21,6 @@ export function ChapterRail({ chapters, label }: { chapters: Chapter[]; label: s
   useEffect(() => {
     const els = chapters.map((c) => document.getElementById(c.id)).filter((el): el is HTMLElement => !!el);
     if (els.length === 0) return;
-    const io = new IntersectionObserver(
-      (entries) => { for (const e of entries) if (e.isIntersecting) setActive(e.target.id); },
-      { rootMargin: "-30% 0px -55% 0px" },
-    );
-    els.forEach((el) => io.observe(el));
-
     let frame = 0;
     const measure = () => {
       frame = 0;
@@ -36,12 +30,17 @@ export function ChapterRail({ chapters, label }: { chapters: Chapter[]; label: s
       const end = last.bottom + window.scrollY - window.innerHeight * 0.65;
       const p = (window.scrollY - start) / Math.max(end - start, 1);
       setProgress(Math.min(1, Math.max(0, p)));
+      // Current chapter: the last one whose top has passed 35% of the screen.
+      const line = window.innerHeight * 0.35;
+      let current = els[0].id;
+      for (const el of els) if (el.getBoundingClientRect().top <= line) current = el.id;
+      setActive(current);
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure); };
     measure();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    return () => { io.disconnect(); window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (frame) cancelAnimationFrame(frame); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (frame) cancelAnimationFrame(frame); };
   }, [chapters]);
 
   // Keep the active pill in view when the bar scrolls horizontally.

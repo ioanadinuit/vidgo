@@ -1051,3 +1051,7 @@ header nav a { white-space: nowrap; }
  .conclusions[data-active] article:nth-child(7) { animation-delay: .72s; }
  .conclusions[data-active] article:nth-child(8) { animation-delay: .84s; }
 }
+/* Administration chapter: four stat tiles, two per row on tablets. */
+.chapter-stats-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media(min-width: 1024px) { .chapter-stats-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media(max-width: 640px) { .chapter-stats-4 { grid-template-columns: 1fr; } }

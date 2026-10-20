@@ -39,11 +39,14 @@ export function UptimeStrip({ days, rows, startLabel, endLabel }: {
           <div className="uptime-track" role="img" aria-label={`${row.name}: ${row.summary}`}>
             <i className="uptime-line" />
             {row.outages.map((o) => (
-              <b key={o.day} className="uptime-outage" style={{ "--x": (o.day + 0.5) / days } as CSSProperties} title={o.label}>
-                <span>{o.label}</span>
-              </b>
+              <b key={o.day} className="uptime-outage" style={{ "--x": (o.day + 0.5) / days } as CSSProperties} title={o.label} />
             ))}
           </div>
+          {row.outages.length > 0 && (
+            <ul className="uptime-outages">
+              {row.outages.map((o) => <li key={o.day}>{o.label}</li>)}
+            </ul>
+          )}
           <p>{row.summary}</p>
         </div>
       ))}

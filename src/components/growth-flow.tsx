@@ -19,7 +19,7 @@ function Count({ value, prefix = "", suffix = "", active, delay }: { value: numb
 
 export function GrowthFlow({ locale }: { locale: Locale }) {
   const ref = useRef<HTMLDivElement>(null);
-  const active = useInView(ref, { once: true, amount: .35 });
+  const active = useInView(ref, { once: true, amount: 0, margin: "-38% 0px -38% 0px" });
   const t = (ro: string, en: string) => locale === "ro" ? ro : en;
   return <div ref={ref} className="growth-flow" data-active={active ? "" : undefined}>
     <div className="growth-flow-heading"><span>{t("De la vizibilitate la comenzi", "From visibility to orders")}</span><small>{t("Rezultate măsurate + scenariu de potențial", "Measured results + potential scenario")}</small></div>

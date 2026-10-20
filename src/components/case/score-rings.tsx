@@ -31,7 +31,7 @@ export function ScoreRings({ items, oldLabel, nextLabel, caption }: {
   caption?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const active = useInView(ref, { once: true, amount: 0.3 });
+  const active = useInView(ref, { once: true, amount: 0, margin: "-42% 0px -42% 0px" });
   return (
     <div ref={ref} className="rings" data-active={active ? "" : undefined}>
       <div className="cmp-legend" aria-hidden="true">

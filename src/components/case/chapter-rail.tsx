@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 export interface Chapter {
   id: string;
@@ -8,21 +8,22 @@ export interface Chapter {
 }
 
 /**
- * Sticky chapter list for the detailed study, with the current chapter
- * highlighted and a progress line that fills as the reader moves through the
- * chapters. A thin progress bar under the site header mirrors it on every
- * screen size.
+ * Sticky chapter bar under the site header for the detailed study: the
+ * current chapter highlighted, the active pill kept in view, and a progress
+ * line along the bottom that fills as the reader moves through the chapters.
+ * It appears only while the reader is inside the chapters.
  */
 export function ChapterRail({ chapters, label }: { chapters: Chapter[]; label: string }) {
   const [active, setActive] = useState(chapters[0]?.id);
   const [progress, setProgress] = useState(0);
+  const listRef = useRef<HTMLOListElement>(null);
 
   useEffect(() => {
     const els = chapters.map((c) => document.getElementById(c.id)).filter((el): el is HTMLElement => !!el);
     if (els.length === 0) return;
     const io = new IntersectionObserver(
       (entries) => { for (const e of entries) if (e.isIntersecting) setActive(e.target.id); },
-      { rootMargin: "-25% 0px -60% 0px" },
+      { rootMargin: "-30% 0px -55% 0px" },
     );
     els.forEach((el) => io.observe(el));
 
@@ -43,20 +44,26 @@ export function ChapterRail({ chapters, label }: { chapters: Chapter[]; label: s
     return () => { io.disconnect(); window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (frame) cancelAnimationFrame(frame); };
   }, [chapters]);
 
-  const style = { "--p": progress } as CSSProperties;
+  // Keep the active pill in view when the bar scrolls horizontally.
+  useEffect(() => {
+    const list = listRef.current;
+    const item = list?.querySelector<HTMLElement>("li[data-active]");
+    if (!list || !item) return;
+    const target = item.offsetLeft - list.clientWidth / 2 + item.clientWidth / 2;
+    list.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }, [active]);
+
+  const visible = progress > 0 && progress < 1;
   return (
-    <>
-      <div className="chapter-progress" style={style} aria-hidden="true" data-visible={progress > 0 && progress < 1 ? "" : undefined}><i /></div>
-      <nav className="chapter-rail" aria-label={label} style={style}>
-        <div className="chapter-rail-track" aria-hidden="true"><i /></div>
-        <ol>
-          {chapters.map((c, i) => (
-            <li key={c.id} data-active={active === c.id ? "" : undefined}>
-              <a href={`#${c.id}`}><span className="chapter-rail-n">{String(i + 1).padStart(2, "0")}</span>{c.label}</a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-    </>
+    <nav className="chapter-rail" aria-label={label} style={{ "--p": progress } as CSSProperties} data-visible={visible ? "" : undefined}>
+      <ol ref={listRef}>
+        {chapters.map((c, i) => (
+          <li key={c.id} data-active={active === c.id ? "" : undefined}>
+            <a href={`#${c.id}`}><span className="chapter-rail-n">{String(i + 1).padStart(2, "0")}</span><span className="chapter-rail-label">{c.label}</span></a>
+          </li>
+        ))}
+      </ol>
+      <div className="chapter-rail-track" aria-hidden="true"><i /></div>
+    </nav>
   );
 }

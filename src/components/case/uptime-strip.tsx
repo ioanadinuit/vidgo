@@ -27,7 +27,7 @@ export function UptimeStrip({ days, rows, startLabel, endLabel }: {
   endLabel: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const active = useInView(ref, { once: true, amount: 0.4 });
+  const active = useInView(ref, { once: true, amount: 0, margin: "-42% 0px -42% 0px" });
   return (
     <div ref={ref} className="uptime" data-active={active ? "" : undefined}>
       {rows.map((row, r) => (
@@ -38,8 +38,10 @@ export function UptimeStrip({ days, rows, startLabel, endLabel }: {
           </div>
           <div className="uptime-track" role="img" aria-label={`${row.name}: ${row.summary}`}>
             <i className="uptime-line" />
-            {row.outages.map((o) => (
-              <b key={o.day} className="uptime-outage" style={{ "--x": (o.day + 0.5) / days } as CSSProperties} title={o.label} />
+            {row.outages.map((o, i) => (
+              <b key={o.day} className="uptime-outage" data-side={i % 2 ? "bottom" : "top"} style={{ "--x": (o.day + 0.5) / days } as CSSProperties} title={o.label}>
+                <span aria-hidden="true">{o.label}</span>
+              </b>
             ))}
           </div>
           {row.outages.length > 0 && (

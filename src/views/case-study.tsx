@@ -1,4 +1,4 @@
-import { ActivityIcon, ArrowDownIcon, ArrowRightLeftIcon, GaugeIcon, ServerIcon, ShieldCheckIcon, SparklesIcon, Wand2Icon } from "lucide-react";
+import { ActivityIcon, ArrowDownIcon, ArrowRightLeftIcon, CheckIcon, GaugeIcon, ServerIcon, SearchCheckIcon, ShieldCheckIcon, SparklesIcon, Wand2Icon, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GrowthFlow } from "@/components/growth-flow";
 import { ZoomFigure } from "@/components/zoom-figure";
@@ -36,7 +36,7 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
 
   return <main id="main-content" className="site-page case-study relative">
     <SiteHeader locale={locale} roPath="/studiu-de-caz" />
-    <PageHeader eyebrow={t("Studiu de caz · biotu.ro · Octombrie 2026", "Case study · biotu.ro · October 2026")} title={t("Rezultatele noastre", "Our results")} description={t("Un comerciant vinde același catalog pe magazinul vechi și pe unul nou, construit pe VidGo. Le-am măsurat pe amândouă cu aceleași instrumente.", "One merchant sells the same catalog through an existing store and a new store built on VidGo. We measured both with the same tools.")} />
+    <PageHeader eyebrow={t("Studiu de caz · biotu.ro · Octombrie 2026", "Case study · biotu.ro · October 2026")} title={t("Rezultatele noastre", "Our results")} description={t("Un comerciant vinde același catalog pe magazinul vechi și pe unul nou, construit pe VidGo. Le-am măsurat pe amândouă cu aceleași instrumente.", "One merchant sells the same catalog through an old store and a new store built on VidGo. We measured both with the same tools.")} />
     <div className="mx-auto max-w-6xl px-4 lg:px-8">
       <GrowthFlow locale={locale} />
 
@@ -89,7 +89,7 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
             takeaway={t("Același catalog de peste 7.000 de produse. Doar platforma și serverul diferă.", "The same catalog of more than 7,000 products. Only the platform and the server differ.")}
             details={<>
               <p>{t("Aceeași firmă vinde același catalog de produse bio și naturale, peste 7.000 de produse, pe două magazine care rulează în paralel.", "The same business sells more than 7,000 organic and natural products through two stores running in parallel.")}</p>
-              <p>{t("Magazinul vechi are avantajul vechimii domeniului. Diferențele din capitolele următoare vin din platformă și infrastructură, nu din conținut.", "The existing store has the advantage of an established domain. The differences in the following chapters come from the platform and infrastructure, rather than the content.")}</p>
+              <p>{t("Magazinul vechi are avantajul vechimii domeniului. Diferențele din capitolele următoare vin din platformă și infrastructură, nu din conținut.", "The old store has the advantage of an established domain. The differences in the following chapters come from the platform and infrastructure, rather than the content.")}</p>
             </>}>
             <FactCompare oldLabel={old} nextLabel={next} rows={[
               { label: t("Platformă", "Platform"), old: "Open source · PHP 7.0.33", next: "VidGo", oldState: "neutral" },
@@ -99,9 +99,9 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
           </CaseSection>
 
           <CaseSection id={cUptime.id} eyebrow={cUptime.label} title={t("Patru săptămâni, verificare la fiecare minut", "Four weeks, checked every minute")} detailsLabel={detailsLabel}
-            takeaway={t("Zero întreruperi în patru săptămâni. Magazinul vechi a căzut în două dimineți de vânzare.", "Zero outages in four weeks. The existing store went down on two sales mornings.")}
+            takeaway={t("Zero întreruperi în patru săptămâni. Magazinul vechi a căzut în două dimineți de vânzare.", "Zero outages in four weeks. The old store went down on two sales mornings.")}
             details={<>
-              <p>{t("Magazinul vechi a căzut în orele de dimineață: sâmbătă 26 septembrie, între 08:30 și 10:00, 45 din 58 de verificări au eșuat; luni 28 septembrie, între 08:22 și 09:35, încă 13. În aceeași perioadă de monitorizare, biotu.ro nu a avut nicio întrerupere, iar un vârf de 60.000 de cereri într-o zi a trecut fără oprire.", "The existing store experienced morning outages: on Saturday 26 September, between 08:30 and 10:00, 45 of 58 checks failed; on Monday 28 September, between 08:22 and 09:35, another 13 failed. During the same monitoring period, biotu.ro had no outages and handled a peak of 60,000 requests in one day without interruption.")}</p>
+              <p>{t("Magazinul vechi a căzut în orele de dimineață: sâmbătă 26 septembrie, între 08:30 și 10:00, 45 din 58 de verificări au eșuat; luni 28 septembrie, între 08:22 și 09:35, încă 13. În aceeași perioadă de monitorizare, biotu.ro nu a avut nicio întrerupere, iar un vârf de 60.000 de cereri într-o zi a trecut fără oprire.", "The old store experienced morning outages: on Saturday 26 September, between 08:30 and 10:00, 45 of 58 checks failed; on Monday 28 September, between 08:22 and 09:35, another 13 failed. During the same monitoring period, biotu.ro had no outages and handled a peak of 60,000 requests in one day without interruption.")}</p>
               <aside className="case-quote">
                 <h3>{t("Întreruperile pot costa și vizibilitate în Google", "Outages can also cost Google visibility")}</h3>
                 <p>{t("Cele 16 incidente și întreruperea maximă de 55 de minute înseamnă perioade în care magazinul nu putea fi accesat. Dacă Googlebot întâlnește erori de server sau conexiune, poate reduce ritmul de scanare: produsele noi și actualizările pot fi descoperite mai târziu. Erorile persistente pot duce, în timp, la eliminarea paginilor afectate din index.", "The 16 incidents and longest outage of 55 minutes represent periods when the store could not be reached. If Googlebot encounters server or connection errors, it can reduce crawling: new products and updates may be discovered later. Persistent errors can eventually lead to affected pages being removed from the index.")}</p>
@@ -118,9 +118,9 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
               { name: next, uptime: "100%", summary: t("0 verificări eșuate din 39.173 · 0 incidente · vârf de 60.000 de cereri într-o zi, fără oprire", "0 failed checks of 39,173 · 0 incidents · a 60,000-request day with no interruption"), outages: [] },
             ]} />
             <CompareBars oldLabel={old} nextLabel={next} rows={[
-              { label: t("Verificări eșuate", "Failed checks"), old: 65, next: 0, oldText: "65", nextText: "0" },
-              { label: t("Incidente", "Incidents"), old: 16, next: 0, oldText: "16", nextText: "0" },
-              { label: t("Cea mai lungă întrerupere", "Longest outage"), old: 55, next: 0, oldText: t("55 min", "55 min"), nextText: t("niciuna", "none") },
+              { label: t("Verificări eșuate", "Failed checks"), old: 65, next: 0, oldText: "65", nextText: "0", delta: t("la zero", "to zero") },
+              { label: t("Incidente", "Incidents"), old: 16, next: 0, oldText: "16", nextText: "0", delta: t("la zero", "to zero") },
+              { label: t("Cea mai lungă întrerupere", "Longest outage"), old: 55, next: 0, oldText: t("55 min", "55 min"), nextText: t("niciuna", "none"), delta: t("la zero", "to zero") },
             ]} />
           </CaseSection>
 
@@ -131,7 +131,7 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
               { label: t("Median", "Median"), old: 1048, next: 326, oldText: t("1.048 ms", "1,048 ms"), nextText: "326 ms", delta: t("3,2×", "3.2×") },
               { label: t("95% din răspunsuri, sub", "95% of responses below"), old: 1491, next: 438, oldText: t("1.491 ms", "1,491 ms"), nextText: "438 ms", delta: t("3,4×", "3.4×") },
               { label: t("99% din răspunsuri, sub", "99% of responses below"), old: 2405, next: 516, oldText: t("2.405 ms", "2,405 ms"), nextText: "516 ms", delta: t("4,7×", "4.7×") },
-              { label: t("Răspunsuri mai lente de 3 secunde", "Responses slower than 3 seconds"), old: 164, next: 13, oldText: "164", nextText: "13" },
+              { label: t("Răspunsuri mai lente de 3 secunde", "Responses slower than 3 seconds"), old: 164, next: 13, oldText: "164", nextText: "13", delta: t("12,6×", "12.6×") },
               { label: t("Primul byte, median (20 de cereri)", "Time to first byte, median (20 requests)"), old: 1.23, next: 0.53, oldText: t("1,23 s", "1.23 s"), nextText: t("0,53 s", "0.53 s"), delta: t("2,3×", "2.3×") },
               { label: t("Pagina completă, median (20 de cereri)", "Full page, median (20 requests)"), old: 1.61, next: 0.63, oldText: t("1,61 s", "1.61 s"), nextText: t("0,63 s", "0.63 s"), delta: t("2,6×", "2.6×") },
             ]} />
@@ -153,7 +153,7 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
             <CompareBars oldLabel={old} nextLabel={next} rows={[
               { label: t("Primul conținut afișat, mobil", "First contentful paint, mobile"), old: 3.8, next: 1.8, oldText: t("3,8 s", "3.8 s"), nextText: t("1,8 s", "1.8 s"), delta: t("−2,0 s", "−2.0 s") },
               { label: t("Pagina vizibilă complet, mobil", "Speed Index, mobile"), old: 4.6, next: 2.7, oldText: t("4,6 s", "4.6 s"), nextText: t("2,7 s", "2.7 s"), delta: t("−1,9 s", "−1.9 s") },
-              { label: t("Deplasări de layout, mobil (CLS)", "Cumulative layout shift, mobile"), old: 0.188, next: 0, oldText: t("0,188", "0.188"), nextText: "0" },
+              { label: t("Deplasări de layout, mobil (CLS)", "Cumulative layout shift, mobile"), old: 0.188, next: 0, oldText: t("0,188", "0.188"), nextText: "0", delta: t("la zero", "to zero") },
             ]} />
           </CaseSection>
 
@@ -169,21 +169,25 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
               <p>{t("Pe 17 octombrie 2026, poziția medie zilnică în Google era 18,4. Cu patru săptămâni înainte era peste 30. La lansare, în a doua jumătate a lui iulie, magazinul pornea de la poziția 50 și a coborât până la 75 și a trecut printr-o indexare dificilă în august, cu zile fără afișări. Media pe trei luni, 26,5, poartă acel început; media pe ultimele 28 de zile este 24,1, iar tendința zilnică urcă săptămână de săptămână, organic, fără publicitate plătită.", "On 17 October 2026 the daily average Google position was 18.4. Four weeks earlier it was above 30. At launch, in the second half of July, the store started at position 50 and dropped as low as 75 and went through a rough indexing phase in August, with days without impressions. The three-month average, 26.5, carries that start; the 28-day average is 24.1, and the daily trend climbs week after week, organically, without paid advertising.")}</p>
               <p className="case-source">{t("Surse: SEOptimer, 13 octombrie (biorganicbubu.ro) și 16 septembrie 2026 (biotu.ro); Google Search Console, 17 octombrie 2026. Tot ce apare în coloana biotu.ro vine din platformă, fără plugin și fără configurare.", "Sources: SEOptimer, 13 October (biorganicbubu.ro) and 16 September 2026 (biotu.ro); Google Search Console, 17 October 2026. Everything in the biotu.ro column is built into the platform, without plugins or configuration.")}</p>
             </>}>
-            <div className="chapter-split">
-              <FactCompare oldLabel={old} nextLabel={next} rows={[
-                { label: t("Nota On-Page SEO", "On-page SEO grade"), old: "B−", next: "A+" },
-                { label: t("Nota GEO (AI)", "GEO (AI) grade"), old: "A−", next: "A+", oldState: "ok" },
+            <div className="seo-grades">
+              {[
+                { label: t("Nota On-Page SEO", "On-page SEO grade"), from: "B−", to: "A+", source: "SEOptimer" },
+                { label: t("Nota GEO (AI)", "GEO (AI) grade"), from: "A−", to: "A+", source: "SEOptimer" },
+                { label: t("Poziția în Google, 3 luni", "Google position, 3 months"), from: "50", to: "18", source: "Google Search Console" },
+              ].map((g) => <div key={g.label}><p>{g.label}</p><strong><span className="seo-from">{g.from}</span><span className="seo-arrow" aria-hidden="true">→</span><span className="seo-to">{g.to}</span></strong><small>{g.source}</small></div>)}
+            </div>
+            <ul className="seo-checks" aria-label={t("Elemente SEO de bază", "Basic SEO elements")}>
+              {[
                 { label: t("Titlul paginii", "Page title"), old: t("145 de caractere", "145 characters"), next: t("56 de caractere", "56 characters") },
                 ...["Heading H1", "Tag canonical", "Sitemap XML", "Open Graph"].map((label) => ({ label, old: t("Lipsește", "Missing"), next: t("Prezent", "Present") })),
-              ]} />
-              <aside className="case-search"><strong>50 → 18</strong><div><h3>Google Search Console · biotu.ro</h3><p>{t("Poziția medie zilnică pe 17 octombrie 2026: 18,4. Cu patru săptămâni înainte: peste 30. La lansare, în iulie: 50.", "Daily average position on 17 October 2026: 18.4. Four weeks earlier: above 30. At launch, in July: 50.")}</p></div></aside>
-            </div>
+              ].map((c) => <li key={c.label}><span className="seo-check-label">{c.label}</span><span className="seo-check-old"><XIcon aria-hidden="true" size={14} />{c.old}</span><span className="seo-check-next"><CheckIcon aria-hidden="true" size={14} />{c.next}</span></li>)}
+            </ul>
           </CaseSection>
 
           <CaseSection id={cBots.id} eyebrow={cBots.label} title={t("Peste 500.000 de cereri, zero coșuri false", "Over 500,000 requests, zero fake carts")} detailsLabel={detailsLabel}
-            takeaway={t("Același trafic automat. Pe magazinul vechi: peste 8.000 de coșuri false și finalizarea comenzii blocată. Pe VidGo: zero.", "The same automated traffic. On the existing store: over 8,000 fake carts and a frozen checkout. On VidGo: zero.")}
+            takeaway={t("Același trafic automat. Pe magazinul vechi: peste 8.000 de coșuri false și finalizarea comenzii blocată. Pe VidGo: zero.", "The same automated traffic. On the old store: over 8,000 fake carts and a frozen checkout. On VidGo: zero.")}
             details={<>
-              <p>{t("Același comerciant, aceleași produse, același tip de trafic automat. Pe magazinul vechi, boții au creat peste 8.000 de coșuri abuzive, mii în câteva ore, iar în vârfurile de atac pagina de finalizare a comenzii s-a blocat. Clienți reali au sunat să întrebe de ce nu le ajunge comanda: butonul de plasare nu mai răspundea.", "The same merchant, the same products, the same kind of automated traffic. On the existing store, bots created more than 8,000 abusive carts, thousands within a few hours, and at the peaks of the attack the checkout page froze. Real customers called to ask why their order had not arrived: the place-order button had stopped responding.")}</p>
+              <p>{t("Același comerciant, aceleași produse, același tip de trafic automat. Pe magazinul vechi, boții au creat peste 8.000 de coșuri abuzive, mii în câteva ore, iar în vârfurile de atac pagina de finalizare a comenzii s-a blocat. Clienți reali au sunat să întrebe de ce nu le ajunge comanda: butonul de plasare nu mai răspundea.", "The same merchant, the same products, the same kind of automated traffic. On the old store, bots created more than 8,000 abusive carts, thousands within a few hours, and at the peaks of the attack the checkout page froze. Real customers called to ask why their order had not arrived: the place-order button had stopped responding.")}</p>
               <p>{t("biotu.ro nu a avut niciun coș fals și nicio comandă falsă de la lansare. Limitarea de rată și filtrele pentru boți malițioși fac parte din platformă, nu sunt plugin-uri, și nu pun nicio pagină de verificare în fața clienților sau a Google. Traficul automat este oprit înainte să ajungă la coș, iar procesul de comandă a rămas disponibil în tot acest timp.", "biotu.ro has had no fake carts and no fake orders since launch. Rate limiting and malicious-bot filters are part of the platform, not plugins, and they put no verification page in front of customers or Google. Automated traffic is stopped before it reaches the cart, and the ordering process stayed available throughout.")}</p>
               <p className="case-source">{t("Surse: administrarea biorganicbubu.ro, octombrie 2026 (coșuri create de boți și blocarea finalizării comenzii); Cloudflare Web Traffic pentru biotu.ro, ultimele 30 de zile până la 16 octombrie 2026 (526.550 cereri, dintre care 415.320 neservite din cache; 37.520 vizitatori unici, maximum 7.380 și minimum 1.530 pe zi); jurnalele platformei; monitorizarea Uptime Kuma de mai sus, zero întreruperi.", "Sources: biorganicbubu.ro administration, October 2026 (bot-created carts and checkout blocking); Cloudflare Web Traffic for biotu.ro, the 30 days to 16 October 2026 (526,550 requests, of which 415,320 uncached; 37,520 unique visitors, maximum 7,380 and minimum 1,530 per day); platform logs; the Uptime Kuma monitoring above, zero outages.")}</p>
             </>}>
@@ -216,15 +220,16 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
           </CaseSection>
 
           <CaseSection id={cConclusions.id} eyebrow={cConclusions.label} title={t("Ce înseamnă pentru un magazin online", "What this means for an online store")} detailsLabel={detailsLabel}
-            takeaway={t("Șapte lucruri pe care le primești din prima zi, fiecare măsurat mai sus.", "Seven things you get from day one, each measured above.")}>
+            takeaway={t("Opt lucruri pe care le primești din prima zi, fiecare măsurat mai sus.", "Eight things you get from day one, each measured above.")}>
             <div className="conclusions">{[
-              { Icon: ActivityIcon, stat: "100%", title: t("Deschis când vin clienții", "Open when customers arrive"), body: t("Nicio întrerupere în patru săptămâni. Magazinul vechi: două dimineți de vânzare pierdute.", "No outages in four weeks. The existing store lost two sales mornings.") },
+              { Icon: ActivityIcon, stat: "100%", title: t("Deschis când vin clienții", "Open when customers arrive"), body: t("Nicio întrerupere în patru săptămâni. Magazinul vechi: două dimineți de vânzare pierdute.", "No outages in four weeks. The old store lost two sales mornings.") },
               { Icon: GaugeIcon, stat: t("2,7 s", "2.7 s"), title: t("Pagini care se încarcă repede", "Pages that load quickly"), body: t("Pagina vizibilă complet pe mobil, față de 4,6 s.", "Fully visible on mobile, compared with 4.6 s.") },
               { Icon: SparklesIcon, stat: "A+", title: t("Vizibil în Google și în AI", "Visible in Google and AI"), body: t("Titluri, canonical, sitemap și date structurate din platformă. AI-ul recunoaște brandul dintr-un cuvânt.", "Titles, canonical tags, sitemaps and structured data built in. AI recognises the brand from one word.") },
               { Icon: ShieldCheckIcon, stat: "0", title: t("Boții nu ajung la coș", "Bots never reach the cart"), body: t("Zero coșuri false la peste 500.000 de cereri, fără pagini de verificare.", "Zero fake carts across 500,000+ requests, with no verification pages.") },
               { Icon: Wand2Icon, stat: t("auto", "auto"), title: t("Fără griji tehnice", "Less technical administration"), body: t("Actualizări primite automat, facturi și AWB generate fără pași manuali.", "Automatic updates, invoices and shipping labels generated without manual steps.") },
               { Icon: ArrowRightLeftIcon, stat: t("0 opriri", "0 downtime"), title: t("Migrare fără oprirea vânzărilor", "Migration without stopping sales"), body: t("Produse, comenzi și clienți mutați; clienții vechi se autentifică din prima zi.", "Products, orders and customers migrated; existing customers sign in from day one.") },
               { Icon: ServerIcon, stat: "VPS", title: t("Serverul tău, datele tale", "Your server, your data"), body: t("Magazinul rulează pe un server din contul tău de cloud.", "The store runs on a server in your own cloud account.") },
+              { Icon: SearchCheckIcon, stat: "100", title: t("Scor SEO Lighthouse", "Lighthouse SEO score"), body: t("100 din 100 pe pagina principală, cu 100 la bune practici. Magazinul vechi: 92 și 73.", "100 of 100 on the homepage, with 100 for best practices. The old store: 92 and 73.") },
             ].map(({ Icon, stat, title, body }) => <article key={title}><Icon aria-hidden="true" size={20} /><strong>{stat}</strong><h3>{title}</h3><p>{body}</p></article>)}</div>
             <p className="chapter-next">{t("Pasul următor: un demo cu catalogul tău real, în aceeași zi, ca să vezi înainte să decizi.", "Next step: a demo with your real catalog, on the same day, so you can see it before deciding.")}</p>
           </CaseSection>

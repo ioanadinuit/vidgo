@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "motion/react";
 import { XIcon, ZoomInIcon } from "lucide-react";
 
 /**
@@ -13,6 +14,8 @@ export function ZoomFigure({ src, alt, caption, width, height, zoomLabel, title,
   title?: string; accent?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  const active = useInView(ref, { once: true, amount: 0, margin: "-40% 0px -40% 0px" });
 
   useEffect(() => {
     if (!open) return;
@@ -24,7 +27,7 @@ export function ZoomFigure({ src, alt, caption, width, height, zoomLabel, title,
   }, [open]);
 
   return (
-    <figure>
+    <figure ref={ref} data-active={active ? "" : undefined}>
       {title && <h3 className="zoom-title">{title} {accent && <span className="zoom-accent">{accent}</span>}</h3>}
       <button type="button" className="zoom-trigger" onClick={() => setOpen(true)} aria-label={zoomLabel} title={zoomLabel}>
         <img src={src} alt={alt} loading="lazy" width={width} height={height} />

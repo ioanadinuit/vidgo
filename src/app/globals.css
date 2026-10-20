@@ -1024,3 +1024,30 @@ header nav a { white-space: nowrap; }
 .seo-check-next { font-weight: 600; } .seo-check-next svg { color: var(--case-ok); }
 @media(max-width: 900px) { .seo-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media(max-width: 640px) { .seo-grades { grid-template-columns: 1fr; } }
+/* Financial impact: the orange figures zoom in one after another. */
+.case-impact article p { font-size: .95rem; }
+.case-impact article strong.financial-number { display: inline-block; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -.03em; line-height: 1.1; transform-origin: left center; }
+.case-impact article:nth-child(4) strong.financial-number { font-size: clamp(1.9rem, 3.2vw, 2.7rem); }
+@media(prefers-reduced-motion: no-preference) {
+ .case-impact:not([data-active]) article strong.financial-number { opacity: 0; transform: scale(.55); }
+ .case-impact[data-active] article strong.financial-number { animation: number-zoom .8s cubic-bezier(.2,.9,.3,1.2) backwards; }
+ .case-impact[data-active] article:nth-child(2) strong.financial-number { animation-delay: .5s; }
+ .case-impact[data-active] article:nth-child(3) strong.financial-number { animation-delay: 1s; }
+ .case-impact[data-active] article:nth-child(4) strong.financial-number { animation-delay: 1.6s; animation-duration: 1s; }
+}
+@keyframes number-zoom { from { opacity: 0; transform: scale(.55); } 70% { opacity: 1; transform: scale(1.12); } to { opacity: 1; transform: scale(1); } }
+/* Conclusion cards flip in one after another across the grid; light hover tilt. */
+.conclusions { perspective: 1400px; }
+.conclusions article { transform-style: preserve-3d; transition: transform .35s ease, box-shadow .35s ease; }
+.conclusions article:hover { transform: translateY(-3px) rotateX(2deg) rotateY(-2deg); box-shadow: 0 20px 50px -24px color-mix(in srgb, var(--primary) 45%, transparent); }
+@media(prefers-reduced-motion: no-preference) {
+ .conclusions:not([data-active]) article { opacity: 0; transform: rotateY(-28deg) translateX(-24px) scale(.94); }
+ .conclusions[data-active] article { animation: figure-flip .9s cubic-bezier(.2,.7,.2,1) backwards; }
+ .conclusions[data-active] article:nth-child(2) { animation-delay: .12s; }
+ .conclusions[data-active] article:nth-child(3) { animation-delay: .24s; }
+ .conclusions[data-active] article:nth-child(4) { animation-delay: .36s; }
+ .conclusions[data-active] article:nth-child(5) { animation-delay: .48s; }
+ .conclusions[data-active] article:nth-child(6) { animation-delay: .6s; }
+ .conclusions[data-active] article:nth-child(7) { animation-delay: .72s; }
+ .conclusions[data-active] article:nth-child(8) { animation-delay: .84s; }
+}

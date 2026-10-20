@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { CtaSection } from "@/components/cta-section";
 import { CaseSection } from "@/components/case/case-section";
+import { InView } from "@/components/case/in-view";
 import { ChapterRail } from "@/components/case/chapter-rail";
 import { CompareBars } from "@/components/case/compare-bars";
 import { FactCompare } from "@/components/case/fact-compare";
@@ -211,17 +212,17 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
               <p>{n("Traficul organic în creștere aduce mai mulți vizitatori. Răspunsul mai rapid și disponibilitatea magazinului pot ajuta mai mulți dintre ei să finalizeze comanda. Simularea de aici presupune o singură creștere totală de 5% a comenzilor; nu adună separat efectele traficului și vitezei.", "Growing organic traffic brings more visitors. Faster responses and store availability can help more of them complete their orders. This scenario assumes a single combined 5% increase in orders; it does not add separate traffic and speed effects.")}</p>
               <p className="case-source">{n("Calcul: 200.000 € × 5% = 10.000 € vânzări suplimentare pe an. Scenariu ilustrativ, nu rezultat financiar măsurat la biotu.ro și nici creștere garantată. Sumele reprezintă venituri brute, nu profit; nu includ deducerea costurilor suplimentare, retururilor, taxelor sau costului platformei.", "Calculation: €200,000 × 5% = €10,000 in additional annual sales. An illustrative scenario, not a measured financial result for biotu.ro or a guaranteed increase. Amounts are gross revenue, not profit; additional costs, returns, taxes and platform costs have not been deducted.")}</p>
             </>}>
-            <div className="case-conclusions case-impact">
+            <InView className="case-conclusions case-impact">
               <article><h3>{n("Venituri brute actuale", "Current gross revenue")}</h3><p><strong className="financial-number">200.000 € / {t("an", "year")}</strong></p></article>
               <article><h3>{n("Ipoteză de creștere a comenzilor", "Assumed order growth")}</h3><p><strong className="financial-number">+5%</strong> · {t("aceeași valoare medie a comenzii", "unchanged average order value")}</p></article>
               <article><h3>{n("Vânzări suplimentare estimate", "Estimated additional sales")}</h3><p><strong className="financial-number">+10.000 € / {t("an", "year")}</strong> · {n("aproximativ 833 € pe lună", "approximately €833 per month")}</p></article>
               <article><h3>{n("Venituri brute în scenariul estimat", "Gross revenue in this scenario")}</h3><p><strong className="financial-number">210.000 € / {t("an", "year")}</strong></p></article>
-            </div>
+            </InView>
           </CaseSection>
 
           <CaseSection id={cConclusions.id} eyebrow={cConclusions.label} title={t("Ce înseamnă pentru un magazin online", "What this means for an online store")} detailsLabel={detailsLabel}
             takeaway={t("Opt lucruri pe care le primești din prima zi, fiecare măsurat mai sus.", "Eight things you get from day one, each measured above.")}>
-            <div className="conclusions">{[
+            <InView className="conclusions">{[
               { Icon: ActivityIcon, stat: "100%", title: t("Deschis când vin clienții", "Open when customers arrive"), body: t("Nicio întrerupere în patru săptămâni. Magazinul vechi: două dimineți de vânzare pierdute.", "No outages in four weeks. The old store lost two sales mornings.") },
               { Icon: GaugeIcon, stat: t("2,7 s", "2.7 s"), title: t("Pagini care se încarcă repede", "Pages that load quickly"), body: t("Pagina vizibilă complet pe mobil, față de 4,6 s.", "Fully visible on mobile, compared with 4.6 s.") },
               { Icon: SparklesIcon, stat: "A+", title: t("Vizibil în Google și în AI", "Visible in Google and AI"), body: t("Titluri, canonical, sitemap și date structurate din platformă. AI-ul recunoaște brandul dintr-un cuvânt.", "Titles, canonical tags, sitemaps and structured data built in. AI recognises the brand from one word.") },
@@ -230,7 +231,7 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
               { Icon: ArrowRightLeftIcon, stat: t("0 opriri", "0 downtime"), title: t("Migrare fără oprirea vânzărilor", "Migration without stopping sales"), body: t("Produse, comenzi și clienți mutați; clienții vechi se autentifică din prima zi.", "Products, orders and customers migrated; existing customers sign in from day one.") },
               { Icon: ServerIcon, stat: "VPS", title: t("Serverul tău, datele tale", "Your server, your data"), body: t("Magazinul rulează pe un server din contul tău de cloud.", "The store runs on a server in your own cloud account.") },
               { Icon: SearchCheckIcon, stat: "100", title: t("Scor SEO Lighthouse", "Lighthouse SEO score"), body: t("100 din 100 pe pagina principală, cu 100 la bune practici. Magazinul vechi: 92 și 73.", "100 of 100 on the homepage, with 100 for best practices. The old store: 92 and 73.") },
-            ].map(({ Icon, stat, title, body }) => <article key={title}><Icon aria-hidden="true" size={20} /><strong>{stat}</strong><h3>{title}</h3><p>{body}</p></article>)}</div>
+            ].map(({ Icon, stat, title, body }) => <article key={title}><Icon aria-hidden="true" size={20} /><strong>{stat}</strong><h3>{title}</h3><p>{body}</p></article>)}</InView>
             <p className="chapter-next">{t("Pasul următor: un demo cu catalogul tău real, în aceeași zi, ca să vezi înainte să decizi.", "Next step: a demo with your real catalog, on the same day, so you can see it before deciding.")}</p>
           </CaseSection>
         </div>

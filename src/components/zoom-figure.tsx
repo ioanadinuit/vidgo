@@ -15,7 +15,7 @@ export function ZoomFigure({ src, alt, caption, width, height, zoomLabel, title,
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
-  const active = useInView(ref, { once: true, amount: 0, margin: "-40% 0px -40% 0px" });
+  const active = useInView(ref, { once: true, amount: 0, margin: "-25% 0px -25% 0px" });
 
   useEffect(() => {
     if (!open) return;

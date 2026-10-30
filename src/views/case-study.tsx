@@ -13,7 +13,8 @@ import { CompareBars } from "@/components/case/compare-bars";
 import { FactCompare } from "@/components/case/fact-compare";
 import { ScoreRings } from "@/components/case/score-rings";
 import { UptimeStrip } from "@/components/case/uptime-strip";
-import type { Locale } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
+import Link from "next/link";
 
 export function CaseStudyView({ locale }: { locale: Locale }) {
   const t = (ro: string, en: string) => locale === "ro" ? ro : en;
@@ -243,6 +244,12 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
           </CaseSection>
         </div>
       </div>
+      <section className="case-reading"><p className="case-eyebrow">{t("Din blog", "From the blog")}</p><h2>{t("Cum funcționează în detaliu", "How it works in detail")}</h2><ul>{[
+        [t("Viteza nu e un scor. Sunt comenzile pe care nu le vezi.", "Speed is not a score. It is the orders you never see."), "/blog/viteza-magazin-online"],
+        [t("Robots.txt și indexarea paginilor: ce s-a schimbat", "Robots.txt and page indexing: what changed"), "/blog/cum-s-a-schimbat-indexarea"],
+        [t("Dropshipping la scară: 12 furnizori sincronizați", "Dropshipping at scale: 12 suppliers in sync"), "/blog/dropshipping-furnizori-romania"],
+        [t("Optimizare SEO pentru magazin online: Google și AI", "SEO for an online store: Google and AI visibility"), "/blog/vizibilitate-google-ai"],
+      ].map(([title, roPath]) => <li key={roPath}><Link href={localePath(locale, roPath)}>{title}</Link></li>)}</ul></section>
     </div><CtaSection locale={locale} /><SiteFooter locale={locale} roPath="/studiu-de-caz" />
   </main>;
 }

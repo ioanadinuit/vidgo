@@ -132,6 +132,7 @@ export interface HomeContent {
     note: LinkedSentence;
   };
   isolation: string;
+  blog: { eyebrow: string; title: string; description: string; all: string; read: string };
 }
 
 export interface PlatformFeature {
@@ -144,6 +145,8 @@ export interface PlatformFeature {
   body: string;
   items: string[];
   note?: string;
+  /** Optional link to a blog post that explains this feature in depth. */
+  related?: TextLink;
 }
 
 export interface PlatformContent {

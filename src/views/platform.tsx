@@ -17,6 +17,7 @@ import {
   UploadIcon,
   UserRoundCheckIcon,
   ImageIcon,
+  BookOpenIcon,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
@@ -105,6 +106,12 @@ export function PlatformView({ locale }: { locale: Locale }) {
                       <p className="mt-6 rounded-xl border border-dashed border-border bg-muted/60 p-4 text-base text-muted-foreground">
                         {feature.note}
                       </p>
+                    )}
+                    {feature.related && (
+                      <Link href={feature.related.href} className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+                        <BookOpenIcon className="size-4" />
+                        {feature.related.text}
+                      </Link>
                     )}
                   </div>
                 </div>

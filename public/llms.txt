@@ -46,11 +46,11 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 
 ## Blog
 
-- [Dropshipping la scară: 12 furnizori sincronizați, fără să vinzi ce nu ai](https://vidgotech.com/blog/dropshipping-furnizori-romania/): dropshipping cu mai mulți furnizori XML: setări și frecvență de actualizare pe fiecare furnizor, stoc epuizat preluat automat, preț din formulă de adaos peste prețul de intrare și poze actualizate la alegere; exemplul biotu.ro.
-- [Viteza nu e un scor. Sunt comenzile pe care nu le vezi.](https://vidgotech.com/blog/viteza-magazin-online/): ce înseamnă LCP, INP și CLS pentru un magazin, de ce telefonul proprietarului înșală, unde se pierd secundele și cât costă lentoarea în comenzi.
-- [Indexarea nu mai e despre linkuri. Ce s-a schimbat de fapt.](https://vidgotech.com/blog/cum-s-a-schimbat-indexarea/): crawl budget, entități, date structurate și crawlerele AI precum GPTBot și Google-Extended, care nu execută JavaScript; de ce contează HTML-ul randat pe server.
-- [Tema pe care ai ales-o e cea mai scumpă decizie tehnică din magazin](https://vidgotech.com/blog/structura-temei-magazin/): cum o temă multifuncțională plus un teanc de plugin-uri plafonează performanța, strică actualizările și ascunde catalogul de roboți; alternativa cu o singură bază și teme ca presetări.
-- [Cum devine un magazin online vizibil în Google și în răspunsurile AI](https://vidgotech.com/blog/vizibilitate-google-ai/): robots.txt, sitemap, llms.txt, date structurate pentru produse, Google Merchant Center, evaluări SEO cu AI și căutare inteligentă în catalog.
+- [Dropshipping la scară: 12 furnizori sincronizați, fără să vinzi ce nu ai](https://vidgotech.com/blog/dropshipping-furnizori-romania): dropshipping cu mai mulți furnizori XML: setări și frecvență de actualizare pe fiecare furnizor, stoc epuizat preluat automat, preț din formulă de adaos peste prețul de intrare și poze actualizate la alegere; exemplul biotu.ro.
+- [Viteza nu e un scor. Sunt comenzile pe care nu le vezi.](https://vidgotech.com/blog/viteza-magazin-online): ce înseamnă LCP, INP și CLS pentru un magazin, de ce telefonul proprietarului înșală, unde se pierd secundele și cât costă lentoarea în comenzi.
+- [Indexarea nu mai e despre linkuri. Ce s-a schimbat de fapt.](https://vidgotech.com/blog/cum-s-a-schimbat-indexarea): crawl budget, entități, date structurate și crawlerele AI precum GPTBot și Google-Extended, care nu execută JavaScript; de ce contează HTML-ul randat pe server.
+- [Tema pe care ai ales-o e cea mai scumpă decizie tehnică din magazin](https://vidgotech.com/blog/structura-temei-magazin): cum o temă multifuncțională plus un teanc de plugin-uri plafonează performanța, strică actualizările și ascunde catalogul de roboți; alternativa cu o singură bază și teme ca presetări.
+- [Cum devine un magazin online vizibil în Google și în răspunsurile AI](https://vidgotech.com/blog/vizibilitate-google-ai): robots.txt, sitemap, llms.txt, date structurate pentru produse, Google Merchant Center, evaluări SEO cu AI și căutare inteligentă în catalog.
 
 ## English
 

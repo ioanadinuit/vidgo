@@ -33,6 +33,7 @@ export const platform: PlatformContent = {
         "Evaluare SEO cu AI pentru titluri, descrieri și metadate, cu 9 verificări per produs, înainte de publicare",
         "Feed Google Merchant generat automat din catalogul activ, cu preț, stoc, imagine și EAN",
       ],
+      related: { text: "Citește: robots.txt și indexarea paginilor", href: "/blog/cum-s-a-schimbat-indexarea" },
     },
     {
       key: "catalog",
@@ -48,6 +49,7 @@ export const platform: PlatformContent = {
         "Re-rularea aceluiași import nu duplică datele",
         "Produse vizualizate recent, wishlist păstrat între sesiuni, bloc de brand per producător",
       ],
+      related: { text: "Citește: dropshipping cu 12 furnizori sincronizați", href: "/blog/dropshipping-furnizori-romania" },
     },
     {
       key: "images",
@@ -62,6 +64,7 @@ export const platform: PlatformContent = {
         "Pe pagina de produs se încarcă pozele la dimensiune completă, pentru detalii",
         "Mai puține date descărcate pe rețeaua mobilă la fiecare pagină de categorie",
       ],
+      related: { text: "Citește: unde se duc secundele pe mobil", href: "/blog/viteza-magazin-online" },
     },
     {
       key: "orders",
@@ -145,6 +148,7 @@ export const platform: PlatformContent = {
         "Asistent AI pentru temă: descrie ce vrei și primești culorile, secțiunile și stilurile potrivite",
         "Previzualizare înainte de publicare",
       ],
+      related: { text: "Citește: de ce tema e cea mai scumpă decizie tehnică", href: "/blog/structura-temei-magazin" },
     },
     {
       key: "migration",

@@ -1056,3 +1056,11 @@ header nav a { white-space: nowrap; }
 .chapter-stats-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media(min-width: 1024px) { .chapter-stats-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media(max-width: 640px) { .chapter-stats-4 { grid-template-columns: 1fr; } }
+
+/* Case study: reading list linking to the blog. */
+.case-study .case-reading { padding: 1.5rem 0 .5rem; border-top: 1px solid var(--border); }
+.case-study .case-reading h2 { font-size: clamp(1.2rem, 1.9vw, 1.5rem); margin: .2rem 0 .8rem; }
+.case-study .case-reading ul { display: grid; gap: .6rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.case-study .case-reading li a { display: block; height: 100%; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: .6rem; background: var(--card); font-size: .9rem; font-weight: 600; color: var(--foreground); text-decoration: none; transition: border-color .2s, color .2s; }
+.case-study .case-reading li a:hover { border-color: var(--primary); color: var(--primary); }
+@media(max-width: 640px) { .case-study .case-reading ul { grid-template-columns: 1fr; } }

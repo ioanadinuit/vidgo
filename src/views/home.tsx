@@ -1,4 +1,5 @@
 import { PressCards } from "@/components/press-cards";
+import { LatestPosts } from "@/components/latest-posts";
 import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRightIcon, BoxesIcon, CalendarClockIcon, CheckIcon, ClipboardCheckIcon, FileTextIcon, GaugeIcon, HammerIcon, LockKeyholeIcon, PlugZapIcon, RocketIcon, SearchCheckIcon, SearchIcon, ServerIcon, ShieldAlertIcon, TruckIcon } from "lucide-react";
@@ -451,6 +452,19 @@ export function HomeView({ locale }: { locale: Locale }) {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <SectionHeading eyebrow={getContent(locale).about.press.eyebrow} title={getContent(locale).about.press.title} description={getContent(locale).about.press.description} />
           <div className="mt-10 lg:mt-12"><PressCards locale={locale} /></div>
+        </div>
+      </section>
+
+      <section className="section-space border-t border-border/40" aria-label={t.blog.eyebrow}>
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <SectionHeading eyebrow={t.blog.eyebrow} title={t.blog.title} description={t.blog.description} />
+          <div className="mt-10 lg:mt-12"><LatestPosts locale={locale} readLabel={t.blog.read} /></div>
+          <div className="mt-8 text-center">
+            <Link href={localePath(locale, "/blog")} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
+              {t.blog.all}
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          </div>
         </div>
       </section>
       <CtaSection locale={locale} />

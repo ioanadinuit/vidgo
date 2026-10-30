@@ -33,6 +33,7 @@ export const platform: PlatformContent = {
         "AI-assisted SEO evaluation of titles, descriptions and metadata, with 9 checks per product, before publishing",
         "Google Merchant feed generated automatically from the active catalog, with price, stock, image and EAN",
       ],
+      related: { text: "Read: robots.txt and page indexing", href: "/en/blog/how-indexing-changed" },
     },
     {
       key: "catalog",
@@ -48,6 +49,7 @@ export const platform: PlatformContent = {
         "Re-running the same import does not duplicate data",
         "Recently viewed products, wishlist kept between sessions, brand block per manufacturer",
       ],
+      related: { text: "Read: dropshipping with 12 suppliers in sync", href: "/en/blog/dropshipping-romanian-suppliers" },
     },
     {
       key: "images",
@@ -62,6 +64,7 @@ export const platform: PlatformContent = {
         "The product page loads the full-size photos, for the detail",
         "Less data downloaded over the mobile network on every category page",
       ],
+      related: { text: "Read: where the seconds go on mobile", href: "/en/blog/online-store-speed" },
     },
     {
       key: "orders",
@@ -145,6 +148,7 @@ export const platform: PlatformContent = {
         "AI theme assistant: describe what you want and you get the matching colours, sections and styles",
         "Preview before publishing",
       ],
+      related: { text: "Read: why the theme is the most expensive technical decision", href: "/en/blog/store-theme-structure" },
     },
     {
       key: "migration",

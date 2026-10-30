@@ -223,4 +223,11 @@ export const home: HomeContent = {
   },
   isolation:
     "Each store runs isolated, on its own server, with tokens encrypted at rest, with automatic certificates and backups. An incident at one store does not reach another.",
+  blog: {
+    eyebrow: "From the blog",
+    title: "What we learned building fast stores.",
+    description: "Practical guides on speed, indexing, SEO and dropshipping, with examples from real stores.",
+    all: "All articles",
+    read: "Read the article",
+  },
 };

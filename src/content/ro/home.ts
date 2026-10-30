@@ -223,4 +223,11 @@ export const home: HomeContent = {
   },
   isolation:
     "Fiecare magazin rulează izolat, pe serverul lui, cu token-urile criptate în repaus, cu certificate și backup-uri automate. Un incident la un magazin nu ajunge la altul.",
+  blog: {
+    eyebrow: "Din blog",
+    title: "Ce am învățat construind magazine rapide.",
+    description: "Ghiduri practice despre viteză, indexare, SEO și dropshipping, cu exemple din magazine reale.",
+    all: "Toate articolele",
+    read: "Citește articolul",
+  },
 };

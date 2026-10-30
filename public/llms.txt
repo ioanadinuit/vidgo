@@ -16,7 +16,7 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 ## Pagini
 
 - [Acasă](https://vidgotech.com/): ce face platforma, de ce nu un magazin pe plugin-uri, rezultate măsurate, studiul de caz biotu.ro, cum decurge migrarea.
-- [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, checkout și plăți (Stripe, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
+- [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, imagini optimizate pentru mobil (variantă mică și comprimată în liste, poză completă pe pagina de produs), checkout și plăți (Stripe, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
 - [Securitate](https://vidgotech.com/securitate): de ce un magazin fără plugin-uri e mai greu de spart, cu vulnerabilități WooCommerce și PrestaShop din 2026 ca exemple, și cum sunt gândite autentificarea, plățile, token-urile și izolarea.
 - [Despre](https://vidgotech.com/despre): cine construiește și întreține platforma.
 - [Contact](https://vidgotech.com/contact): demo de 20 de minute, email, telefon.
@@ -46,6 +46,7 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 
 ## Blog
 
+- [Dropshipping la scară: 12 furnizori sincronizați, fără să vinzi ce nu ai](https://vidgotech.com/blog/dropshipping-furnizori-romania/): dropshipping cu mai mulți furnizori XML: setări și frecvență de actualizare pe fiecare furnizor, stoc epuizat preluat automat, preț din formulă de adaos peste prețul de intrare și poze actualizate la alegere; exemplul biotu.ro.
 - [Viteza nu e un scor. Sunt comenzile pe care nu le vezi.](https://vidgotech.com/blog/viteza-magazin-online/): ce înseamnă LCP, INP și CLS pentru un magazin, de ce telefonul proprietarului înșală, unde se pierd secundele și cât costă lentoarea în comenzi.
 - [Indexarea nu mai e despre linkuri. Ce s-a schimbat de fapt.](https://vidgotech.com/blog/cum-s-a-schimbat-indexarea/): crawl budget, entități, date structurate și crawlerele AI precum GPTBot și Google-Extended, care nu execută JavaScript; de ce contează HTML-ul randat pe server.
 - [Tema pe care ai ales-o e cea mai scumpă decizie tehnică din magazin](https://vidgotech.com/blog/structura-temei-magazin/): cum o temă multifuncțională plus un teanc de plugin-uri plafonează performanța, strică actualizările și ascunde catalogul de roboți; alternativa cu o singură bază și teme ca presetări.
@@ -56,11 +57,12 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 The same site in English, for international partners, lives under /en.
 
 - [Home](https://vidgotech.com/en): what the platform does, why not a plugin-based store, measured results, the biotu.ro case study, how the migration runs.
-- [Platform](https://vidgotech.com/en/platform): the complete feature list: SEO/AEO/GEO, catalog and stock, checkout and payments (Stripe, bank transfer, cash on delivery), invoices and tax documents with e-Factura (Romanian e-invoicing XML), refunds, delivery, email, themes, migration, GDPR, customer account with Sign in with Google, hosting, languages.
+- [Platform](https://vidgotech.com/en/platform): the complete feature list: SEO/AEO/GEO, catalog and stock, mobile-optimised images (a small, compressed version in listings, the full photo on the product page), checkout and payments (Stripe, bank transfer, cash on delivery), invoices and tax documents with e-Factura (Romanian e-invoicing XML), refunds, delivery, email, themes, migration, GDPR, customer account with Sign in with Google, hosting, languages.
 - [Security](https://vidgotech.com/en/security): why a store without plugins is harder to break into, with the 2026 WooCommerce and PrestaShop vulnerabilities as examples, and how authentication, payments, tokens and isolation are designed.
 - [About](https://vidgotech.com/en/about): who builds and maintains the platform.
 - [Contact](https://vidgotech.com/en/contact): 20-minute demo, email, phone.
-- [Blog](https://vidgotech.com/en/blog): the four articles below, in English.
+- [Blog](https://vidgotech.com/en/blog): the articles below, in English.
+- [Dropshipping at scale: 12 suppliers in sync, without selling what you do not have](https://vidgotech.com/en/blog/dropshipping-romanian-suppliers): dropshipping with several XML suppliers: per-supplier settings and update frequency, out-of-stock picked up automatically, selling price from a markup formula on the purchase price and optional photo updates; the biotu.ro example.
 - [Speed is not a score. It is the orders you never see.](https://vidgotech.com/en/blog/online-store-speed): what LCP, INP and CLS mean for a store, why the owner's phone misleads, where the seconds go and what slowness costs in orders.
 - [Indexing is no longer about links. What actually changed.](https://vidgotech.com/en/blog/how-indexing-changed): crawl budget, entities, structured data and AI crawlers such as GPTBot and Google-Extended, which do not execute JavaScript; why server-rendered HTML matters.
 - [The theme you chose is the most expensive technical decision in your store](https://vidgotech.com/en/blog/store-theme-structure): how a universal theme plus a stack of plugins caps performance, breaks updates and hides the catalog from robots; the alternative with a single base and themes as presets.

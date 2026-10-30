@@ -1,4 +1,4 @@
-// English translations of the four Romanian articles in ../ro/blog-posts.ts.
+// English translations of the Romanian articles in ../ro/blog-posts.ts.
 // Same structure, ids, callouts, sources and CTA; only the language differs.
 // bodyHtml / dekHtml are trusted, hand-written HTML rendered with dangerouslySetInnerHTML.
 
@@ -79,6 +79,12 @@ export const blogListing: BlogListing = {
     blogPost: [
       {
         "@type": "BlogPosting",
+        headline: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+        url: `${BASE}/en/blog/dropshipping-romanian-suppliers`,
+        datePublished: "2026-10-30",
+      },
+      {
+        "@type": "BlogPosting",
         headline: "Speed is not a score. It is the orders you never see.",
         url: `${BASE}/en/blog/online-store-speed`,
         datePublished: "2026-08-24",
@@ -106,6 +112,128 @@ export const blogListing: BlogListing = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "dropshipping-romanian-suppliers",
+    title: "Dropshipping with Romanian suppliers: synced stock | VidGo",
+    description:
+      "How to keep stock, prices and photos in sync across several XML suppliers: per-supplier settings, a markup formula and out-of-stock picked up automatically. The biotu.ro case.",
+    author: "Ioana Dinu",
+    robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    ogTitle: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+    ogDescription:
+      "Stock, prices and photos from several suppliers, kept up to date automatically. What the platform has to do and how it works at biotu.ro.",
+    twitterTitle: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+    image: "/assets/blog-dropshipping-furnizori.png",
+    eyebrow: "Dropshipping & suppliers",
+    heading: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+    dekHtml:
+      "Dropshipping does not break when you look for suppliers. It breaks when stock, prices and photos from ten different suppliers have to be kept up to date, every day, without mistakes.",
+    byline: "By Ioana Dinu",
+    date: "2026-10-30",
+    dateLabel: "30 October 2026",
+    readTime: "8 minutes",
+    coverAlt:
+      "XML exports from several suppliers synchronised automatically into one online store: stock, price and photos",
+    cardAlt: "XML suppliers synchronised automatically into an online store",
+    category: "Dropshipping",
+    cardTitle: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+    excerpt:
+      "Stock that runs out at the supplier, purchase prices that go up and photos that change: where dropshipping breaks as the catalog grows and what the platform has to do, with biotu.ro as the example.",
+    toc: [
+      { id: "probleme", label: "Where it breaks" },
+      { id: "furnizori", label: "Per-supplier settings" },
+      { id: "stoc", label: "Stock" },
+      { id: "pret", label: "Price" },
+      { id: "continut", label: "Descriptions and photos" },
+      { id: "biotu", label: "The biotu.ro case" },
+      { id: "verifica", label: "What to check" },
+      { id: "vidgo", label: "The VidGo approach" },
+    ],
+    jsonLd: [
+      posting({
+        slug: "dropshipping-romanian-suppliers",
+        headline: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
+        description:
+          "How to keep stock, prices and photos in sync across several XML suppliers: per-supplier settings, a markup formula and out-of-stock picked up automatically. The biotu.ro case.",
+        image: "/assets/blog-dropshipping-furnizori.png",
+        date: "2026-10-30",
+        keywords: ["dropshipping", "dropshipping suppliers Romania", "supplier stock sync", "XML feed import", "price markup formula"],
+      }),
+      breadcrumb("dropshipping-romanian-suppliers", "Dropshipping with suppliers"),
+    ],
+    bodyHtml: `<p>A store that sells from its suppliers' stock actually has two product lists: the one in the store and the one in each supplier's warehouse. As long as they match, everything works. The problems start when they drift apart: a product that has run out at the supplier stays on sale on the site, a purchase price goes up and the margin disappears, a photo changes and the site keeps the old one.</p>
+<div class="callout"><strong>The core idea:</strong> at scale, dropshipping is a synchronisation problem, not a marketing one. The store that wins is the one that keeps its list identical to its suppliers', automatically and separately for each supplier.</div>
+
+<h2 id="probleme">1. Where dropshipping breaks as it grows</h2>
+<p>With one supplier and a hundred products, updating by hand is bearable. With ten suppliers and a few thousand products, it is not. The problems always show up in the same four places:</p>
+<ul>
+<li><strong>Stock.</strong> The customer pays for a product the supplier no longer has. Then come the phone call, the apology and the refund.</li>
+<li><strong>Price.</strong> The supplier raises its price, the store keeps selling at the old one and loses on every order.</li>
+<li><strong>Format.</strong> Every supplier sends its export differently: different field names, different categories, different codes.</li>
+<li><strong>Content.</strong> Photos and descriptions change at the supplier but not on the site. Or the other way round: the descriptions you wrote for Google are overwritten at every import.</li>
+</ul>
+<p>Import plugins usually solve part of this and break at the first platform update, exactly when the catalog gets large.</p>
+
+<h2 id="furnizori">2. Every supplier, set up once</h2>
+<p>The answer is for each supplier to have its own configuration, done once and then left to work on its own. In VidGo, a supplier is set up directly from the admin:</p>
+<ul>
+<li>the address of the XML export it sends;</li>
+<li>how often it is updated, separately for each supplier;</li>
+<li>which fields the store takes from it and which stay untouched;</li>
+<li>the price rule for its products.</li>
+</ul>
+<p>A supplier whose stock changes several times a day can be read often. One that updates its list once a week does not need to be read every hour.</p>
+
+<h2 id="stoc">3. Stock: if the supplier is out, the store stops selling</h2>
+<p>When the supplier's export marks a product as out of stock, the product shows as out of stock in the store too, at that supplier's next update. There is nothing left to do by hand.</p>
+<p>The difference looks small, but it is the most expensive one in the whole process: a cancelled order means an unhappy customer, a refund and, often, a bad review.</p>
+
+<h2 id="pret">4. Price: a markup formula on top of the purchase price</h2>
+<p>The supplier's export contains the purchase price. The store applies a percentage markup formula to it and works out the selling price on its own. When the supplier changes its price, the store price changes too, and the margin stays the same.</p>
+<p>A simple example, with a 35% markup:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Purchase price</th><th>Markup</th><th>Selling price</th></tr></thead>
+<tbody>
+<tr><td>100 lei</td><td>35%</td><td>135 lei</td></tr>
+<tr><td>110 lei, after the supplier's increase</td><td>35%</td><td>148.50 lei</td></tr>
+</tbody>
+</table></div>
+<p>Without the formula, the 10 lei increase would have come straight out of your margin, on every unit sold.</p>
+
+<h2 id="continut">5. Descriptions, attributes and photos: take theirs or keep yours</h2>
+<p>For each supplier you choose what gets updated: everything about the product, photos included, or only stock and price. If you rewrote the descriptions for Google, you keep yours, and the import only updates the fields you picked.</p>
+<p>The same goes for photos: if the supplier changes its pictures, you can take them automatically. If you have your own photos, they stay untouched.</p>
+
+<h2 id="biotu">6. How it works at biotu.ro</h2>
+<p><a href="https://biotu.ro" rel="noopener">biotu.ro</a> runs on VidGo with a catalog of more than 7,000 organic and natural products, sourced from about 12 suppliers. Each one sends an XML export and each one has its own update, price and content settings.</p>
+<p>At large volumes, import speed matters too. In our tests, 5,000 products were imported and linked to categories and producers in under 3 seconds, and the import flagged the links that did not match because of typos. Admin operations stay just as fast with 100,000 products in the catalog.</p>
+<div class="callout">“It is so fast I barely have time to blink. I make hundreds of product updates in under a second.” <strong>Elena Săulescu, biotu.ro</strong></div>
+<p>The full results, from uptime to Google position, are in the <a href="/en/case-study">biotu.ro case study</a>.</p>
+
+<h2 id="verifica">7. What to check on your platform if you do dropshipping</h2>
+<ol>
+<li><strong>Per-supplier settings.</strong> Can you choose, for each supplier, which fields are updated and how often?</li>
+<li><strong>Out of stock.</strong> When the supplier marks a product out of stock, does it show as out of stock on your site, with no manual step?</li>
+<li><strong>Price rule.</strong> Is the selling price recalculated on its own from the purchase price?</li>
+<li><strong>Your content.</strong> Do your descriptions and photos stay untouched if you do not want them updated?</li>
+<li><strong>Error report.</strong> Do you find out when a category or producer in the export does not match, before the product lands in the wrong place?</li>
+<li><strong>Speed at volume.</strong> How long does an import of a few thousand products take, and what happens to the site meanwhile?</li>
+</ol>
+<p>If the answer to two or more of these is “no” or “with a plugin”, the problem is not your suppliers. It is the platform.</p>
+
+<h2 id="vidgo">What is already included in VidGo</h2>
+<ul>
+<li>suppliers configured from the admin, with import from XML exports;</li>
+<li>update frequency set separately for each supplier;</li>
+<li>a choice of which fields are updated per supplier, photos included;</li>
+<li>out-of-stock status picked up automatically from the supplier's export;</li>
+<li>selling price worked out from the purchase price with a markup formula;</li>
+<li>fast import, with linking to categories and producers and a report on typos.</li>
+</ul>
+<p>All of it is part of the platform, with no import plugins bought separately and no scripts that break at the next update.</p>
+
+<section class="article-cta"><h2>Selling from your suppliers' stock?</h2><p>I will show you, on your suppliers' own exports, how stock and price stay in sync, on a demo with your catalog.</p><a href="/en/contact">Book a call</a></section>`,
+  },
   {
     slug: "online-store-speed",
     title: "Online store speed: what Google measures and what it costs you | VidGo",
@@ -148,7 +276,8 @@ export const blogPosts: BlogPost[] = [
           "What LCP, INP and CLS mean for an online store, why the impression from your own phone is misleading and where the seconds go.",
         image: "/assets/blog-viteza-magazin-online.png",
         date: "2026-08-24",
-        keywords: ["site speed", "Core Web Vitals", "LCP", "INP", "CLS", "PageSpeed", "ecommerce performance"],
+        modified: "2026-10-30",
+        keywords: ["site speed", "mobile images", "Core Web Vitals", "LCP", "INP", "CLS", "PageSpeed", "ecommerce performance"],
       }),
       breadcrumb("online-store-speed", "Online store speed"),
     ],
@@ -199,6 +328,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2 id="vidgo">How VidGo approaches the problem</h2>
 <p>The platform I am building starts from the opposite premise: performance is not added at the end, it is decided at the beginning. Catalog pages are rendered on the server, so the visitor and the crawler receive ready-built HTML, not an empty page that fills in afterwards. There is no plugin layer: the features a store needs — digital returns, e-Factura (Romanian e-invoicing), stock synchronisation, search — are part of the platform and do not each bring their own baggage of code.</p>
+<p>Images, the third cause in the list above, come in two versions in VidGo. For every photo, the platform also keeps a small, compressed version, used on mobile and in product cards in categories and search, where the customer is only browsing. The full-size photo loads on the product page, where it is actually looked at closely. The phone no longer downloads megabytes for a thumbnail. The details are on the <a href="/en/platform#images">platform page</a>.</p>
 <p>Under the hood run technologies used by Fortune 500 companies: Java 21, PostgreSQL 17 and caching on product loading. Not because it sounds impressive, but because a store with twenty thousand products and seasonal traffic needs the same foundations as a large application, only at a different scale.</p>
 
 <section class="sources"><h2>Sources and further reading</h2><ul><li><a href="https://web.dev/articles/vitals" rel="noopener">web.dev: Core Web Vitals — LCP, INP, CLS</a></li><li><a href="https://pagespeed.web.dev/" rel="noopener">Google PageSpeed Insights — the public test</a></li><li><a href="https://developers.google.com/search/docs/appearance/page-experience" rel="noopener">Google Search Central: page experience in ranking</a></li><li><a href="https://web.dev/case-studies" rel="noopener">web.dev: case studies on speed and conversion</a></li></ul></section>

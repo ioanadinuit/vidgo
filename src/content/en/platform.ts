@@ -50,6 +50,20 @@ export const platform: PlatformContent = {
       ],
     },
     {
+      key: "images",
+      id: "images",
+      eyebrow: "Images and mobile",
+      title: "Mobile first: light images in listings, full images on the product page.",
+      body: "On a phone, images are usually the heaviest part of the page. For every photo, the platform also keeps a small, compressed version, used on mobile and in product cards. The full-size photo loads on the product page, where the customer actually looks at it closely.",
+      items: [
+        "Every product photo also has a small, compressed version, stored alongside the original",
+        "Product cards in categories and in search use the small version",
+        "On mobile the light version loads first, so the product list appears sooner",
+        "The product page loads the full-size photos, for the detail",
+        "Less data downloaded over the mobile network on every category page",
+      ],
+    },
+    {
       key: "orders",
       id: "orders",
       eyebrow: "Cart, checkout and payments",

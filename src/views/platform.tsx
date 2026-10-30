@@ -16,6 +16,7 @@ import {
   TruckIcon,
   UploadIcon,
   UserRoundCheckIcon,
+  ImageIcon,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
@@ -35,6 +36,7 @@ const RO_PATH = "/platforma";
 const featureIcons: Record<string, React.ReactNode> = {
   seo: <SearchIcon className="size-6" />,
   catalog: <BoxesIcon className="size-6" />,
+  images: <ImageIcon className="size-6" />,
   orders: <ShoppingCartIcon className="size-6" />,
   invoicing: <FileTextIcon className="size-6" />,
   refunds: <RotateCcwIcon className="size-6" />,

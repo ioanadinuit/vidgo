@@ -33,6 +33,7 @@ const pathMap: Record<string, string> = {
 
 /** Romanian blog slug → English blog slug. The post data keeps the same order. */
 export const blogSlugMap: Record<string, string> = {
+  "dropshipping-furnizori-romania": "dropshipping-romanian-suppliers",
   "viteza-magazin-online": "online-store-speed",
   "cum-s-a-schimbat-indexarea": "how-indexing-changed",
   "structura-temei-magazin": "store-theme-structure",
@@ -44,6 +45,7 @@ const hashMap: Record<string, string> = {
   portofoliu: "portfolio",
   presa: "press",
   platforma: "platform",
+  imagini: "images",
   comenzi: "orders",
   fiscal: "invoicing",
   ramburs: "refunds",

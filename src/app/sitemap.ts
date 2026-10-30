@@ -12,7 +12,8 @@ const BASE = siteConfig.url;
 const pages = ["/", "/platforma", "/securitate", "/despre", "/contact", "/blog", "/studiu-de-caz", "/presa"];
 
 const blogPosts = [
-  { slug: "viteza-magazin-online", lastModified: "2026-08-20" },
+  { slug: "dropshipping-furnizori-romania", lastModified: "2026-10-30" },
+  { slug: "viteza-magazin-online", lastModified: "2026-10-30" },
   { slug: "cum-s-a-schimbat-indexarea", lastModified: "2026-10-30" },
   { slug: "structura-temei-magazin", lastModified: "2026-08-20" },
   { slug: "vizibilitate-google-ai", lastModified: "2026-10-30" },

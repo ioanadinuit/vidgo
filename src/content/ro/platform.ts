@@ -50,6 +50,20 @@ export const platform: PlatformContent = {
       ],
     },
     {
+      key: "images",
+      id: "imagini",
+      eyebrow: "Imagini și mobil",
+      title: "Mobile first: poze ușoare în liste, poze complete pe pagina de produs.",
+      body: "Pe telefon, imaginile sunt de obicei cea mai grea parte a paginii. Pentru fiecare poză, platforma păstrează și o variantă mică și comprimată, folosită pe mobil și în cardurile de produs. Poza la dimensiune completă se încarcă pe pagina produsului, unde clientul chiar o privește de aproape.",
+      items: [
+        "Fiecare poză de produs are și o variantă mică, comprimată, salvată alături de original",
+        "Cardurile de produs din categorii și din căutare folosesc varianta mică",
+        "Pe mobil se încarcă întâi varianta ușoară, așa că lista de produse apare mai repede",
+        "Pe pagina de produs se încarcă pozele la dimensiune completă, pentru detalii",
+        "Mai puține date descărcate pe rețeaua mobilă la fiecare pagină de categorie",
+      ],
+    },
+    {
       key: "orders",
       id: "comenzi",
       eyebrow: "Coș, checkout și plăți",

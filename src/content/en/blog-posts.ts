@@ -25,6 +25,8 @@ function posting(post: {
   description: string;
   image: string;
   date: string;
+  /** Last substantial update; defaults to the publication date. */
+  modified?: string;
   keywords: string[];
 }): string {
   return JSON.stringify({
@@ -34,7 +36,7 @@ function posting(post: {
     description: post.description,
     image: `${BASE}${post.image}`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.modified ?? post.date,
     inLanguage: "en",
     mainEntityOfPage: `${BASE}/en/blog/${post.slug}`,
     author,
@@ -204,9 +206,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-indexing-changed",
-    title: "Indexing is no longer about links: what changed | VidGo",
+    title: "Robots.txt and page indexing: what changed | VidGo",
     description:
-      "From links and keywords to crawl budget, structured data and AI crawlers that do not execute JavaScript. What has changed in how a store gets found.",
+      "What robots.txt does and does not do, why pages are not indexed and how to check in two minutes what robots see: crawl budget, server rendering, AI crawlers.",
     author: "Ioana Dinu",
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     ogTitle: "Indexing is no longer about links. What actually changed.",
@@ -221,19 +223,20 @@ export const blogPosts: BlogPost[] = [
     byline: "By Ioana Dinu",
     date: "2026-08-24",
     dateLabel: "24 August 2026",
-    readTime: "11 minutes",
+    readTime: "13 minutes",
     coverAlt:
       "The difference between classic link-based indexing and the way modern crawlers and AI systems read an online store",
     cardAlt: "The difference between classic indexing and the way modern crawlers read the site",
     category: "Indexing & AI",
     cardTitle: "Indexing is no longer about links. What actually changed.",
     excerpt:
-      "Crawl budget, product understanding and a new category of visitor: AI crawlers, which do not execute JavaScript and do not click on anything. What it means concretely for a store.",
+      "Robots.txt, crawl budget and a new category of visitor: AI crawlers, which do not execute JavaScript and do not click on anything. What it means concretely for how a store's pages get indexed.",
     toc: [
       { id: "atunci", label: "How it used to work" },
       { id: "buget", label: "Crawl budget" },
       { id: "intelegere", label: "Product understanding" },
       { id: "cititori-noi", label: "AI crawlers" },
+      { id: "robots-txt", label: "Robots.txt and indexing" },
       { id: "verificare", label: "Check for yourself" },
       { id: "ce-inseamna", label: "What it means for you" },
       { id: "vidgo", label: "The VidGo approach" },
@@ -246,7 +249,8 @@ export const blogPosts: BlogPost[] = [
           "Crawl budget, structured data, server-side rendering and AI crawlers that do not execute JavaScript — what has changed in how an online store gets discovered.",
         image: "/assets/blog-cum-s-a-schimbat-indexarea.png",
         date: "2026-08-24",
-        keywords: ["indexing", "crawl budget", "GPTBot", "AI crawlers", "server-side rendering", "SSR", "structured data"],
+        modified: "2026-10-30",
+        keywords: ["page indexing", "robots.txt", "indexing", "crawl budget", "GPTBot", "AI crawlers", "server-side rendering", "SSR", "structured data"],
       }),
       breadcrumb("how-indexing-changed", "How indexing changed"),
     ],
@@ -284,7 +288,38 @@ export const blogPosts: BlogPost[] = [
 </div>
 <p>This is where the discussion about rendering becomes concrete. A store that builds its pages in the visitor's browser sends the robot an almost empty page. A server-rendered store sends complete HTML, with products, prices and links, ready to read — for Google, for AI systems and for the visitor with a weak phone alike.</p>
 
-<h2 id="verificare">5. How to check for yourself what the robots see</h2>
+<h2 id="robots-txt">5. Robots.txt and page indexing: what it actually controls</h2>
+<p>Most of the indexing problems I find in online stores start with one confusion: <code>robots.txt</code> does not decide what appears in Google. It only decides what the robot is allowed to read.</p>
+<ul>
+<li><strong>It blocks reading, not indexing.</strong> A page blocked in <code>robots.txt</code> can still appear in results, without a description, if other pages link to it. Search Console reports it as “Indexed, though blocked by robots.txt”.</li>
+<li><strong>To keep a page out of Google, use <code>noindex</code>.</strong> Through the robots meta tag or the <code>X-Robots-Tag</code> header. The page must stay unblocked in <code>robots.txt</code>, otherwise the robot never sees the instruction.</li>
+<li><strong>Do not block CSS and JavaScript files.</strong> Google renders the page to understand it. Without them, it sees a broken page.</li>
+<li><strong>Declare the sitemap.</strong> A <code>Sitemap:</code> line with the full address shows the robot the map of your products.</li>
+<li><strong>Changes are not instant.</strong> Google usually keeps a cached copy of the file for up to 24 hours.</li>
+</ul>
+<p>A reasonable <code>robots.txt</code> for an online store looks roughly like this:</p>
+<pre><code>User-agent: *
+Disallow: /cart
+Disallow: /checkout
+Disallow: /my-account
+Disallow: /search
+Disallow: /*?sort=
+
+Sitemap: https://yourstore.com/sitemap.xml</code></pre>
+<p>The cart, checkout, customer account and internal search results have no business in Google. Sorting combinations burn crawl budget without bringing visitors. Products and categories stay open.</p>
+<div class="callout"><strong>The most expensive mistake:</strong> a <code>Disallow: /</code> left over from the test phase after launch. A single line that stops the robot from reading the whole store. Worth checking after every launch or migration.</div>
+<p>The status of each page shows in Search Console, in the Pages report. Four statuses come up most often for stores:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Status in Search Console</th><th>What it means</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>Blocked by robots.txt</td><td>The robot is not allowed to read the page.</td><td>Check whether the rule is intended. If the page matters, remove it from <code>Disallow</code>.</td></tr>
+<tr><td>Indexed, though blocked by robots.txt</td><td>Google found the address through links but has not read its content.</td><td>If you do not want it in Google, unblock it and add <code>noindex</code>.</td></tr>
+<tr><td>Crawled – currently not indexed</td><td>Google read the page and decided not to keep it for now.</td><td>Usually thin or duplicate content: complete the description, merge the variants.</td></tr>
+<tr><td>Discovered – currently not indexed</td><td>Google knows the address but has not got round to reading it.</td><td>A sign that crawl budget goes elsewhere: fewer useless addresses, a faster server.</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="verificare">6. How to check for yourself what the robots see</h2>
 <p>You do not need paid tools. Three checks say almost everything:</p>
 <ol>
 <li><strong>The page source.</strong> Open a category page, press Ctrl+U and search for the name of a product. If it does not appear in the source, although it is visible on screen, the product is built from JavaScript and some robots do not see it.</li>
@@ -293,7 +328,7 @@ export const blogPosts: BlogPost[] = [
 </ol>
 <p>There is also a new convention, <code>llms.txt</code>, through which a site offers AI systems a structured summary of its content. It is not a universal standard and not a ranking factor confirmed by anyone — it deserves to be treated as a form of clarity, not as a shortcut.</p>
 
-<h2 id="ce-inseamna">6. What it means for a merchant</h2>
+<h2 id="ce-inseamna">7. What it means for a merchant</h2>
 <p>The practical conclusion is not that classic SEO is dead. It is that it has become the second step. The first step is for the site to be readable: complete HTML from the server, clear structure, data declared explicitly, no pages that waste the robot's budget.</p>
 <p>The unfair part is that none of the above depends on the merchant. It depends on the platform. A store built on a theme that renders everything in the browser and on a layer of modules that generate thousands of useless addresses starts with a handicap, however good the products and however much is invested in promotion.</p>
 
@@ -411,9 +446,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "google-ai-visibility",
-    title: "Google and AI visibility for online stores | VidGo",
+    title: "SEO for an online store: Google and AI visibility | VidGo",
     description:
-      "How robots.txt, sitemap, llms.txt, Google Merchant Center, structured data, AI-assisted SEO evaluations and smart autocomplete help an online store.",
+      "SEO for an online store, explained simply: robots.txt, sitemap, llms.txt, Google Merchant Center, structured data and AI-assisted search.",
     author: "Ioana Dinu",
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     ogTitle: "How an online store becomes visible in Google and in AI answers",
@@ -451,16 +486,17 @@ export const blogPosts: BlogPost[] = [
           "A guide to robots.txt, sitemap, llms.txt, Merchant Center, structured data and AI tools for e-commerce.",
         image: "/assets/blog-vizibilitate-google-ai.png",
         date: "2026-08-12",
-        keywords: ["ecommerce SEO", "AI search", "Google Merchant Center", "robots.txt", "sitemap", "llms.txt", "AI-assisted search"],
+        modified: "2026-10-30",
+        keywords: ["SEO for online store", "ecommerce SEO", "AI search", "Google Merchant Center", "robots.txt", "sitemap", "llms.txt", "AI-assisted search"],
       }),
       breadcrumb("google-ai-visibility", "Google and AI visibility"),
     ],
-    bodyHtml: `<p>There are large stores, with serious budgets, that still treat SEO as a list of keywords. They have good products and paid traffic, but elementary technical pieces are missing: an up-to-date sitemap, complete structured data, synchronisation with Merchant Center or clear control over crawlers. The result is a gap between what a person sees on the site and what automated systems can understand.</p>
+    bodyHtml: `<p>There are large stores, with serious budgets, that still treat SEO as a list of keywords. They have good products and paid traffic, but elementary technical pieces are missing: an up-to-date sitemap, complete structured data, synchronisation with Merchant Center or clear control over crawlers. The result is a gap between what a person sees on the site and what automated systems can understand. SEO for an online store starts with these pieces, not with the keyword list.</p>
 <div class="callout"><strong>The central idea:</strong> modern visibility has three levels: <strong>access</strong>, <strong>understanding</strong> and <strong>relevance</strong>. No file guarantees rankings in Google or mentions in an AI answer, but a complete infrastructure removes the obstacles and gives better data to the systems that decide what gets shown.</div>
 
 <h2 id="acces">1. Access: robots.txt, sitemap and crawler control</h2>
 <h3>robots.txt is the doorman, not the sales agent</h3>
-<p>The <code>robots.txt</code> file tells crawlers which areas they may access and where the sitemap is. It is useful for avoiding wasted crawling on technical pages, worthless filters or private areas. It is not, however, a promotion method, nor a guarantee of indexing. Google even distinguishes between crawling and indexing: an address blocked from crawling can, under certain conditions, appear as a URL without Google having read its content.</p>
+<p>The <code>robots.txt</code> file tells crawlers which areas they may access and where the sitemap is. It is useful for avoiding wasted crawling on technical pages, worthless filters or private areas. It is not, however, a promotion method, nor a guarantee of indexing. Google even distinguishes between crawling and indexing: an address blocked from crawling can, under certain conditions, appear as a URL without Google having read its content. The concrete rules and a sample store <code>robots.txt</code> are in <a href="/en/blog/how-indexing-changed#robots-txt">the article on page indexing</a>.</p>
 <h3>The sitemap is the public inventory of the important content</h3>
 <p>A good XML sitemap lists the canonical pages worth discovering: products, categories and articles. For a store with thousands of products, it shortens the path between a change and its discovery by the search engine. It must be generated automatically, updated when the catalog changes and declared in <code>robots.txt</code> and Search Console.</p>
 <h3>llms.txt: a useful summary, not a magic shortcut</h3>

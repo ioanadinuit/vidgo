@@ -13,9 +13,9 @@ const pages = ["/", "/platforma", "/securitate", "/despre", "/contact", "/blog",
 
 const blogPosts = [
   { slug: "viteza-magazin-online", lastModified: "2026-08-20" },
-  { slug: "cum-s-a-schimbat-indexarea", lastModified: "2026-08-20" },
+  { slug: "cum-s-a-schimbat-indexarea", lastModified: "2026-10-30" },
   { slug: "structura-temei-magazin", lastModified: "2026-08-20" },
-  { slug: "vizibilitate-google-ai", lastModified: "2026-08-20" },
+  { slug: "vizibilitate-google-ai", lastModified: "2026-10-30" },
 ];
 
 const EN_LAST_MODIFIED = "2026-09-18";
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
       {
         url: `${BASE}/en/blog/${blogSlugMap[post.slug]}`,
-        lastModified: EN_LAST_MODIFIED,
+        lastModified: post.lastModified > EN_LAST_MODIFIED ? post.lastModified : EN_LAST_MODIFIED,
         changeFrequency: "yearly" as const,
         priority: 0.5,
         alternates: { languages: languages(roPath) },

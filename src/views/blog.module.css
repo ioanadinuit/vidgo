@@ -88,6 +88,63 @@
   overflow-wrap: anywhere;
 }
 
+/* Code block: example files such as robots.txt. */
+.article pre {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--muted);
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.article pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  overflow-wrap: normal;
+  white-space: pre;
+}
+
+/* Table: compact reference grid, scrolls sideways on narrow screens. */
+.article :global(.table-wrap) {
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.article table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.article th,
+.article td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article thead th {
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.article tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.article tbody td:first-child {
+  font-weight: 600;
+}
+
 /* Callout: highlighted aside inside the text. */
 .article :global(.callout) {
   margin: 2rem 0;

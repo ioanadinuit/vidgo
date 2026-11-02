@@ -23,3 +23,6 @@ next-env.d.ts
 
 # Cloudflare wrangler local state
 .wrangler/
+
+# Private pricing link (contains the access key)
+docs/link-preturi.txt

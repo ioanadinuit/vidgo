@@ -104,6 +104,8 @@ export function pricingMetadata(locale: Locale): Metadata {
   return {
     title: meta.title,
     description: meta.description,
+    // Private page: shared by link only, kept out of search (see worker/index.ts).
+    robots: { index: false, follow: false },
     alternates: alternatesFor(locale, "/preturi"),
     openGraph: openGraphFor(locale, "/preturi", meta.title, meta.description),
   };

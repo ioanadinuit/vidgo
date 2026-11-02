@@ -17,7 +17,7 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 
 - [Acasă](https://vidgotech.com/): ce face platforma, de ce nu un magazin pe plugin-uri, rezultate măsurate, studiul de caz biotu.ro, cum decurge migrarea.
 - [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, imagini optimizate pentru mobil (variantă mică și comprimată în liste, poză completă pe pagina de produs), checkout și plăți (Stripe, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
-- [Prețuri](https://vidgotech.com/preturi): licență de 300 € pe lună sub 1 mil. € vânzări pe an; peste prag, 800 € pe lună sau 300 € plus comision de 0,5% pe primul milion și 0,1% pe fiecare milion următor, doar pe comenzile finalizate. Costuri unice: construire de la 250 €, infrastructură 500 €, integrări ERP/CRM 250 € fiecare, migrare pe tranșe. Calculator de costuri.
+- [Prețuri](https://vidgotech.com/preturi): licență de 300 € pe lună sub 1 mil. € vânzări pe an; peste 1 mil. €, 800 € pe lună. Pragul se calculează din comenzile finalizate pe platformă. Costuri unice: construire de la 250 €, infrastructură 500 €, integrări ERP/CRM 250 € fiecare, migrare pe tranșe. Calculator de costuri.
 - [Securitate](https://vidgotech.com/securitate): de ce un magazin fără plugin-uri e mai greu de spart, cu vulnerabilități WooCommerce și PrestaShop din 2026 ca exemple, și cum sunt gândite autentificarea, plățile, token-urile și izolarea.
 - [Despre](https://vidgotech.com/despre): cine construiește și întreține platforma.
 - [Contact](https://vidgotech.com/contact): demo de 20 de minute, email, telefon.

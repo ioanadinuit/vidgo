@@ -4,7 +4,7 @@ export const pricing: PricingContent = {
   meta: {
     title: "Prețuri și calculator de costuri",
     description:
-      "Cât costă un magazin pe VidGo: construire de la 250 €, infrastructură 500 €, migrare pe tranșe și licență lunară de 300 €. Calculează costul pentru magazinul tău.",
+      "Cât costă un magazin pe VidGo: construire de la 250 €, infrastructură 500 €, migrare pe tranșe și licență lunară de la 300 €. Calculează costul pentru magazinul tău.",
   },
   breadcrumb: "Prețuri",
   header: {
@@ -15,8 +15,10 @@ export const pricing: PricingContent = {
   },
   rules: [
     "Sub 1 mil. € vânzări pe an: licență de 300 € pe lună.",
-    "Peste 1 mil. € vânzări pe an: licență de 800 € pe lună.",
-    "Pragul se calculează din comenzile finalizate înregistrate pe platformă. Licența crește doar după ce pragul e atins efectiv.",
+    "De la 1 mil. €: licență de 725 € pe lună.",
+    "Pentru fiecare milion în plus, până la 5 mil. €: încă 80 € pe lună (2 mil. €: 805 €, 3 mil. €: 885 €, 4 mil. €: 965 €).",
+    "De la 5 mil. €: comision de 0,5% din vânzări, fără plafon, plătit în rate lunare.",
+    "Pragurile se calculează din comenzile finalizate înregistrate pe platformă. Licența crește doar după ce pragul e atins efectiv.",
     "La toate prețurile se adaugă TVA.",
   ],
   calc: {
@@ -44,8 +46,10 @@ export const pricing: PricingContent = {
     totalYear: "Total pe an, fără TVA",
     totalYearVat: "Total pe an, cu TVA",
     ofSales: "din vânzări",
-    belowNote: "Peste 1 mil. € vânzări pe an, licența devine 800 € pe lună.",
-    aboveNote: "Licența de 800 € pe lună se aplică după ce pragul de 1 mil. € e atins pe platformă.",
+    belowNote: "De la 1 mil. € vânzări pe an, licența devine 725 € pe lună.",
+    aboveNote: "Licența crește cu 80 € pe lună pentru fiecare milion în plus, până la 5 mil. €, doar după ce pragul e atins pe platformă.",
+    commissionNote: "De la 5 mil. € vânzări pe an: comision de 0,5% din vânzări, fără plafon, plătit în rate lunare.",
+    commissionRow: "Comision 0,5% din",
     build: "Construire site",
     buildHint: "De la 250 €, cu temele existente și fără cerințe custom în plus.",
     infra: "Infrastructură",

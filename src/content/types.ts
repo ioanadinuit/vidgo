@@ -267,6 +267,8 @@ export interface PricingCalcCopy {
   ofSales: string;
   belowNote: string;
   aboveNote: string;
+  commissionNote: string;
+  commissionRow: string;
   build: string;
   buildHint: string;
   infra: string;

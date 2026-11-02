@@ -4,7 +4,7 @@ export const pricing: PricingContent = {
   meta: {
     title: "Pricing and cost calculator",
     description:
-      "What a store on VidGo costs: build from €250, infrastructure €500, tiered data migration and a €300 monthly licence. Calculate the cost for your store.",
+      "What a store on VidGo costs: build from €250, infrastructure €500, tiered data migration and a monthly licence from €300. Calculate the cost for your store.",
   },
   breadcrumb: "Pricing",
   header: {
@@ -15,8 +15,10 @@ export const pricing: PricingContent = {
   },
   rules: [
     "Under €1M in sales a year: a €300 monthly licence.",
-    "Above €1M in sales a year: an €800 monthly licence.",
-    "The threshold is measured from completed orders recorded on the platform. The licence only goes up once the threshold is actually reached.",
+    "From €1M: a €725 monthly licence.",
+    "For each further million, up to €5M: another €80 a month (€2M: €805, €3M: €885, €4M: €965).",
+    "From €5M: a 0.5% commission on sales, uncapped, paid in monthly instalments.",
+    "The thresholds are measured from completed orders recorded on the platform. The licence only goes up once a threshold is actually reached.",
     "VAT is added to all prices.",
   ],
   calc: {
@@ -44,8 +46,10 @@ export const pricing: PricingContent = {
     totalYear: "Total per year, excl. VAT",
     totalYearVat: "Total per year, incl. VAT",
     ofSales: "of sales",
-    belowNote: "Above €1M in sales a year, the licence becomes €800 a month.",
-    aboveNote: "The €800 monthly licence applies once the €1M threshold is reached on the platform.",
+    belowNote: "From €1M in sales a year, the licence becomes €725 a month.",
+    aboveNote: "The licence goes up by €80 a month for each further million, up to €5M, only once the threshold is reached on the platform.",
+    commissionNote: "From €5M in sales a year: a 0.5% commission on sales, uncapped, paid in monthly instalments.",
+    commissionRow: "0.5% commission on",
     build: "Store build",
     buildHint: "From €250, with the existing themes and no extra custom work.",
     infra: "Infrastructure",

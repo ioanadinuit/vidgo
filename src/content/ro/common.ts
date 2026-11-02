@@ -10,6 +10,7 @@ export const common: CommonContent = {
   breadcrumbHome: "Acasă",
   nav: [
     { text: "Platformă", href: "/platforma" },
+    { text: "Prețuri", href: "/preturi" },
     { text: "Securitate", href: "/securitate" },
     { text: "Portofoliu", href: "/#portofoliu" },
     { text: "Studiu de caz", href: "/studiu-de-caz" },
@@ -41,6 +42,7 @@ export const common: CommonContent = {
         links: [
           { text: "Funcționalități", href: "/platforma" },
           { text: "Securitate", href: "/securitate" },
+          { text: "Prețuri și calculator", href: "/preturi" },
           { text: "Demo cu 100.000 de produse", href: siteConfig.demo100k },
         ],
       },

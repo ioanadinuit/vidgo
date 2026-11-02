@@ -43,8 +43,8 @@ export const about: AboutContent = {
         body: "The application installs on a VPS in your account, at the provider you choose. You do not depend on our hosting and you do not share infrastructure with other stores.",
       },
       {
-        title: "No commission on sales",
-        body: "A fixed price for the build and a monthly subscription. The platform does not earn more when you sell more.",
+        title: "Pricing that fits the store",
+        body: "A price for the build and a monthly licence set by the size of the store. You know the cost in advance, with no hidden fees and no plugins to pay for separately.",
       },
       {
         title: "Measured, not promised",

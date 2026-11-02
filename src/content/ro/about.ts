@@ -43,8 +43,8 @@ export const about: AboutContent = {
         body: "Aplicația se instalează pe un VPS din contul tău, la furnizorul ales. Nu depinzi de găzduirea noastră și nu împarți infrastructura cu alte magazine.",
       },
       {
-        title: "Fără comision din vânzări",
-        body: "Un preț fix pentru construire și un abonament lunar. Platforma nu câștigă mai mult când tu vinzi mai mult.",
+        title: "Preț pe măsura magazinului",
+        body: "Un preț pentru construire și o licență lunară stabilită după mărimea magazinului. Știi costul dinainte, fără taxe ascunse și fără pluginuri plătite separat.",
       },
       {
         title: "Măsurat, nu promis",

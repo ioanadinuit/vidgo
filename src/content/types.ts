@@ -261,10 +261,9 @@ export interface PricingCalcCopy {
   lei: string;
   baseLicence: string;
   licence: string;
-  hostingYear: string;
-  totalYear: string;
-  totalYearVat: string;
-  ofSales: string;
+  hostingMonth: string;
+  totalMonth: string;
+  totalMonthVat: string;
   belowNote: string;
   aboveNote: string;
   commissionNote: string;
@@ -282,7 +281,6 @@ export interface PricingCalcCopy {
   total: string;
   onceTotal: string;
   onceTotalVat: string;
-  firstYear: string;
   vatNote: string;
   max: string;
   exVat: string;

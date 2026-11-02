@@ -106,16 +106,14 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
   const above = salesEur >= PRICES.threshold;
   const commissionTier = salesEur >= PRICES.commissionFrom;
   const licenceMonth = licencePerMonth(salesEur);
-  const licenceYear = licenceMonth * 12;
-  const hostingYear = toNumber(hosting) * 12;
-  const yearTotal = licenceYear + hostingYear;
+  const hostingMonth = toNumber(hosting);
+  const monthTotal = licenceMonth + hostingMonth;
 
   const migr = migration(toNumber(products));
   const mig = migr.cost;
   const integN = Math.floor(toNumber(integrations));
   const integ = integN * PRICES.integration;
   const once = PRICES.build + PRICES.infra + integ + mig;
-  const firstYear = once + yearTotal;
   const vatPct = pct.format(PRICES.vat * 100);
 
   function switchCurrency(next: "eur" | "ron") {
@@ -192,24 +190,21 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
           >
             <h3 className="font-display text-lg font-bold">{t.baseLicence}</h3>
             <p className="font-mono text-3xl font-semibold tabular-nums">
-              {eur.format(yearTotal / 12)} <span className="font-sans text-xs font-normal text-muted-foreground">{t.perMonth}</span>
+              {eur.format(monthTotal)} <span className="font-sans text-xs font-normal text-muted-foreground">{t.perMonth}</span>
             </p>
             <Rows
               rows={[
                 ...((commissionTier
                   ? [
-                      [`${t.licence}, ${eur.format(PRICES.base)} × 12`, eur.format(PRICES.base * 12)],
-                      [`${t.commissionRow} ${eur.format(salesEur)}`, eur.format(salesEur * PRICES.commissionRate)],
+                      [t.licence, eur.format(PRICES.base)],
+                      [t.commissionRow, eur.format((salesEur * PRICES.commissionRate) / 12)],
                     ]
-                  : [[`${t.licence}, ${eur.format(licenceMonth)} × 12`, eur.format(licenceYear)]]) as [string, string][]),
-                [t.hostingYear, eur.format(hostingYear)],
-                [t.totalYear, eur.format(yearTotal), true],
-                [`${t.totalYearVat} ${vatPct}%`, eur.format(yearTotal * (1 + PRICES.vat))],
+                  : [[t.licence, eur.format(licenceMonth)]]) as [string, string][]),
+                [t.hostingMonth, eur.format(hostingMonth)],
+                [t.totalMonth, eur.format(monthTotal), true],
+                [`${t.totalMonthVat} ${vatPct}%`, eur.format(monthTotal * (1 + PRICES.vat))],
               ]}
             />
-            <p className="text-xs text-muted-foreground">
-              {salesEur > 0 ? `${pct.format((yearTotal / salesEur) * 100)}% ${t.ofSales}` : ""}
-            </p>
           </article>
           <p className="rounded-xl bg-accent px-4 py-3 text-sm">{commissionTier ? t.commissionNote : above ? t.aboveNote : t.belowNote}</p>
         </div>
@@ -299,9 +294,6 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
             />
           </div>
 
-          <p className="rounded-xl bg-accent px-4 py-3 text-sm">
-            {t.firstYear} <b className="font-mono">{eur.format(firstYear)}</b>
-          </p>
           <p className="text-xs text-muted-foreground">{t.vatNote}</p>
         </div>
       </div>

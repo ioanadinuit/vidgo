@@ -2,8 +2,7 @@
 /start/ https://start.vidgotech.com 301
 /sercom-analiza /sercom-analiza.pdf 200
 /sercom-analiza/ /sercom-analiza.pdf 200
-/preturi /contact 301
-/preturi/ /contact 301
+/preturi/ /preturi 301
 
 # Blog moved into the Next app (exported as blog.html / blog/<slug>.html, served
 # without a trailing slash). The old static folders used the slash form.

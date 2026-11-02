@@ -12,7 +12,7 @@ const PRICES = {
   /** Monthly licence once 1M EUR is reached, plus a step for each further million, up to 5M EUR. */
   atThreshold: 725,
   stepPerMillion: 80,
-  /** From 5M EUR: 0.5% of yearly sales, uncapped, paid in monthly instalments. */
+  /** From 5M EUR: the base licence plus 0.5% of yearly sales, uncapped, paid in monthly instalments. */
   commissionFrom: 5_000_000,
   commissionRate: 0.005,
   vat: 0.21,
@@ -35,7 +35,7 @@ function licencePerMonth(sales: number) {
     const extraMillions = Math.floor(sales / 1_000_000) - 1;
     return PRICES.atThreshold + PRICES.stepPerMillion * extraMillions;
   }
-  return (sales * PRICES.commissionRate) / 12;
+  return PRICES.base + (sales * PRICES.commissionRate) / 12;
 }
 
 /** Progressive migration: each band of products is priced at its own rate per 100 products. */
@@ -200,10 +200,12 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
             </p>
             <Rows
               rows={[
-                [
-                  commissionTier ? `${t.commissionRow} ${eur.format(salesEur)}` : `${t.licence}, ${eur.format(licenceMonth)} × 12`,
-                  eur.format(licenceYear),
-                ],
+                ...((commissionTier
+                  ? [
+                      [`${t.licence}, ${eur.format(PRICES.base)} × 12`, eur.format(PRICES.base * 12)],
+                      [`${t.commissionRow} ${eur.format(salesEur)}`, eur.format(salesEur * PRICES.commissionRate)],
+                    ]
+                  : [[`${t.licence}, ${eur.format(licenceMonth)} × 12`, eur.format(licenceYear)]]) as [string, string][]),
                 [t.hostingYear, eur.format(hostingYear)],
                 [t.totalYear, eur.format(yearTotal), true],
                 [`${t.totalYearVat} ${vatPct}%`, eur.format(yearTotal * (1 + PRICES.vat))],

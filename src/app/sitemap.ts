@@ -9,7 +9,7 @@ const BASE = siteConfig.url;
 
 // Pages are exported as <name>.html and Cloudflare serves them without a trailing slash.
 // Every entry is keyed by its Romanian path; the English twin comes from localePath.
-const pages = ["/", "/platforma", "/securitate", "/despre", "/contact", "/blog", "/studiu-de-caz", "/presa"];
+const pages = ["/", "/platforma", "/preturi", "/securitate", "/despre", "/contact", "/blog", "/studiu-de-caz", "/presa"];
 
 const blogPosts = [
   { slug: "dropshipping-furnizori-romania", lastModified: "2026-10-30" },

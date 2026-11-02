@@ -98,13 +98,3 @@ export function blogPostMetadata(locale: Locale, slug: string): Metadata {
     },
   };
 }
-
-export function pricingMetadata(locale: Locale): Metadata {
-  const { meta } = getContent(locale).pricing;
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: alternatesFor(locale, "/preturi"),
-    openGraph: openGraphFor(locale, "/preturi", meta.title, meta.description),
-  };
-}

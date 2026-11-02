@@ -10,7 +10,6 @@ export const common: CommonContent = {
   breadcrumbHome: "Home",
   nav: [
     { text: "Platform", href: "/en/platform" },
-    { text: "Pricing", href: "/en/pricing" },
     { text: "Security", href: "/en/security" },
     { text: "Portfolio", href: "/en#portfolio" },
     { text: "Case study", href: "/en/case-study" },
@@ -42,7 +41,6 @@ export const common: CommonContent = {
         links: [
           { text: "Features", href: "/en/platform" },
           { text: "Security", href: "/en/security" },
-          { text: "Pricing and calculator", href: "/en/pricing" },
           { text: "Demo with 100,000 products", href: siteConfig.demo100k },
         ],
       },

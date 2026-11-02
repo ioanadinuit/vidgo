@@ -239,61 +239,6 @@ export interface AboutContent {
   };
 }
 
-/** Copy for the pricing calculator. Prices themselves live in the component. */
-export interface PricingCalcCopy {
-  numberLocale: string;
-  recurringTitle: string;
-  onceTitle: string;
-  sales: string;
-  salesHint: string;
-  currency: string;
-  hosting: string;
-  hostingHint: string;
-  products: string;
-  productsHint: string;
-  integrations: string;
-  integrationsHint: string;
-  belowTier: string;
-  aboveTier: string;
-  salesOf: string;
-  perYear: string;
-  perMonth: string;
-  lei: string;
-  baseLicence: string;
-  licence: string;
-  hostingMonth: string;
-  totalMonth: string;
-  totalMonthVat: string;
-  belowNote: string;
-  aboveNote: string;
-  commissionNote: string;
-  commissionRow: string;
-  build: string;
-  buildHint: string;
-  infra: string;
-  infraHint: string;
-  integrationsRow: string;
-  migration: string;
-  band: string;
-  qty: string;
-  per100: string;
-  cost: string;
-  total: string;
-  onceTotal: string;
-  onceTotalVat: string;
-  vatNote: string;
-  max: string;
-  exVat: string;
-}
-
-export interface PricingContent {
-  meta: { title: string; description: string };
-  breadcrumb: string;
-  header: { eyebrow: string; title: string; description: string };
-  rules: string[];
-  calc: PricingCalcCopy;
-}
-
 export interface ContactContent {
   meta: { title: string; description: string };
   breadcrumb: string;

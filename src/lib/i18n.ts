@@ -25,7 +25,6 @@ const pathMap: Record<string, string> = {
   "/presa": "/en/press",
   "/studiu-de-caz": "/en/case-study",
   "/platforma": "/en/platform",
-  "/preturi": "/en/pricing",
   "/securitate": "/en/security",
   "/despre": "/en/about",
   "/contact": "/en/contact",

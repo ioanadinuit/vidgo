@@ -6,4 +6,3 @@ export { about } from "./about";
 export { contact } from "./contact";
 export { blog } from "./blog";
 export { blogListing, blogPosts } from "./blog-posts";
-export { pricing } from "./pricing";

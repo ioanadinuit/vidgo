@@ -4,7 +4,7 @@ export const pricing: PricingContent = {
   meta: {
     title: "Prețuri și calculator de costuri",
     description:
-      "Cât costă un magazin pe VidGo: construire de la 250 €, infrastructură 500 €, migrare pe tranșe și licență lunară de la 300 €. Calculează costul pentru magazinul tău.",
+      "Cât costă un magazin pe VidGo: construire de la 250 €, infrastructură 500 €, migrare după numărul de produse și licență lunară de la 300 €. Calculează costul pentru magazinul tău.",
   },
   breadcrumb: "Prețuri",
   header: {
@@ -31,7 +31,7 @@ export const pricing: PricingContent = {
     hosting: "Hosting*, €/lună",
     hostingHint: "* Sugestie de hosting, poate varia.",
     products: "Produse de migrat",
-    productsHint: "Migrare progresivă: fiecare tranșă are prețul ei.",
+    productsHint: "Toate produsele se plătesc cu tariful intervalului în care se încadrează magazinul.",
     integrations: "Integrări speciale",
     integrationsHint: "ERP, CRM sau altele, 250 € fiecare.",
     belowTier: "Sub prag",
@@ -56,7 +56,7 @@ export const pricing: PricingContent = {
     infraHint: "Tarif fix: Cloudflare, imagini, caching, securitate, instalarea serverului.",
     integrationsRow: "Integrări speciale",
     migration: "Migrare date",
-    band: "Tranșa",
+    band: "Interval (produse)",
     qty: "Produse",
     per100: "€ / 100",
     cost: "Cost",

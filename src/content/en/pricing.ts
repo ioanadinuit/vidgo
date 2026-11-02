@@ -4,7 +4,7 @@ export const pricing: PricingContent = {
   meta: {
     title: "Pricing and cost calculator",
     description:
-      "What a store on VidGo costs: build from €250, infrastructure €500, tiered data migration and a monthly licence from €300. Calculate the cost for your store.",
+      "What a store on VidGo costs: build from €250, infrastructure €500, data migration by number of products and a monthly licence from €300. Calculate the cost for your store.",
   },
   breadcrumb: "Pricing",
   header: {
@@ -31,7 +31,7 @@ export const pricing: PricingContent = {
     hosting: "Hosting*, €/month",
     hostingHint: "* Suggested hosting, may vary.",
     products: "Products to migrate",
-    productsHint: "Tiered migration: each band has its own price.",
+    productsHint: "All products are priced at the rate of the band the store falls into.",
     integrations: "Special integrations",
     integrationsHint: "ERP, CRM or others, €250 each.",
     belowTier: "Below threshold",
@@ -56,7 +56,7 @@ export const pricing: PricingContent = {
     infraHint: "Flat fee: Cloudflare, images, caching, security, server installation.",
     integrationsRow: "Special integrations",
     migration: "Data migration",
-    band: "Band",
+    band: "Range (products)",
     qty: "Products",
     per100: "€ / 100",
     cost: "Cost",

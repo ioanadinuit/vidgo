@@ -38,16 +38,13 @@ function licencePerMonth(sales: number) {
   return PRICES.base + (sales * PRICES.commissionRate) / 12;
 }
 
-/** Progressive migration: each band of products is priced at its own rate per 100 products. */
+/** Migration: all products are priced at the rate of the band the store falls into. */
 function migration(products: number) {
-  const n = Math.min(Math.max(products, 0), PRICES.bands[PRICES.bands.length - 1].to);
-  let from = 0;
-  return PRICES.bands.map((band) => {
-    const qty = Math.max(0, Math.min(n, band.to) - from);
-    const row = { from, to: band.to, per100: band.per100, qty, cost: (qty / 100) * band.per100 };
-    from = band.to;
-    return row;
-  });
+  const n = Math.max(products, 0);
+  const index = PRICES.bands.findIndex((band) => n <= band.to);
+  const band = index === -1 ? PRICES.bands.length - 1 : index;
+  const per100 = PRICES.bands[band].per100;
+  return { n, band, per100, cost: (n / 100) * per100 };
 }
 
 function toNumber(value: string) {
@@ -113,9 +110,8 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
   const hostingYear = toNumber(hosting) * 12;
   const yearTotal = licenceYear + hostingYear;
 
-  const bands = migration(toNumber(products));
-  const migQty = bands.reduce((a, b) => a + b.qty, 0);
-  const mig = bands.reduce((a, b) => a + b.cost, 0);
+  const migr = migration(toNumber(products));
+  const mig = migr.cost;
   const integN = Math.floor(toNumber(integrations));
   const integ = integN * PRICES.integration;
   const once = PRICES.build + PRICES.infra + integ + mig;
@@ -264,28 +260,26 @@ export function PricingCalculator({ t }: { t: PricingCalcCopy }) {
               <thead>
                 <tr className="text-xs text-muted-foreground">
                   <th className="py-1.5 text-left font-semibold">{t.band}</th>
-                  <th className="py-1.5 text-right font-semibold">{t.qty}</th>
                   <th className="py-1.5 text-right font-semibold">{t.per100}</th>
-                  <th className="py-1.5 text-right font-semibold">{t.cost}</th>
                 </tr>
               </thead>
               <tbody className="font-mono tabular-nums">
-                {bands.map((b) => (
-                  <tr key={b.to} className="border-b border-dashed border-border">
-                    <td className="py-1.5 pr-3">{num.format(b.from + 1)}–{num.format(b.to)}</td>
-                    <td className="py-1.5 text-right">{num.format(b.qty)}</td>
-                    <td className="py-1.5 text-right">{eur.format(b.per100)}</td>
-                    <td className="py-1.5 text-right">{eur.format(b.cost)}</td>
+                {PRICES.bands.map((b, i) => (
+                  <tr
+                    key={b.to}
+                    className={cn("border-b border-dashed border-border", i === migr.band && "bg-accent font-semibold")}
+                  >
+                    <td className="px-2 py-1.5">
+                      {num.format(i === 0 ? 1 : PRICES.bands[i - 1].to + 1)}–{num.format(b.to)}
+                    </td>
+                    <td className="px-2 py-1.5 text-right">{eur.format(b.per100)}</td>
                   </tr>
                 ))}
-                <tr className="font-semibold">
-                  <td className="py-1.5 font-sans">{t.total}</td>
-                  <td className="py-1.5 text-right">{num.format(migQty)}</td>
-                  <td />
-                  <td className="py-1.5 text-right">{eur.format(mig)}</td>
-                </tr>
               </tbody>
             </table>
+            <p className="mt-3 font-mono text-sm tabular-nums">
+              {num.format(migr.n)} × {eur.format(migr.per100)} / 100 = <b>{eur.format(mig)}</b>
+            </p>
             {toNumber(products) > 100000 && <p className="mt-2 text-xs text-muted-foreground">{t.max}</p>}
           </div>
 

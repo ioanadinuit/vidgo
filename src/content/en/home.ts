@@ -19,6 +19,7 @@ export const home: HomeContent = {
   stackTitle: "Integrations built into the platform, not bought as plugins",
   stack: [
     "Stripe",
+    "Netopia",
     "e-Factura (XML UBL)",
     "Google Merchant",
     "Sign in with Google",
@@ -70,7 +71,7 @@ export const home: HomeContent = {
           body: "The ps_facetedsearch module allowed a complete server takeover with a single unauthenticated request. Severity: 10 out of 10.",
         },
       ],
-      body: "VidGo builds essential capabilities into the platform, without separate store plugins to maintain. Stripe processes payments; card details do not pass through the store's server.",
+      body: "VidGo builds essential capabilities into the platform, without separate store plugins to maintain. Card payments are processed by Stripe or Netopia; card details do not pass through the store's server.",
       link: { text: "How security is designed", href: "/en/security" },
     },
   },
@@ -107,10 +108,10 @@ export const home: HomeContent = {
       {
         name: "Orders, payments, delivery",
         description:
-          "Stripe, bank transfer and cash on delivery in a single flow. Shipping label (AWB) generated automatically through Innoship when the order is placed. Refund engine with every effect automatic.",
+          "Stripe, Netopia, bank transfer and cash on delivery in a single flow. Shipping label (AWB) generated automatically through Innoship when the order is placed. Refund engine with every effect automatic.",
         href: "/en/platform#orders",
         cta: "The order flow",
-        points: ["Stripe", "Bank transfer", "Cash on delivery", "Innoship AWB", "Refunds", "Digital returns"],
+        points: ["Stripe", "Netopia", "Bank transfer", "Cash on delivery", "Innoship AWB", "Refunds", "Digital returns"],
       },
     ],
   },
@@ -197,7 +198,7 @@ export const home: HomeContent = {
     cards: [
       {
         title: "In the platform",
-        body: "Stripe for online payments, Innoship for shipping labels (AWB) generated automatically when the order is placed, with any courier, e-Factura XML (Romanian e-invoicing) for the SPV tax portal, a Google Merchant feed generated automatically, Sign in with Google, supplier feeds.",
+        body: "Stripe and Netopia for online payments, Innoship for shipping labels (AWB) generated automatically when the order is placed, with any courier, e-Factura XML (Romanian e-invoicing) for the SPV tax portal, a Google Merchant feed generated automatically, Sign in with Google, supplier feeds.",
       },
       {
         title: "Disivo",

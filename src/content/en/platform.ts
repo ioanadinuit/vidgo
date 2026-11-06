@@ -70,10 +70,11 @@ export const platform: PlatformContent = {
       key: "orders",
       id: "orders",
       eyebrow: "Cart, checkout and payments",
-      title: "Three payment methods, one flow.",
+      title: "Four payment methods, one flow.",
       body: "Cart for signed-in customers and for guests, kept between sessions. Vouchers applied with instant recalculation. Shipping calculated by zone, by weight.",
       items: [
         "Stripe Checkout: cards, Apple Pay, Google Pay; immediate capture, webhooks with replay protection",
+        "Netopia: card payment on the Netopia payment page, as a Romanian alternative to Stripe",
         "Bank transfer: pro-forma invoice generated automatically, with a due date, sent by email; the tax invoice on receipt of payment",
         "Cash on delivery, with manual confirmation and the invoice at dispatch",
         "Invoicing to an individual or a company, with company tax ID (CUI) and trade register number, directly in checkout",

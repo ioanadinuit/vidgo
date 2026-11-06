@@ -61,7 +61,7 @@ export const security: SecurityContent = {
       },
       {
         title: "Cards never touch the platform",
-        body: "Card payment happens in Stripe Checkout. The card number does not pass through the store's server and is not stored by it. What comes back is the payment confirmation, through a webhook with a verified signature and with protection against repeated deliveries.",
+        body: "Card payment happens in Stripe Checkout or on the Netopia payment page. The card number does not pass through the store's server and is not stored by it. With Stripe, the payment confirmation comes back through a webhook with a verified signature and with protection against repeated deliveries.",
       },
       {
         title: "Tokens are encrypted at rest",

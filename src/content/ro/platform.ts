@@ -70,10 +70,11 @@ export const platform: PlatformContent = {
       key: "orders",
       id: "comenzi",
       eyebrow: "Coș, checkout și plăți",
-      title: "Trei metode de plată, un singur flux.",
+      title: "Patru metode de plată, un singur flux.",
       body: "Coș pentru clienți logați și pentru oaspeți, păstrat între sesiuni. Vouchere aplicate cu recalcul pe loc. Transport calculat pe zone, după greutate.",
       items: [
         "Stripe Checkout: carduri, Apple Pay, Google Pay; capturare imediată, webhook-uri cu protecție la repetare",
+        "Netopia: plata cu cardul pe pagina de plată Netopia, ca alternativă românească la Stripe",
         "Transfer bancar: proformă generată automat, cu scadență, trimisă pe email; factura fiscală la încasare",
         "Ramburs la livrare, cu confirmare manuală și factură la expediere",
         "Facturare pe persoană fizică sau pe firmă, cu CUI și Registrul Comerțului, direct în checkout",

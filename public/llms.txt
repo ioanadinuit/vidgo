@@ -16,7 +16,7 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 ## Pagini
 
 - [Acasă](https://vidgotech.com/): ce face platforma, de ce nu un magazin pe plugin-uri, rezultate măsurate, studiul de caz biotu.ro, cum decurge migrarea.
-- [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, imagini optimizate pentru mobil (variantă mică și comprimată în liste, poză completă pe pagina de produs), checkout și plăți (Stripe, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
+- [Platforma](https://vidgotech.com/platforma): lista completă a funcționalităților: SEO/AEO/GEO, catalog și stocuri, imagini optimizate pentru mobil (variantă mică și comprimată în liste, poză completă pe pagina de produs), checkout și plăți (Stripe, Netopia, transfer bancar, ramburs), facturi și documente fiscale, rambursuri, livrare, email, teme, migrare, GDPR, cont client cu Sign in with Google, găzduire, limbi.
 - [Securitate](https://vidgotech.com/securitate): de ce un magazin fără plugin-uri e mai greu de spart, cu vulnerabilități WooCommerce și PrestaShop din 2026 ca exemple, și cum sunt gândite autentificarea, plățile, token-urile și izolarea.
 - [Despre](https://vidgotech.com/despre): cine construiește și întreține platforma.
 - [Contact](https://vidgotech.com/contact): demo de 20 de minute, email, telefon.
@@ -57,7 +57,7 @@ experiență (Jumbo NL, proiecte pentru clienți IBM Netherlands).
 The same site in English, for international partners, lives under /en.
 
 - [Home](https://vidgotech.com/en): what the platform does, why not a plugin-based store, measured results, the biotu.ro case study, how the migration runs.
-- [Platform](https://vidgotech.com/en/platform): the complete feature list: SEO/AEO/GEO, catalog and stock, mobile-optimised images (a small, compressed version in listings, the full photo on the product page), checkout and payments (Stripe, bank transfer, cash on delivery), invoices and tax documents with e-Factura (Romanian e-invoicing XML), refunds, delivery, email, themes, migration, GDPR, customer account with Sign in with Google, hosting, languages.
+- [Platform](https://vidgotech.com/en/platform): the complete feature list: SEO/AEO/GEO, catalog and stock, mobile-optimised images (a small, compressed version in listings, the full photo on the product page), checkout and payments (Stripe, Netopia, bank transfer, cash on delivery), invoices and tax documents with e-Factura (Romanian e-invoicing XML), refunds, delivery, email, themes, migration, GDPR, customer account with Sign in with Google, hosting, languages.
 - [Security](https://vidgotech.com/en/security): why a store without plugins is harder to break into, with the 2026 WooCommerce and PrestaShop vulnerabilities as examples, and how authentication, payments, tokens and isolation are designed.
 - [About](https://vidgotech.com/en/about): who builds and maintains the platform.
 - [Contact](https://vidgotech.com/en/contact): 20-minute demo, email, phone.

@@ -61,7 +61,7 @@ export const security: SecurityContent = {
       },
       {
         title: "Cardurile nu ating platforma",
-        body: "Plata cu cardul se face în Stripe Checkout. Numărul cardului nu trece prin serverul magazinului și nu este stocat de el. Ce ajunge înapoi este confirmarea plății, printr-un webhook cu semnătură verificată și cu protecție la livrări repetate.",
+        body: "Plata cu cardul se face în Stripe Checkout sau pe pagina de plată Netopia. Numărul cardului nu trece prin serverul magazinului și nu este stocat de el. La Stripe, confirmarea plății ajunge printr-un webhook cu semnătură verificată și cu protecție la livrări repetate.",
       },
       {
         title: "Token-urile sunt criptate în repaus",

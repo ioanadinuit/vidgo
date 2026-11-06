@@ -19,6 +19,7 @@ export const home: HomeContent = {
   stackTitle: "Integrări făcute în platformă, nu cumpărate ca plugin",
   stack: [
     "Stripe",
+    "Netopia",
     "e-Factura (XML UBL)",
     "Google Merchant",
     "Sign in with Google",
@@ -70,7 +71,7 @@ export const home: HomeContent = {
           body: "Modulul ps_facetedsearch permitea preluarea completă a serverului cu o singură cerere, fără autentificare. Severitate: 10 din 10.",
         },
       ],
-      body: "VidGo integrează funcțiile esențiale în platformă, fără plugin-uri de magazin de întreținut separat. Plățile sunt procesate de Stripe; datele cardurilor nu trec prin serverul magazinului.",
+      body: "VidGo integrează funcțiile esențiale în platformă, fără plugin-uri de magazin de întreținut separat. Plățile cu cardul sunt procesate de Stripe sau Netopia; datele cardurilor nu trec prin serverul magazinului.",
       link: { text: "Cum e gândită securitatea", href: "/securitate" },
     },
   },
@@ -107,10 +108,10 @@ export const home: HomeContent = {
       {
         name: "Comenzi, plăți, livrare",
         description:
-          "Stripe, transfer bancar și ramburs într-un singur flux. AWB generat automat prin Innoship la plasarea comenzii. Motor de rambursări cu toate efectele automate.",
+          "Stripe, Netopia, transfer bancar și ramburs într-un singur flux. AWB generat automat prin Innoship la plasarea comenzii. Motor de rambursări cu toate efectele automate.",
         href: "/platforma#comenzi",
         cta: "Fluxul comenzii",
-        points: ["Stripe", "Transfer bancar", "Ramburs", "AWB Innoship", "Rambursări", "Retur digital"],
+        points: ["Stripe", "Netopia", "Transfer bancar", "Ramburs", "AWB Innoship", "Rambursări", "Retur digital"],
       },
     ],
   },
@@ -197,7 +198,7 @@ export const home: HomeContent = {
     cards: [
       {
         title: "În platformă",
-        body: "Stripe pentru plăți online, Innoship pentru AWB-uri generate automat la plasarea comenzii, cu orice curier, XML e-Factura pentru SPV, feed Google Merchant generat automat, Sign in with Google, feed-uri de furnizori.",
+        body: "Stripe și Netopia pentru plăți online, Innoship pentru AWB-uri generate automat la plasarea comenzii, cu orice curier, XML e-Factura pentru SPV, feed Google Merchant generat automat, Sign in with Google, feed-uri de furnizori.",
       },
       {
         title: "Disivo",

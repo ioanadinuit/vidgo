@@ -9,7 +9,18 @@ const BASE = siteConfig.url;
 
 // Pages are exported as <name>.html and Cloudflare serves them without a trailing slash.
 // Every entry is keyed by its Romanian path; the English twin comes from localePath.
-const pages = ["/", "/platforma", "/securitate", "/despre", "/contact", "/blog", "/studiu-de-caz", "/presa"];
+// lastModified = the last real content change of the page, in both languages (they change together).
+// Update it when a page's content changes, so Google sees what is new.
+const pages = [
+  { path: "/", lastModified: "2026-11-06" },
+  { path: "/platforma", lastModified: "2026-11-06" },
+  { path: "/securitate", lastModified: "2026-11-06" },
+  { path: "/despre", lastModified: "2026-11-02" },
+  { path: "/contact", lastModified: "2026-10-15" },
+  { path: "/blog", lastModified: "2026-10-30" },
+  { path: "/studiu-de-caz", lastModified: "2026-10-30" },
+  { path: "/presa", lastModified: "2026-10-16" },
+];
 
 const blogPosts = [
   { slug: "dropshipping-furnizori-romania", lastModified: "2026-10-30" },
@@ -28,17 +39,17 @@ function languages(roPath: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = pages.flatMap((path) => [
+  const staticPages = pages.flatMap(({ path, lastModified }) => [
     {
       url: `${BASE}${path}`,
-      lastModified: "2026-09-18",
+      lastModified,
       changeFrequency: "weekly" as const,
       priority: path === "/" ? 1 : 0.7,
       alternates: { languages: languages(path) },
     },
     {
       url: `${BASE}${localePath("en", path)}`,
-      lastModified: EN_LAST_MODIFIED,
+      lastModified,
       changeFrequency: "weekly" as const,
       priority: path === "/" ? 0.9 : 0.6,
       alternates: { languages: languages(path) },

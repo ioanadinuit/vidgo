@@ -51,6 +51,8 @@ export interface CommonContent {
     blurb: string;
     groups: { title: string; links: TextLink[] }[];
     copyright: string;
+    /** Legal identification of the company behind the product. */
+    company: string;
     founder: string;
   };
   cta: {

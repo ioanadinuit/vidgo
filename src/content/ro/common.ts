@@ -64,6 +64,7 @@ export const common: CommonContent = {
       },
     ],
     copyright: "© 2026 VidGo Technology · Platformă e-commerce completă, întreținută cap-coadă.",
+    company: "VidGo Technologies este un produs E SHOP TECH SRL · CUI 50709956 · Nr. Reg. Com. J2024031300009 · Str. Răsăritului 73, 400587 Cluj-Napoca, jud. Cluj",
     founder: "Ioana Dinu · Fondator",
   },
   cta: {

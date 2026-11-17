@@ -64,6 +64,7 @@ export const common: CommonContent = {
       },
     ],
     copyright: "© 2026 VidGo Technology · Complete e-commerce platform, maintained end to end.",
+    company: "VidGo Technologies is a product of E SHOP TECH SRL · Tax ID (CUI) 50709956 · Trade Register no. J2024031300009 · Str. Răsăritului 73, 400587 Cluj-Napoca, Cluj county, Romania",
     founder: "Ioana Dinu · Founder",
   },
   cta: {

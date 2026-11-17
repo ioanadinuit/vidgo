@@ -58,6 +58,7 @@ export function SiteFooter({ locale, roPath }: { locale: Locale; roPath: string 
           <LangSwitch locale={locale} roPath={roPath} />
         </span>
       </div>
+      <p className="mx-auto mt-4 max-w-6xl px-4 text-center text-xs text-muted-foreground md:text-left lg:px-8">{footer.company}</p>
     </footer>
   );
 }

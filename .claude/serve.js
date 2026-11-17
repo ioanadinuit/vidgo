@@ -20,6 +20,18 @@ const TYPES = {
   '.pdf': 'application/pdf',
 };
 
+// Send the site's CSP (the "/*" block of out/_headers) so a policy that blocks
+// something shows up in the local preview, before deploy. upgrade-insecure-requests
+// is dropped: the preview is plain http.
+function csp() {
+  try {
+    const m = fs.readFileSync(path.join(ROOT, '_headers'), 'utf8').match(/^\s+Content-Security-Policy:\s*(.+)$/m);
+    return m ? m[1].trim().replace(/;\s*upgrade-insecure-requests/, '') : null;
+  } catch {
+    return null;
+  }
+}
+
 http.createServer((req, res) => {
   let rel = decodeURIComponent(req.url.split('?')[0]);
   if (rel.endsWith('/')) rel += 'index.html';
@@ -40,9 +52,11 @@ http.createServer((req, res) => {
       res.writeHead(404, { 'Content-Type': 'text/plain' }).end('Not found: ' + rel);
       return;
     }
+    const policy = csp();
     res.writeHead(200, {
       'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream',
       'Cache-Control': 'no-store',
+      ...(policy ? { 'Content-Security-Policy': policy } : {}),
     });
     res.end(data);
   });

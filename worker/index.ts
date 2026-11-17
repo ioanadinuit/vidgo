@@ -22,6 +22,18 @@ export default {
       url.protocol = "https:";
       return Response.redirect(url.toString(), 301);
     }
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    if (response.status !== 404) return response;
+
+    // Next's router prefetches page segments as /dir/__next.a.b.c.txt, but the
+    // static export writes them as /dir/__next.a/b/c.txt, so every prefetch
+    // logged a 404 in the console. Serve the nested file under the flat name.
+    const slash = url.pathname.lastIndexOf("/");
+    const file = url.pathname.slice(slash + 1);
+    const parts = /^__next\.(.+)\.txt$/.exec(file)?.[1].split(".");
+    if (!parts || parts.length < 2) return response;
+    url.pathname = `${url.pathname.slice(0, slash + 1)}__next.${parts[0]}/${parts.slice(1).join("/")}.txt`;
+    const nested = await env.ASSETS.fetch(new Request(url.toString(), request));
+    return nested.status === 200 ? nested : response;
   },
 };

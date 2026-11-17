@@ -2,9 +2,9 @@ import type { PlatformContent } from "@/content/types";
 
 export const platform: PlatformContent = {
   meta: {
-    title: "Platformă ecommerce all-in-one: ERP, stocuri, facturare automată, AWB Innoship",
+    title: "Platformă ecommerce: ERP, stocuri, facturare, AWB",
     description:
-      "ERP pentru magazin online într-o singură aplicație: gestiune stocuri cu sincronizare din feed-uri de furnizor, facturare automată cu e-Factura, proformă și storno, AWB generat automat prin Innoship la plasarea comenzii, CRM cu istoricul cumpărăturilor, recuperare coș abandonat, SEO cu pagini randate pe server.",
+      "ERP pentru magazin online într-o singură aplicație: gestiune stocuri, facturare automată cu e-Factura, AWB automat prin Innoship, CRM și coș abandonat.",
     keywords: ["erp", "seo"],
   },
   schemaDescription:

@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     slug: "dropshipping-romanian-suppliers",
     title: "Dropshipping with Romanian suppliers: synced stock | VidGo",
     description:
-      "How to keep stock, prices and photos in sync across several XML suppliers: per-supplier settings, a markup formula and out-of-stock picked up automatically. The biotu.ro case.",
+      "How to keep stock, prices and photos in sync across several XML suppliers: per-supplier settings, a markup formula and out-of-stock picked up automatically.",
     author: "Ioana Dinu",
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     ogTitle: "Dropshipping at scale: 12 suppliers in sync, without selling what you do not have",
@@ -236,7 +236,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "online-store-speed",
-    title: "Online store speed: what Google measures and what it costs you | VidGo",
+    title: "Online store speed: what Google measures | VidGo",
     description:
       "What LCP, INP and CLS mean for an online store, why “it works fine on my phone” is misleading, where the seconds go and what it costs in orders.",
     author: "Ioana Dinu",
@@ -477,7 +477,7 @@ Sitemap: https://yourstore.com/sitemap.xml</code></pre>
   },
   {
     slug: "store-theme-structure",
-    title: "The store theme: the most expensive technical decision | VidGo",
+    title: "The store theme: the most expensive technical decision",
     description:
       "Why the theme decides how fast, how secure and how easy to maintain an online store is — and why later optimisations have a ceiling.",
     author: "Ioana Dinu",

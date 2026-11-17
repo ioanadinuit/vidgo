@@ -2,9 +2,9 @@ import type { SecurityContent } from "@/content/types";
 
 export const security: SecurityContent = {
   meta: {
-    title: "Online store security: vulnerable plugins on open-source platforms",
+    title: "Online store security: vulnerable plugins",
     description:
-      "Stores on open-source platforms breached through vulnerable plugins and modules: four cases from 2026 and why a store without plugins is harder to break into. How authentication, cards, tokens and GDPR data are protected at VidGo.",
+      "Stores on open-source platforms breached through vulnerable plugins: four cases from 2026 and why a store without plugins is harder to break into.",
     keywords: ["security", "woocommerce", "prestashop"],
   },
   breadcrumb: "Security",

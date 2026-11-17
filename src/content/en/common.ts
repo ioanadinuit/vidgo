@@ -3,9 +3,9 @@ import { siteConfig } from "@/lib/site-config";
 
 export const common: CommonContent = {
   site: {
-    tagline: "Complete e-commerce platform, hosted on your own server",
+    tagline: "E-commerce platform on your own server",
     description:
-      "A complete online store — storefront, admin panel and backend in one application, without plugins. Server-rendered pages, SEO score 100, automatic invoicing with e-Factura (Romanian e-invoicing XML), migration with redirects from open-source platforms. Private VPS hosting, maintained by the person who built the platform.",
+      "A complete online store: storefront, admin panel and backend in one application, without plugins. SEO score 100, automatic e-Factura, private VPS hosting.",
   },
   breadcrumbHome: "Home",
   nav: [

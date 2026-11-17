@@ -2,9 +2,9 @@ import type { PlatformContent } from "@/content/types";
 
 export const platform: PlatformContent = {
   meta: {
-    title: "All-in-one e-commerce platform: ERP, stock, automatic invoicing, Innoship shipping labels",
+    title: "All-in-one ecommerce platform: ERP, stock, invoicing",
     description:
-      "ERP for an online store in a single application: stock management with synchronisation from supplier feeds, automatic invoicing with e-Factura (Romanian e-invoicing XML), pro-forma invoices and credit notes, shipping label (AWB) generated automatically through Innoship when the order is placed, CRM with purchase history, abandoned cart recovery, SEO with server-rendered pages.",
+      "ERP for an online store in a single application: stock management, automatic e-Factura invoicing, Innoship shipping labels, CRM and abandoned cart recovery.",
     keywords: ["erp", "seo"],
   },
   schemaDescription:

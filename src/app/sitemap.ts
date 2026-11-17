@@ -12,21 +12,21 @@ const BASE = siteConfig.url;
 // lastModified = the last real content change of the page, in both languages (they change together).
 // Update it when a page's content changes, so Google sees what is new.
 const pages = [
-  { path: "/", lastModified: "2026-11-06" },
-  { path: "/platforma", lastModified: "2026-11-06" },
-  { path: "/securitate", lastModified: "2026-11-06" },
-  { path: "/despre", lastModified: "2026-11-02" },
-  { path: "/contact", lastModified: "2026-10-15" },
-  { path: "/blog", lastModified: "2026-10-30" },
-  { path: "/studiu-de-caz", lastModified: "2026-10-30" },
-  { path: "/presa", lastModified: "2026-10-16" },
+  { path: "/", lastModified: "2026-11-17" },
+  { path: "/platforma", lastModified: "2026-11-17" },
+  { path: "/securitate", lastModified: "2026-11-17" },
+  { path: "/despre", lastModified: "2026-11-17" },
+  { path: "/contact", lastModified: "2026-11-17" },
+  { path: "/blog", lastModified: "2026-11-17" },
+  { path: "/studiu-de-caz", lastModified: "2026-11-17" },
+  { path: "/presa", lastModified: "2026-11-17" },
 ];
 
 const blogPosts = [
-  { slug: "dropshipping-furnizori-romania", lastModified: "2026-10-30" },
-  { slug: "viteza-magazin-online", lastModified: "2026-10-30" },
+  { slug: "dropshipping-furnizori-romania", lastModified: "2026-11-17" },
+  { slug: "viteza-magazin-online", lastModified: "2026-11-17" },
   { slug: "cum-s-a-schimbat-indexarea", lastModified: "2026-10-30" },
-  { slug: "structura-temei-magazin", lastModified: "2026-08-20" },
+  { slug: "structura-temei-magazin", lastModified: "2026-11-17" },
   { slug: "vizibilitate-google-ai", lastModified: "2026-10-30" },
 ];
 

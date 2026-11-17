@@ -4,7 +4,7 @@ export const contact: ContactContent = {
   meta: {
     title: "Contact și demo gratuit al magazinului tău",
     description:
-      "Îți construim gratuit un demo al magazinului tău pe platforma VidGo, cu skin-ul, produsele și identitatea ta. Sau scrie direct: răspunde persoana care a construit platforma, nu un departament.",
+      "Îți construim gratuit un demo al magazinului tău pe platforma VidGo, cu skin-ul, produsele și identitatea ta. Sau scrie direct persoanei care a construit-o.",
   },
   breadcrumb: "Contact",
   header: {

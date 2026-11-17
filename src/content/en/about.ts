@@ -4,7 +4,7 @@ export const about: AboutContent = {
   meta: {
     title: "About Ioana Dinu and the VidGo platform",
     description:
-      "VidGo Technology is built by Ioana Dinu, a software engineer with over 15 years of experience, for merchants who want a complete platform, maintained by the person who wrote it.",
+      "VidGo Technology is built by Ioana Dinu, a software engineer with over 15 years of experience: a complete platform, maintained by the person who wrote it.",
   },
   breadcrumb: "About",
   header: {

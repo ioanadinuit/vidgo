@@ -13,7 +13,7 @@ export function layoutMetadata(locale: Locale): Metadata {
     metadataBase: new URL(siteConfig.url),
     title: {
       default: title,
-      template: `%s — ${siteConfig.name}`,
+      template: `%s | ${siteConfig.shortName}`,
     },
     description: site.description,
     keywords: keywordsFor(locale, "platform", "seo"),

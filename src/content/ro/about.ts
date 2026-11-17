@@ -4,7 +4,7 @@ export const about: AboutContent = {
   meta: {
     title: "Despre Ioana Dinu și platforma VidGo",
     description:
-      "VidGo Technology este construită de Ioana Dinu, inginer software cu peste 15 ani de experiență, pentru comercianții care vor o platformă completă, întreținută de cine a scris-o.",
+      "VidGo Technology este construită de Ioana Dinu, inginer software cu peste 15 ani de experiență: o platformă completă, întreținută de cine a scris-o.",
   },
   breadcrumb: "Despre",
   header: {

@@ -5,7 +5,7 @@ import type { BlogListing, BlogPost } from "@/content/types";
 
 export const blogListing: BlogListing = {
   "title": "Blog e-commerce, performanță și AI | VidGo Technologies",
-  "description": "Explicații clare despre viteza unui magazin online, structura temelor, indexare, crawlere AI, Google Merchant Center și automatizările incluse în platforma VidGo.",
+  "description": "Explicații despre viteza unui magazin online, structura temelor, indexare, crawlere AI, Google Merchant Center și automatizările incluse în platforma VidGo.",
   "robots": "index,follow,max-image-preview:large",
   "ogTitle": "Blog e-commerce, performanță și AI | VidGo Technologies",
   "ogDescription": "Ghiduri practice despre cum devine un magazin online mai rapid, mai ușor de găsit și mai ușor de înțeles — de oameni și de roboți.",
@@ -18,8 +18,8 @@ export const blogListing: BlogListing = {
 export const blogPosts: BlogPost[] = [
   {
     "slug": "dropshipping-furnizori-romania",
-    "title": "Dropshipping cu furnizori din România: stoc sincronizat | VidGo",
-    "description": "Cum ții stocul, prețul și pozele sincronizate de la mai mulți furnizori XML: setări pe furnizor, formulă de adaos și stoc epuizat preluat automat. Cazul biotu.ro.",
+    "title": "Dropshipping cu furnizori din România: stoc sincronizat",
+    "description": "Cum ții stocul, prețul și pozele sincronizate de la mai mulți furnizori XML: setări pe furnizor, formulă de adaos și stoc epuizat preluat automat.",
     "author": "Ioana Dinu",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "ogTitle": "Dropshipping la scară: 12 furnizori sincronizați, fără să vinzi ce nu ai",
@@ -80,7 +80,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "viteza-magazin-online",
-    "title": "Viteza unui magazin online: ce măsoară Google și ce te costă | VidGo",
+    "title": "Viteza unui magazin online: ce măsoară Google | VidGo",
     "description": "Ce înseamnă LCP, INP și CLS pentru un magazin online, de ce „pe telefonul meu merge bine” induce în eroare, unde se pierd secundele și cât costă în comenzi.",
     "author": "Ioana Dinu",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",

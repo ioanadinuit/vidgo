@@ -142,12 +142,12 @@ export function CaseStudyView({ locale }: { locale: Locale }) {
           <CaseSection id={cPageSpeed.id} eyebrow="Google PageSpeed" title={t("Scoruri Lighthouse pe pagina principală", "Homepage Lighthouse scores")} detailsLabel={detailsLabel}
             takeaway={t("Pe mobil, pagina este vizibilă complet în 2,7 secunde, nu în 4,6. Accesibilitate de la 61 la 97.", "On mobile, the page is fully visible in 2.7 seconds, not 4.6. Accessibility from 61 to 97.")}
             details={<>
-              <p>{t("Pe mobil, scorul vine din grafică. Cel mai mare element al paginii (LCP 5,6 s, față de 4,4 s) este bannerul principal al biotu.ro, grafica de conversie a magazinului, încărcată cu prioritate. Serverul răspunde în 30 ms în test. Grafica este o decizie comercială, nu o limită a platformei.", "On mobile, the score reflects the graphics. The largest page element (LCP 5.6 s versus 4.4 s) is biotu.ro’s main conversion banner, loaded with priority. The server responds in 30 ms in the test. The graphics are a commercial decision, rather than a platform limitation.")}</p>
-              <p className="case-source">{t("Sursa: pagespeed.web.dev, 13 octombrie 2026 (biotu.ro 11:54, biorganicbubu.ro 11:39).", "Source: pagespeed.web.dev, 13 October 2026 (biotu.ro 11:54, biorganicbubu.ro 11:39).")}</p>
+              <p>{t("Serverul răspunde în 30 ms în test.", "The server responds in 30 ms in the test.")}</p>
+              <p className="case-source">{t("Sursa: pagespeed.web.dev, 13 octombrie 2026 (biotu.ro 11:54, biorganicbubu.ro 11:39). Performanța pe mobil a biotu.ro: remăsurată în noiembrie 2026, după optimizări.", "Source: pagespeed.web.dev, 13 October 2026 (biotu.ro 11:54, biorganicbubu.ro 11:39). biotu.ro mobile performance: measured again in November 2026, after optimisation.")}</p>
             </>}>
             <ScoreRings oldLabel={old} nextLabel={next} items={[
               { label: t("Performanță, desktop", "Desktop performance"), old: 84, next: 95 },
-              { label: t("Performanță, mobil", "Mobile performance"), old: 66, next: 75 },
+              { label: t("Performanță, mobil", "Mobile performance"), old: 66, next: 94 },
               { label: t("Accesibilitate", "Accessibility"), old: 61, next: 97 },
               { label: t("Bune practici", "Best practices"), old: 73, next: 100 },
               { label: "SEO", old: 92, next: 100 },

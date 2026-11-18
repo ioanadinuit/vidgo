@@ -18,7 +18,7 @@ const pages = [
   { path: "/despre", lastModified: "2026-11-17" },
   { path: "/contact", lastModified: "2026-11-17" },
   { path: "/blog", lastModified: "2026-11-17" },
-  { path: "/studiu-de-caz", lastModified: "2026-11-17" },
+  { path: "/studiu-de-caz", lastModified: "2026-11-18" },
   { path: "/presa", lastModified: "2026-11-17" },
 ];
 

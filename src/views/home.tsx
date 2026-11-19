@@ -81,6 +81,7 @@ export function HomeView({ locale }: { locale: Locale }) {
 
           <BlurFade delay={0.35}>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">{t.intro}</p>
+            <p className="mt-4 max-w-2xl text-lg text-muted-foreground text-pretty">{t.introAi}</p>
           </BlurFade>
 
           <BlurFade delay={0.5}>

@@ -4,9 +4,11 @@ export const home: HomeContent = {
   keywords: ["platform", "erp", "seo", "migration"],
   badge: "Platformă de e-commerce construită și întreținută în România",
   headline: "Magazinul tău online,",
-  typewriter: ["rapid.", "fără plugin-uri.", "pe serverul tău.", "cu facturi automate."],
+  typewriter: ["performant și modern.", "fără plugin-uri.", "pe serverul tău.", "cu facturi automate."],
   intro:
     "Viteza transformă traficul pe care îl plătești deja în comenzi. Automatizările te scot din munca de zi cu zi. Conformitatea fiscală și GDPR vin incluse, nu ca un proiect separat, plătit încă o dată.",
+  introAi:
+    "AI-ul completează elementele SEO goale din catalog, așa că scrii mai puțin și urci în căutări. Comenzile, facturile și datele clienților rămân deterministe și pe serverul tău, conform GDPR și ANAF.",
   bookDemo: "Solicită un demo gratuit",
   seePlatform: { text: "Vezi tot ce conține", href: "/platforma" },
   heroAlt: "Panoul de administrare VidGo pe laptop: lista de comenzi, cu logoul VidGo Technologies",

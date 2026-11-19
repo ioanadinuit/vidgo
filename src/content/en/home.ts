@@ -4,9 +4,11 @@ export const home: HomeContent = {
   keywords: ["platform", "erp", "seo", "migration"],
   badge: "E-commerce platform built and maintained in Romania",
   headline: "Your online store,",
-  typewriter: ["fast.", "without plugins.", "on your own server.", "with automatic invoicing."],
+  typewriter: ["fast and modern.", "without plugins.", "on your own server.", "with automatic invoicing."],
   intro:
     "Speed turns the traffic you already pay for into orders. Automation takes you out of the day-to-day work. Tax compliance and GDPR come included, not as a separate project, paid for a second time.",
+  introAi:
+    "AI fills in the empty SEO elements across your catalog, so you write less and rank better. Orders, invoices and customer data stay deterministic and on your server, GDPR- and ANAF-safe.",
   bookDemo: "Request a free demo",
   seePlatform: { text: "See everything it includes", href: "/en/platform" },
   heroAlt: "The VidGo admin panel on a laptop: the order list, with the VidGo Technologies logo",

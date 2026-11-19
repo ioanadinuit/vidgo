@@ -75,6 +75,7 @@ export interface HomeContent {
   headline: string;
   typewriter: string[];
   intro: string;
+  introAi: string;
   bookDemo: string;
   seePlatform: TextLink;
   heroAlt: string;
